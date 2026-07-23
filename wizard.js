@@ -332,6 +332,8 @@
       bereich: null,
       typKey: null,
       currentStepIndex: 0,
+      stepDirection: 'forward', // 'forward' | 'backward' — steuert die Richtung, in der
+      // automatisch komplett nicht verfügbare Schritte übersprungen werden
       selections: {}, // { [schrittNummer]: { sku, produkt, ecwidId } }
       cartAdded: {}, // { [sku]: true }
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
@@ -342,12 +344,25 @@
       render();
     }
 
+    // Setzt nur die Bereichs-Akzentklasse, ohne bestehende Klassen des
+    // Containers zu überschreiben (z. B. "wizard-overlay-content", die die
+    // Overlay-Breite/-Innenabstand liefert — ein direktes className-Reset
+    // hätte diese sonst bei jedem Re-Render gelöscht).
+    function applyAccentClass(accentClass) {
+      container.classList.remove(
+        BEREICH_META.gesicht.accentClass,
+        BEREICH_META.haare.accentClass
+      );
+      if (accentClass) container.classList.add(accentClass);
+    }
+
     function resetToStart() {
       update({
         screen: 'bereich',
         bereich: null,
         typKey: null,
         currentStepIndex: 0,
+        stepDirection: 'forward',
         selections: {},
         cartAdded: {},
         liveByStep: {},
@@ -400,7 +415,7 @@
 
     function renderBereichScreen() {
       clear(container);
-      container.className = 'wizard-container';
+      applyAccentClass(null);
       container.appendChild(el('h2', { text: 'Wofür suchst du eine Empfehlung?' }));
 
       const grid = el('div', { className: 'wizard-bereich-grid' });
@@ -425,7 +440,7 @@
     function renderTypScreen() {
       clear(container);
       const meta = BEREICH_META[state.bereich];
-      container.className = 'wizard-container ' + meta.accentClass;
+      applyAccentClass(meta.accentClass);
       container.appendChild(renderTopBar(true, () => update({ screen: 'bereich', bereich: null })));
       container.appendChild(el('h2', { text: meta.label + ' — wähle deinen Typ' }));
 
@@ -442,6 +457,7 @@
                   screen: 'schritt',
                   typKey: typ.key,
                   currentStepIndex: 0,
+                  stepDirection: 'forward',
                   selections: {},
                   cartAdded: {},
                   liveByStep: {},
@@ -519,17 +535,15 @@
       });
     }
 
+    // Wird nur mit bereits gefilterten (verfügbaren) Produkten aufgerufen —
+    // siehe renderSchrittScreen, das nicht verfügbare Produkte vorher entfernt.
     function renderProduktCard(schrittNummer, originalProdukt, resolvedInfo) {
       const angezeigtesProdukt = resolvedInfo.produkt;
       const selection = state.selections[schrittNummer];
       const isSelected = !!selection && selection.sku === angezeigtesProdukt.sku;
-      const istNichtVerfuegbar = resolvedInfo.istVerfuegbar === false;
 
       const card = el('div', {
-        className:
-          'wizard-produkt-card' +
-          (isSelected ? ' wizard-produkt-card--selected' : '') +
-          (istNichtVerfuegbar ? ' wizard-produkt-card--nicht-verfuegbar' : ''),
+        className: 'wizard-produkt-card' + (isSelected ? ' wizard-produkt-card--selected' : ''),
       });
 
       if (angezeigtesProdukt.bild_url) {
@@ -555,13 +569,6 @@
       card.appendChild(
         el('div', { className: 'wizard-produkt-preis', text: formatPreis(angezeigtesProdukt.preis_eur) })
       );
-
-      if (istNichtVerfuegbar) {
-        card.appendChild(
-          el('div', { className: 'wizard-produkt-status', text: 'Derzeit nicht verfügbar' })
-        );
-        return card;
-      }
 
       card.appendChild(
         el('button', {
@@ -592,24 +599,50 @@
     }
 
     function renderSchrittScreen() {
-      clear(container);
-      const meta = BEREICH_META[state.bereich];
-      container.className = 'wizard-container ' + meta.accentClass;
-
       const schritte = getSchritte(data, state.bereich);
       const idx = state.currentStepIndex;
       const schritt = schritte[idx];
+      const isLastStep = idx === schritte.length - 1;
       const produkte = getProdukte(data, state.bereich, state.typKey, schritt.nummer);
 
       ensureLiveInfoForStep(schritt.nummer, produkte);
       const liveEntry = state.liveByStep[schritt.nummer];
+
+      // Nicht verfügbare Produkte werden komplett herausgefiltert (nicht nur
+      // ausgegraut) — der Kunde soll nur sehen, was er tatsächlich kaufen kann.
+      const verfuegbareResolved = produkte
+        .map((produkt, i) => getResolvedForProdukt(liveEntry, produkt, i))
+        .filter((resolved) => resolved.istVerfuegbar !== false);
+
+      if (verfuegbareResolved.length === 0) {
+        // Kein einziges Produkt in diesem Schritt verfügbar (oder der Schritt
+        // hatte ohnehin keine Empfehlung hinterlegt) — Schritt automatisch
+        // überspringen statt eine leere Ansicht zu zeigen. Richtung (vor/
+        // zurück) wird beibehalten, damit "Zurück" nicht ins Bouncen gerät.
+        if (state.stepDirection === 'backward') {
+          if (idx === 0) {
+            update({ screen: 'typ', typKey: null });
+          } else {
+            update({ currentStepIndex: idx - 1 });
+          }
+        } else if (isLastStep) {
+          update({ screen: 'zusammenfassung' });
+        } else {
+          update({ currentStepIndex: idx + 1 });
+        }
+        return;
+      }
+
+      clear(container);
+      const meta = BEREICH_META[state.bereich];
+      applyAccentClass(meta.accentClass);
 
       container.appendChild(
         renderTopBar(true, () => {
           if (idx === 0) {
             update({ screen: 'typ', typKey: null });
           } else {
-            update({ currentStepIndex: idx - 1 });
+            update({ currentStepIndex: idx - 1, stepDirection: 'backward' });
           }
         })
       );
@@ -618,19 +651,13 @@
         el('h2', { text: 'Schritt ' + (idx + 1) + ' von ' + schritte.length + ': ' + schritt.titel })
       );
 
-      if (produkte.length === 0) {
-        container.appendChild(el('p', { text: 'Für diesen Schritt liegt aktuell keine Empfehlung vor.' }));
-      } else {
-        const grid = el('div', { className: 'wizard-produkt-grid' });
-        produkte.forEach((produkt, i) => {
-          const resolved = getResolvedForProdukt(liveEntry, produkt, i);
-          grid.appendChild(renderProduktCard(schritt.nummer, produkt, resolved));
-        });
-        container.appendChild(grid);
-      }
+      const grid = el('div', { className: 'wizard-produkt-grid' });
+      verfuegbareResolved.forEach((resolved) => {
+        grid.appendChild(renderProduktCard(schritt.nummer, resolved.produkt, resolved));
+      });
+      container.appendChild(grid);
 
       const hasSelection = !!state.selections[schritt.nummer];
-      const isLastStep = idx === schritte.length - 1;
 
       const nav = el('div', { className: 'wizard-nav-row' });
       nav.appendChild(
@@ -640,9 +667,9 @@
           text: isLastStep ? 'Zur Zusammenfassung' : hasSelection ? 'Weiter' : 'Überspringen',
           onClick: () => {
             if (isLastStep) {
-              update({ screen: 'zusammenfassung' });
+              update({ screen: 'zusammenfassung', stepDirection: 'forward' });
             } else {
-              update({ currentStepIndex: idx + 1 });
+              update({ currentStepIndex: idx + 1, stepDirection: 'forward' });
             }
           },
         })
@@ -653,11 +680,15 @@
     function renderZusammenfassung() {
       clear(container);
       const meta = BEREICH_META[state.bereich];
-      container.className = 'wizard-container ' + meta.accentClass;
+      applyAccentClass(meta.accentClass);
 
       container.appendChild(
         renderTopBar(true, () =>
-          update({ screen: 'schritt', currentStepIndex: getSchritte(data, state.bereich).length - 1 })
+          update({
+            screen: 'schritt',
+            currentStepIndex: getSchritte(data, state.bereich).length - 1,
+            stepDirection: 'backward',
+          })
         )
       );
       container.appendChild(el('h2', { text: 'Deine Auswahl' }));

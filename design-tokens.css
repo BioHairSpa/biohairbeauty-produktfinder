@@ -21,6 +21,11 @@
      Vor Verwendung im Wizard kurz mit dem Auftraggeber gegenchecken. */
   --wizard-color-gold-akzent: oklch(0.72 0.09 75);
 
+  /* Gutschein-Banner-Farbkombination (oben auf der Shop-Seite), für den
+     schwebenden Auslöser-Button übernommen. */
+  --wizard-color-banner-bg: oklch(0.86923 0.01932 5.36);
+  --wizard-color-banner-text: oklch(0 0 0);
+
   /* Typografie */
   --wizard-font-heading: Sora, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
   --wizard-font-body: "Work Sans", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
@@ -31,6 +36,14 @@
   /* Button-Grundfarbe (fast schwarz, wie global im Shop verwendet) */
   --wizard-button-bg: var(--wizard-color-fast-schwarz);
   --wizard-button-text: var(--wizard-color-weiss);
+
+  /* Abstände: im Shop-CSS nicht als eigene Variablen hinterlegt, hier neu
+     eingeführt, damit der Wizard konsistent großzügigen Weißraum nutzt
+     (angelehnt an das Raumgefühl der übrigen Shop-Seite). */
+  --wizard-spacing-sm: 16px;
+  --wizard-spacing-md: 24px;
+  --wizard-spacing-lg: 32px;
+  --wizard-spacing-xl: 40px;
 }
 
 /* Beispielhafte Basis-Anwendung, damit Claude Code direkt sieht, wie die
