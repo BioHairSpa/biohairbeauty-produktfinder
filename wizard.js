@@ -550,7 +550,9 @@
     function renderBereichScreen() {
       clear(container);
       applyAccentClass(null);
-      container.appendChild(el('h2', { text: 'Wofür suchst du eine Empfehlung?' }));
+      container.appendChild(
+        el('h2', { className: 'wizard-bereich-heading', text: 'Wofür suchst du eine Empfehlung?' })
+      );
 
       const grid = el('div', { className: 'wizard-bereich-grid' });
 

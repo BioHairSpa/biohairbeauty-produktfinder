@@ -136,6 +136,12 @@
    Bereichswahl
 --------------------------------------------------------------------- */
 
+/* Nur im Inline-Modus (dedizierte Beautyfinder-Seite) mittig über den
+   beiden Auswahl-Kacheln, nicht im schwebenden Overlay auf anderen Seiten. */
+#produkt-finder-wizard-inline .wizard-bereich-heading {
+  text-align: center;
+}
+
 .wizard-bereich-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
