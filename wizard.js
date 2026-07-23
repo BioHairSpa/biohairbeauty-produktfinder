@@ -10,6 +10,37 @@
   'use strict';
 
   // ---------------------------------------------------------------------
+  // Skript-Basis-URL ermitteln: relative fetch()-Pfade lösen sonst gegen die
+  // Shop-Seite auf (www.biohairbeauty.shop), nicht gegen die GitHub-Pages-
+  // Herkunft von wizard.js — daher müssen dataFile-Pfade absolut zur eigenen
+  // Skript-URL aufgelöst werden. document.currentScript ist nur während der
+  // synchronen Erstausführung dieses Scripts verfügbar, deshalb hier ganz am
+  // Anfang und in eine Variable sichern (nicht erst später beim fetch()-Aufruf
+  // lesen, da document.currentScript zu dem Zeitpunkt bereits null wäre).
+  // ---------------------------------------------------------------------
+
+  const SCRIPT_BASE_URL = (function () {
+    const currentScript = document.currentScript;
+    if (currentScript && currentScript.src) {
+      return currentScript.src.replace(/[^/]*$/, '');
+    }
+    // Fallback, falls document.currentScript nicht verfügbar ist (z. B.
+    // ungewöhnliche Einbindung durch Ecwid): letztes passende <script src>
+    // im DOM suchen.
+    const scripts = document.getElementsByTagName('script');
+    for (let i = scripts.length - 1; i >= 0; i--) {
+      if (/wizard\.js(\?.*)?$/.test(scripts[i].src)) {
+        return scripts[i].src.replace(/[^/]*$/, '');
+      }
+    }
+    console.warn(
+      '[Produkt-Finder-Wizard] Konnte die eigene Skript-URL nicht ermitteln — ' +
+      'lade Produktdaten notfalls relativ zur aktuellen Seite (kann fehlschlagen).'
+    );
+    return './';
+  })();
+
+  // ---------------------------------------------------------------------
   // config — Hostname-Erkennung, liefert {storeId, dataFile, publicToken}
   // ---------------------------------------------------------------------
 
@@ -17,7 +48,7 @@
     'www.biohairbeauty.shop': {
       key: 'hauptshop',
       storeId: 13985153,
-      dataFile: './produktzuordnung.json',
+      dataFile: 'produktzuordnung.json',
       // TODO: öffentliches Ecwid-Token eintragen (siehe README, Abschnitt
       // "API-Zugänge"). Ohne Token läuft der Wizard weiter, nutzt für die
       // Verfügbarkeit aber nur den JSON-Snapshot statt der Live-Prüfung, und
@@ -27,7 +58,7 @@
     'member.biohairbeauty.shop': {
       key: 'member',
       storeId: 120918775,
-      dataFile: './produktzuordnung_member.json',
+      dataFile: 'produktzuordnung_member.json',
       publicToken: '',
     },
   };
@@ -66,11 +97,12 @@
 
   function loadData() {
     if (!dataPromise) {
-      dataPromise = fetch(config.dataFile)
+      const url = SCRIPT_BASE_URL + config.dataFile;
+      dataPromise = fetch(url)
         .then((response) => {
           if (!response.ok) {
             throw new Error(
-              'Produktzuordnungs-Datei "' + config.dataFile + '" konnte nicht geladen ' +
+              'Produktzuordnungs-Datei "' + url + '" konnte nicht geladen ' +
               'werden (HTTP ' + response.status + ').'
             );
           }
