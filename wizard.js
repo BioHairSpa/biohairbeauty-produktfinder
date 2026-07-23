@@ -313,9 +313,51 @@
     );
   }
 
+  // Prüft den tatsächlichen Warenkorb-Inhalt über Ecwid.Cart.get() — Fallback für
+  // den unten dokumentierten Fall, dass der addProduct-Callback nie feuert.
+  function pruefeObImWarenkorb(ecwidId, onDone) {
+    if (!window.Ecwid.Cart.get) {
+      const meldung = 'Warenkorb-Status konnte nicht geprüft werden (Ecwid.Cart.get fehlt).';
+      console.error('[Produkt-Finder-Wizard]', meldung);
+      onDone(false, meldung);
+      return;
+    }
+    window.Ecwid.Cart.get(function (cart) {
+      const vorhanden = ((cart && cart.items) || []).some(function (item) {
+        return item.product && item.product.id === ecwidId;
+      });
+      if (vorhanden) {
+        onDone(true, null);
+      } else {
+        const meldung = 'Produkt wurde auch nach Prüfung nicht im Warenkorb gefunden.';
+        console.error('[Produkt-Finder-Wizard]', meldung, 'Produkt-ID', ecwidId);
+        onDone(false, meldung);
+      }
+    });
+  }
+
   function addToCart(ecwidId, onDone) {
     function ausfuehren() {
+      // Live-Test hat gezeigt: Ecwid.Cart.addProduct legt das Produkt zuverlässig
+      // in den echten Warenkorb, ruft seinen eigenen Callback auf dieser Seite
+      // aber teils nie auf (bekanntes/undokumentiertes Verhalten, kein Fehler in
+      // der Konsole). Deshalb zusätzlich ein Timeout mit Ecwid.Cart.get()-Check
+      // als verlässliche zweite Quelle, statt endlos auf den Callback zu warten.
+      let erledigt = false;
+      const timeoutId = setTimeout(function () {
+        if (erledigt) return;
+        erledigt = true;
+        console.warn(
+          '[Produkt-Finder-Wizard] Ecwid.Cart.addProduct-Callback kam nicht rechtzeitig ' +
+          'zurück — prüfe stattdessen den tatsächlichen Warenkorb-Inhalt.'
+        );
+        pruefeObImWarenkorb(ecwidId, onDone);
+      }, 1500);
+
       window.Ecwid.Cart.addProduct({ id: ecwidId, quantity: 1 }, function (success, product, cart, error) {
+        if (erledigt) return; // Timeout ist schon gelaufen, Ergebnis bereits verarbeitet
+        erledigt = true;
+        clearTimeout(timeoutId);
         if (!success) {
           console.error(
             '[Produkt-Finder-Wizard] Ecwid.Cart.addProduct fehlgeschlagen für Produkt-ID',
@@ -328,12 +370,6 @@
       });
     }
 
-    // Bei einem echten Live-Test hat sich gezeigt, dass Ecwid.OnAPILoaded.add()
-    // auf dieser Seite spürbar verzögert (oder gar nicht sichtbar) auslöst,
-    // obwohl Ecwid.Cart.addProduct zu diesem Zeitpunkt bereits eine echte,
-    // aufrufbare Funktion war. Deshalb: wenn addProduct schon existiert, sofort
-    // direkt aufrufen (kein unnötiges Warten) — OnAPILoaded.add() nur noch als
-    // Fallback nutzen, falls Ecwid.Cart tatsächlich noch nicht bereitsteht.
     if (cartApiBereit()) {
       ausfuehren();
       return;
