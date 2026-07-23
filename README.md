@@ -12,6 +12,15 @@ legt. Eine Codebasis für zwei getrennte Ecwid-Stores:
 
 Store-Erkennung erfolgt zur Laufzeit über `window.location.hostname` (`wizard.js`).
 
+**Deployment:** Hauptshop und Member-Shop laden `wizard.js`/`wizard.css` per GitHub Pages:
+- https://biohairspa.github.io/biohairbeauty-produktfinder/wizard.js
+- https://biohairspa.github.io/biohairbeauty-produktfinder/wizard.css
+
+Die JSON-Dateien liegen im selben Repo/derselben Pages-Instanz und werden von `wizard.js`
+zur Laufzeit relativ zur **eigenen Skript-URL** geladen (`document.currentScript.src`),
+nicht relativ zur Shop-Seite — sonst würde der Fetch gegen die falsche Domain (die
+Ecwid-Shop-Domain statt GitHub Pages) auflösen und mit HTTP 404 fehlschlagen.
+
 ## Projektstruktur
 
 ```
