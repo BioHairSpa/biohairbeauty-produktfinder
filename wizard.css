@@ -71,7 +71,26 @@
    Inline-Mount (dedizierte Beautyfinder-Seite, kein Overlay-Rahmen)
 --------------------------------------------------------------------- */
 
-#produkt-finder-wizard-inline.wizard-container {
+/* Äußerer Container (von der Nutzerin in Ecwid eingebettet, trägt die ID):
+   reiner Vollbreite-Hintergrund. width:100vw + left:50%/translateX(-50%) ist
+   der gängige "Full-Bleed"-Trick, der den Rahmen unabhängig von der Breite
+   des umgebenden Ecwid-Seiteninhalts über die komplette Bildschirmbreite
+   zieht — ohne dessen HTML-Struktur selbst anzufassen. */
+#produkt-finder-wizard-inline {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--wizard-color-creme);
+}
+
+/* Innerer Wrapper (von wizard.js erzeugt): der eigentliche Wizard-Inhalt,
+   weiterhin mittig mit begrenzter Maximalbreite. Eigener Hintergrund bewusst
+   transparent, da die Creme-Fläche jetzt vom äußeren Container kommt (siehe
+   oben) — die gemeinsame .wizard-container-Basisregel (auch vom Overlay
+   genutzt) würde sonst hier zusätzlich eine Fläche in Content-Breite malen. */
+#produkt-finder-wizard-inline > .wizard-container {
+  background: transparent;
   max-width: 720px;
   margin: 0 auto;
   padding: var(--wizard-spacing-lg) var(--wizard-spacing-md);

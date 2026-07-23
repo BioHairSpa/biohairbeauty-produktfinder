@@ -965,7 +965,15 @@
     const inlineContainer = document.getElementById(INLINE_CONTAINER_ID);
 
     if (inlineContainer) {
-      renderWizardInto(inlineContainer, { overlay: false });
+      // Der von der Nutzerin in Ecwid eingebettete Container (mit der ID)
+      // wird zum reinen Vollbreite-Hintergrund (siehe CSS). Der eigentliche
+      // Wizard-Inhalt kommt in einen neuen inneren Wrapper, der wie gewohnt
+      // mittig mit begrenzter Maximalbreite dargestellt wird — so kann die
+      // Creme-Fläche die volle Bildschirmbreite füllen, ohne dass der Inhalt
+      // selbst breiter wird.
+      const innerContent = document.createElement('div');
+      inlineContainer.appendChild(innerContent);
+      renderWizardInto(innerContent, { overlay: false });
       return;
     }
 
