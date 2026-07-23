@@ -253,6 +253,17 @@
   font-weight: 400;
 }
 
+.wizard-cart-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.wizard-cart-error {
+  font-size: 12px;
+  color: #b3261e;
+}
+
 /* ---------------------------------------------------------------------
    Navigation / Zusammenfassung
 --------------------------------------------------------------------- */

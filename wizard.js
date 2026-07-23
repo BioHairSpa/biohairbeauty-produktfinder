@@ -53,13 +53,13 @@
       // "API-Zugänge"). Ohne Token läuft der Wizard weiter, nutzt für die
       // Verfügbarkeit aber nur den JSON-Snapshot statt der Live-Prüfung, und
       // der Warenkorb-Button bleibt deaktiviert.
-      publicToken: '',
+      publicToken: 'public_dPPu9ide3PZLdVFgWmnmbEMYysLGDtcJ',
     },
     'member.biohairbeauty.shop': {
       key: 'member',
       storeId: 120918775,
       dataFile: 'produktzuordnung_member.json',
-      publicToken: '',
+      publicToken: 'public_xRqisy4RXmzfpbiuYxq4A9nKfUJzxU2b',
     },
   };
 
@@ -306,17 +306,40 @@
   // ---------------------------------------------------------------------
 
   function addToCart(ecwidId, onDone) {
-    if (typeof window.Ecwid === 'undefined' || !window.Ecwid.Cart || !window.Ecwid.Cart.addProduct) {
-      console.warn(
-        '[Produkt-Finder-Wizard] Ecwid Storefront-JS-API nicht gefunden (z. B. beim lokalen ' +
-        'Testen außerhalb des Shops). Warenkorb-Aktion wird übersprungen.'
-      );
-      onDone(false);
+    if (typeof window.Ecwid === 'undefined' || !window.Ecwid.Cart || typeof window.Ecwid.Cart.addProduct !== 'function') {
+      const meldung =
+        'Ecwid Storefront-JS-API nicht gefunden (z. B. beim lokalen Testen außerhalb des ' +
+        'Shops, oder Ecwid hat sich auf der Seite noch nicht initialisiert).';
+      console.error('[Produkt-Finder-Wizard]', meldung);
+      onDone(false, meldung);
       return;
     }
-    window.Ecwid.Cart.addProduct({ id: ecwidId, quantity: 1 }, function (success) {
-      onDone(!!success);
-    });
+
+    function ausfuehren() {
+      window.Ecwid.Cart.addProduct({ id: ecwidId, quantity: 1 }, function (success, product, cart, error) {
+        if (!success) {
+          console.error(
+            '[Produkt-Finder-Wizard] Ecwid.Cart.addProduct fehlgeschlagen für Produkt-ID',
+            ecwidId,
+            '— Fehler:',
+            error
+          );
+        }
+        onDone(!!success, error);
+      });
+    }
+
+    // Laut Ecwid-Doku ist das dokumentierte Muster, Storefront-JS-API-Aufrufe
+    // über Ecwid.OnAPILoaded.add() auszuführen statt nur auf die Existenz von
+    // window.Ecwid zu prüfen — das Verhalten bei einem zu frühen Aufruf ist
+    // nicht dokumentiert (könnte also verpuffen). OnAPILoaded.add() ruft den
+    // Callback laut Ecwid-Konvention sofort auf, falls die API bereits
+    // vollständig geladen ist, sonst erst sobald sie es ist.
+    if (window.Ecwid.OnAPILoaded && typeof window.Ecwid.OnAPILoaded.add === 'function') {
+      window.Ecwid.OnAPILoaded.add(ausfuehren);
+    } else {
+      ausfuehren();
+    }
   }
 
   // ---------------------------------------------------------------------
@@ -358,6 +381,7 @@
       // automatisch komplett nicht verfügbare Schritte übersprungen werden
       selections: {}, // { [schrittNummer]: { sku, produkt, ecwidId } }
       cartAdded: {}, // { [sku]: true }
+      cartErrors: {}, // { [sku]: Fehlermeldung }
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
     };
 
@@ -387,6 +411,7 @@
         stepDirection: 'forward',
         selections: {},
         cartAdded: {},
+        cartErrors: {},
         liveByStep: {},
       });
     }
@@ -482,6 +507,7 @@
                   stepDirection: 'forward',
                   selections: {},
                   cartAdded: {},
+                  cartErrors: {},
                   liveByStep: {},
                 }),
             },
@@ -543,24 +569,43 @@
           text: 'Warenkorb wird vorbereitet …',
         });
       }
-      return el('button', {
-        className: 'wizard-button-primary wizard-cart-placeholder-button',
-        attrs: { type: 'button' },
-        text: 'In den Warenkorb',
-        onClick: () => {
-          addToCart(ecwidId, (success) => {
-            if (success) {
-              const nextCartAdded = Object.assign({}, state.cartAdded);
-              nextCartAdded[sku] = true;
-              update({ cartAdded: nextCartAdded });
-            } else {
-              console.warn(
-                '[Produkt-Finder-Wizard] Produkt konnte nicht in den Warenkorb gelegt werden (SKU ' + sku + ').'
-              );
-            }
-          });
-        },
-      });
+
+      const wrapper = el('div', { className: 'wizard-cart-button-wrapper' });
+      wrapper.appendChild(
+        el('button', {
+          className: 'wizard-button-primary wizard-cart-placeholder-button',
+          attrs: { type: 'button' },
+          text: 'In den Warenkorb',
+          onClick: () => {
+            addToCart(ecwidId, (success, error) => {
+              if (success) {
+                const nextCartAdded = Object.assign({}, state.cartAdded);
+                nextCartAdded[sku] = true;
+                const nextCartErrors = Object.assign({}, state.cartErrors);
+                delete nextCartErrors[sku];
+                update({ cartAdded: nextCartAdded, cartErrors: nextCartErrors });
+              } else {
+                // Fehler nicht mehr stillschweigend verschlucken: sichtbar in der
+                // Konsole (bereits in addToCart geloggt) UND für den Kunden im UI.
+                update({
+                  cartErrors: Object.assign({}, state.cartErrors, {
+                    [sku]: error || 'Unbekannter Fehler beim Hinzufügen zum Warenkorb.',
+                  }),
+                });
+              }
+            });
+          },
+        })
+      );
+      if (state.cartErrors[sku]) {
+        wrapper.appendChild(
+          el('div', {
+            className: 'wizard-cart-error',
+            text: 'Konnte nicht in den Warenkorb gelegt werden (' + state.cartErrors[sku] + '). Bitte erneut versuchen.',
+          })
+        );
+      }
+      return wrapper;
     }
 
     // Wird nur mit bereits gefilterten (verfügbaren) Produkten aufgerufen —
