@@ -193,15 +193,38 @@
 .wizard-produkt-image,
 .wizard-produkt-image-placeholder {
   width: 100%;
+  max-width: 100%;
   height: 140px;
+  display: block;
   object-fit: cover;
+  object-position: center;
   background: var(--wizard-color-creme);
   flex-shrink: 0;
+}
+
+/* Bild + Name verlinken auf die Produktseite (neuer Tab). Bewusst kein
+   display:contents: das entfernt den Anker zwar optisch aus dem Flex-Layout,
+   höhlt aber in mehreren Browsern die Größenbeschränkung von Kind-Elementen
+   aus (z. B. img mit width:100% wird dann nicht zuverlässig auf die Karte
+   begrenzt — genau das Problem bei übergroßen Live-Bildern). Stattdessen ein
+   eigener kleiner Flex-Container mit demselben Abstand wie die Karte selbst,
+   damit sich am sichtbaren Layout nichts ändert. */
+.wizard-produkt-link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
 }
 
 .wizard-produkt-name {
   font-weight: 600;
   overflow-wrap: break-word;
+}
+
+.wizard-produkt-link:hover .wizard-produkt-name {
+  text-decoration: underline;
 }
 
 .wizard-produkt-beschreibung {

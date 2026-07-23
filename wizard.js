@@ -198,8 +198,10 @@
     }
   }
 
-  // Liefert { verfuegbar, ecwidId } oder null (kein Token hinterlegt / Live-Check
-  // fehlgeschlagen -> Aufrufer soll dann auf den JSON-Snapshot zurückfallen).
+  // Liefert { verfuegbar, ecwidId, imageUrl } oder null (kein Token hinterlegt /
+  // Live-Check fehlgeschlagen -> Aufrufer soll dann auf den JSON-Snapshot
+  // zurückfallen). imageUrl kommt aus demselben Suchaufruf wie die
+  // Verfügbarkeit — kein zusätzlicher Request nötig.
   function fetchLiveInfo(sku) {
     if (!config.publicToken) return Promise.resolve(null);
     if (liveInfoCache[sku]) return liveInfoCache[sku];
@@ -227,8 +229,12 @@
         // erreichbar — eine leere Trefferliste wird daher als "nicht
         // verfügbar" gewertet (deaktivierte oder gelöschte SKU).
         const result = item
-          ? { verfuegbar: !!item.enabled && (item.unlimited || item.inStock), ecwidId: item.id }
-          : { verfuegbar: false, ecwidId: null };
+          ? {
+              verfuegbar: !!item.enabled && (item.unlimited || item.inStock),
+              ecwidId: item.id,
+              imageUrl: item.imageUrl || null,
+            }
+          : { verfuegbar: false, ecwidId: null, imageUrl: null };
         writeSessionCache(sku, result);
         return result;
       })
@@ -246,7 +252,10 @@
   }
 
   // Prüft ein Produkt inkl. aller Größenvarianten und wählt die erste live
-  // verfügbare Variante aus. Ergebnis: { produkt, ecwidId, istVerfuegbar, liveGeprueft }
+  // verfügbare Variante aus. Ergebnis: { produkt, ecwidId, istVerfuegbar, liveGeprueft, bildUrl }
+  // bildUrl kommt bevorzugt aus der Live-Antwort (die JSON-Datei kann veraltete
+  // Bild-URLs enthalten, z. B. nach einem Bildaustausch im Ecwid-Adminbereich);
+  // der JSON-Snapshot dient nur als Fallback, falls der Live-Check fehlschlägt.
   function resolveProdukt(produkt) {
     const kandidaten =
       produkt.groessenvarianten && produkt.groessenvarianten.length
@@ -261,7 +270,13 @@
       if (!konnteLiveGeprueftWerden) {
         // Kein Token hinterlegt oder alle Anfragen fehlgeschlagen -> stiller
         // Fallback auf den JSON-Snapshot, keine blockierende Fehlermeldung.
-        return { produkt: produkt, ecwidId: null, istVerfuegbar: produkt.verfuegbar, liveGeprueft: false };
+        return {
+          produkt: produkt,
+          ecwidId: null,
+          istVerfuegbar: produkt.verfuegbar,
+          liveGeprueft: false,
+          bildUrl: produkt.bild_url,
+        };
       }
 
       const verfuegbarerKandidat = ergebnisse.find((e) => e.liveInfo && e.liveInfo.verfuegbar);
@@ -271,10 +286,17 @@
           ecwidId: verfuegbarerKandidat.liveInfo.ecwidId,
           istVerfuegbar: true,
           liveGeprueft: true,
+          bildUrl: verfuegbarerKandidat.liveInfo.imageUrl || verfuegbarerKandidat.kandidat.bild_url,
         };
       }
 
-      return { produkt: produkt, ecwidId: null, istVerfuegbar: false, liveGeprueft: true };
+      return {
+        produkt: produkt,
+        ecwidId: null,
+        istVerfuegbar: false,
+        liveGeprueft: true,
+        bildUrl: produkt.bild_url,
+      };
     });
   }
 
@@ -476,7 +498,13 @@
       if (liveEntry && liveEntry.status === 'ready' && liveEntry.results[index]) {
         return liveEntry.results[index];
       }
-      return { produkt: produkt, ecwidId: null, istVerfuegbar: produkt.verfuegbar, liveGeprueft: false };
+      return {
+        produkt: produkt,
+        ecwidId: null,
+        istVerfuegbar: produkt.verfuegbar,
+        liveGeprueft: false,
+        bildUrl: produkt.bild_url,
+      };
     }
 
     function ensureLiveInfoForStep(schrittNummer, produkte) {
@@ -546,23 +574,52 @@
         className: 'wizard-produkt-card' + (isSelected ? ' wizard-produkt-card--selected' : ''),
       });
 
-      if (angezeigtesProdukt.bild_url) {
+      // Bild bevorzugt live von Ecwid (resolvedInfo.bildUrl), JSON-Snapshot
+      // (angezeigtesProdukt.bild_url) nur als Fallback — siehe fetchLiveInfo.
+      const bildUrl = resolvedInfo.bildUrl || angezeigtesProdukt.bild_url;
+      let bildElement;
+      if (bildUrl) {
         const img = el('img', {
           className: 'wizard-produkt-image',
-          attrs: { src: angezeigtesProdukt.bild_url, alt: angezeigtesProdukt.shop_name || '' },
+          attrs: { src: bildUrl, alt: angezeigtesProdukt.shop_name || '' },
         });
+        let hatSnapshotFallbackVersucht = bildUrl === angezeigtesProdukt.bild_url;
         img.addEventListener('error', () => {
+          if (!hatSnapshotFallbackVersucht && angezeigtesProdukt.bild_url) {
+            hatSnapshotFallbackVersucht = true;
+            img.src = angezeigtesProdukt.bild_url;
+            return;
+          }
           const placeholder = el('div', { className: 'wizard-produkt-image-placeholder' });
           img.replaceWith(placeholder);
         });
-        card.appendChild(img);
+        bildElement = img;
       } else {
-        card.appendChild(el('div', { className: 'wizard-produkt-image-placeholder' }));
+        bildElement = el('div', { className: 'wizard-produkt-image-placeholder' });
       }
 
-      card.appendChild(
-        el('div', { className: 'wizard-produkt-name', text: angezeigtesProdukt.shop_name })
-      );
+      const nameElement = el('div', {
+        className: 'wizard-produkt-name',
+        text: angezeigtesProdukt.shop_name,
+      });
+
+      // Bild und Name verlinken auf die Produktseite (neuer Tab), damit der
+      // Kunde den Wizard-Fortschritt beim Stöbern nicht verliert.
+      if (angezeigtesProdukt.url) {
+        card.appendChild(
+          el(
+            'a',
+            {
+              className: 'wizard-produkt-link',
+              attrs: { href: angezeigtesProdukt.url, target: '_blank', rel: 'noopener noreferrer' },
+            },
+            [bildElement, nameElement]
+          )
+        );
+      } else {
+        card.appendChild(bildElement);
+        card.appendChild(nameElement);
+      }
       card.appendChild(
         el('div', { className: 'wizard-produkt-beschreibung', text: angezeigtesProdukt.beschreibung })
       );
