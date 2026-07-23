@@ -1,0 +1,81 @@
+/*
+  Design-Tokens für den Produkt-Finder-Wizard
+  Quelle: live aus dem CSS von https://www.biohairbeauty.shop ausgelesen (22.07.2026)
+  Gilt für Hauptshop und Member-Shop gleichermaßen, da beide dasselbe Theme nutzen.
+
+  Hinweis für Claude Code: oklch() wird von allen aktuellen Browsern unterstützt
+  und kann direkt so übernommen werden, ohne Umrechnung in Hex/RGB.
+*/
+
+:root {
+  /* Farben — Namen hier frei vergeben, Werte 1:1 aus dem Shop übernommen */
+  --wizard-color-weiss: oklch(1 0 0);
+  --wizard-color-creme: oklch(0.97209 0.01073 76.6);      /* Haupt-Hintergrundfläche */
+  --wizard-color-rosa-hell: oklch(0.90634 0.02783 12.15); /* dezente Flächen, z. B. Gesichts-Bereich */
+  --wizard-color-rosa-akzent: oklch(0.58278 0.11102 9.17);/* Akzent/Fortschrittsanzeige Gesichts-Bereich */
+  --wizard-color-grau: oklch(0.56844 0.00672 59.57);      /* sekundärer Text, Placeholder */
+  --wizard-color-fast-schwarz: oklch(0.23075 0 0);        /* Haupttext, Buttons */
+
+  /* Gold-/Beige-Akzent für den Haar-Bereich: im Shop-CSS nicht als eigene Variable
+     hinterlegt, sondern manuell aus der HAARANSATZ-Tabellenkopfzeile abgeleitet.
+     Vor Verwendung im Wizard kurz mit dem Auftraggeber gegenchecken. */
+  --wizard-color-gold-akzent: oklch(0.72 0.09 75);
+
+  /* Typografie */
+  --wizard-font-heading: Sora, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --wizard-font-body: "Work Sans", system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Eckenradius: der komplette Shop verwendet durchgehend scharfe Kanten */
+  --wizard-radius: 0px;
+
+  /* Button-Grundfarbe (fast schwarz, wie global im Shop verwendet) */
+  --wizard-button-bg: var(--wizard-color-fast-schwarz);
+  --wizard-button-text: var(--wizard-color-weiss);
+}
+
+/* Beispielhafte Basis-Anwendung, damit Claude Code direkt sieht, wie die
+   Tokens ineinandergreifen. Kein fertiges Layout, nur Referenz. */
+
+.wizard-container {
+  background: var(--wizard-color-creme);
+  font-family: var(--wizard-font-body);
+  color: var(--wizard-color-fast-schwarz);
+  border-radius: var(--wizard-radius);
+}
+
+.wizard-container h1,
+.wizard-container h2,
+.wizard-container h3 {
+  font-family: var(--wizard-font-heading);
+  font-weight: 400;
+  color: var(--wizard-color-fast-schwarz);
+}
+
+.wizard-button-primary {
+  background: var(--wizard-button-bg);
+  color: var(--wizard-button-text);
+  font-family: var(--wizard-font-body);
+  border: none;
+  border-radius: var(--wizard-radius);
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.wizard-button-secondary {
+  background: transparent;
+  color: var(--wizard-color-fast-schwarz);
+  font-family: var(--wizard-font-body);
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+}
+
+/* Fortschrittsanzeige/Akzent je Bereich */
+.wizard-bereich-gesicht {
+  --wizard-akzent: var(--wizard-color-rosa-akzent);
+}
+
+.wizard-bereich-haare {
+  --wizard-akzent: var(--wizard-color-gold-akzent);
+}

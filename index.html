@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>Produkt-Finder-Wizard — lokaler Test</title>
+  <link rel="stylesheet" href="./wizard.css" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+    .testlinks a {
+      display: block;
+      margin: 4px 0;
+    }
+    .testlinks code {
+      background: #eee;
+      padding: 1px 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Produkt-Finder-Wizard — lokaler Test-Harness</h1>
+  <p>
+    Diese Seite dient nur zum lokalen Testen. In Ecwid selbst wird kein
+    <code>index.html</code> benötigt — dort läuft der Wizard direkt über die
+    per Custom-JS-/CSS-URL eingebundenen Dateien <code>wizard.js</code> /
+    <code>wizard.css</code>.
+  </p>
+
+  <h2>Testmodi</h2>
+  <p>
+    Da <code>file://</code> bzw. <code>localhost</code> keinem der beiden echten
+    Shop-Hostnamen entspricht, per Query-Parameter erzwingen, welcher Store
+    simuliert wird:
+  </p>
+  <div class="testlinks">
+    <a href="?">Ohne Parameter (Fallback-Warnung + Hauptshop-Config)</a>
+    <a href="?wizardStore=hauptshop">?wizardStore=hauptshop</a>
+    <a href="?wizardStore=member">?wizardStore=member</a>
+    <a href="?wizardStore=hauptshop&mode=inline">?wizardStore=hauptshop&amp;mode=inline (simuliert Beautyfinder-Seite)</a>
+  </div>
+
+  <h2>Ausgabe</h2>
+  <div id="test-output"></div>
+
+  <!--
+    Simuliert die "Beautyfinder"-Seite: Wenn ?mode=inline gesetzt ist, wird
+    dieser Container ins DOM eingehängt, bevor wizard.js geladen wird — genau
+    das Element, das später in Ecwid per HTML-Embed-Block auf der dedizierten
+    Seite eingefügt wird.
+  -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('mode') === 'inline') {
+      const container = document.createElement('div');
+      container.id = 'produkt-finder-wizard-inline';
+      document.getElementById('test-output').appendChild(container);
+      document.getElementById('test-output').insertAdjacentHTML(
+        'beforebegin',
+        '<p><em>Modus: Inline-Mount (Beautyfinder-Seite simuliert)</em></p>'
+      );
+    } else {
+      document.getElementById('test-output').insertAdjacentHTML(
+        'beforebegin',
+        '<p><em>Modus: schwebender Auslöser-Button (Standardfall) — unten rechts klicken</em></p>'
+      );
+    }
+  </script>
+
+  <script src="./wizard.js"></script>
+</body>
+</html>

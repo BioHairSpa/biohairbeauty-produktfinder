@@ -1,0 +1,2549 @@
+{
+  "gesicht": {
+    "schritte": [
+      {
+        "nummer": 1,
+        "titel": "Reinigen"
+      },
+      {
+        "nummer": 2,
+        "titel": "Behandeln"
+      },
+      {
+        "nummer": 3,
+        "titel": "Tonern und Mineralisieren"
+      },
+      {
+        "nummer": 4,
+        "titel": "Serie e Booster"
+      },
+      {
+        "nummer": 5,
+        "titel": "Creme"
+      }
+    ],
+    "hauttypen": {
+      "trockene_haut": {
+        "label": "Trockene Haut",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "3700",
+              "shop_name": "Gel Detergente / Gesichtsreinigung 200ml",
+              "beschreibung": "Gesichtsreiniger mit 2 % Glykolsäure – entfernt sanft abgestorbene Zellen, glättet verdickte Hautstellen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Detergente-Gesichtsreinigung-200ml-p115778014",
+              "tabellenname": "Gel Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110253785.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3757",
+              "shop_name": "Latte Detergente",
+              "beschreibung": "Sanfte Reinigungsmilch mit Bio-Arnika, Hafer & Vitamin E – entfernt Unreinheiten, spendet Feuchtigkeit, täglich schonend für alle Hauttypen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Detergente-p471474006",
+              "tabellenname": "Latte Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110281041.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3756",
+              "shop_name": "Olio Detergente",
+              "beschreibung": "Sanftes Gesichtsreinigungsöl – entfernt Unreinheiten, spendet Feuchtigkeit, ideal für reife, trockene & dehydrierte Haut, täglich anwendbar.",
+              "preis_eur": "34.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Detergente-p471449865",
+              "tabellenname": "Olio Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110270501.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "5700",
+              "shop_name": "Peeling Riso Viso / Gesichtspeeling mit Reis 50ml",
+              "beschreibung": "Peeling mit Jojoba-Mikrosphären Glättende Gesichtscreme für alle Hauttypen, hergestellt mit Reispulver, süßem Mandel- und Jojobaöl. Beseitigt sanft tote Zellen und Verunreinigungen und bereitet die Haut für weitere Schönheitsbehandlungen vor. Inhaltsstoffe: Wasser, oryza sativa Pulver, Glycerin,…",
+              "preis_eur": "32.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Peeling-Riso-Viso-Gesichtspeeling-mit-Reis-50ml-p115778006",
+              "tabellenname": "Peeling Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358197.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_A",
+              "shop_name": "AROMA A – Entspannend",
+              "beschreibung": "Sanftes Petit Grain Aroma – beruhigt Haut und Kopfhaut, entspannt und bereitet optimal auf die nächste Pflege vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-A-Entspannend-p307222232",
+              "tabellenname": "Aroma A",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063509015.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_H",
+              "shop_name": "AROMA H – Feuchtigkeitsspendend",
+              "beschreibung": "Waldkiefer, Wacholder, Zypresse & Salbei Aroma – strafft trockene Haut, spendet Feuchtigkeit und ergänzt Aroma DP Anwendungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-H-Feuchtigkeitsspendend-p307233097",
+              "tabellenname": "Aroma H",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063530255.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "4905",
+              "shop_name": "Acqua Di Arnica / Feuchtigkeitsspendendes Gesichtswasser für normale und trockene Haut 200ml",
+              "beschreibung": "Alkoholfreies Gesichtswasser mit Arnika & Hyaluronsäure – spendet Feuchtigkeit, macht die Haut geschmeidig und strahlend.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acqua-Di-Arnica-Feuchtigkeitsspendendes-Gesichtswasser-für-normale-und-trockene-Haut-200ml-p528717562",
+              "tabellenname": "Acqua di Arnica",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3447665515.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "4900",
+              "shop_name": "Acido Jaluronico / Intensive Gesichtspflege mit Hyaluron 30ml",
+              "beschreibung": "Hyaluron-Serum mit Aloe Vera & Camellia – intensiv feuchtigkeitsspendend, strafft und verbessert Spannkraft sowie Elastizität.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acido-Jaluronico-Intensive-Gesichtspflege-mit-Hyaluron-30ml-p115778009",
+              "tabellenname": "Acido Jaluronico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456817225.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7760",
+              "shop_name": "Fiale Viso / Gesichtspflegeampullen gegen Falten 8x10ml",
+              "beschreibung": "Intensiv-Feuchtigkeitsbehandlung mit Hyaluronsäure, Vitaminen, Kamille & Zaubernuss – strafft, pflegt und verleiht Hautglanz.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Viso-Gesichtspflegeampullen-gegen-Falten-8x10ml-p115778013",
+              "tabellenname": "Fiale Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355439.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "5251",
+              "shop_name": "Lift Up Augenkonturcreme",
+              "beschreibung": "Feuchtigkeitsspendende Anti-Aging Gesichtscreme mit Schneckenextrakt, Immortelle & Borretsch – glättet Falten, polstert auf, versorgt die Haut intensiv.",
+              "preis_eur": "55.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Augenkonturcreme-p207396076",
+              "tabellenname": "Lift Up Cont. Occhi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456841628.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4600",
+              "shop_name": "Crema Liposomale Viso / Vitalisierende Gesichtscreme  50ml",
+              "beschreibung": "Antioxidative Gesichtscreme mit Vitaminen A, E, B5, Jojobaöl & Heilpflanzen – strafft, pflegt und verbessert Elastizität trockener Haut.",
+              "preis_eur": "74.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Liposomale-Viso-Vitalisierende-Gesichtscreme-50ml-p115778002",
+              "tabellenname": "Crema Liposomale Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456950175.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4750",
+              "shop_name": "Crema D4 Complex / Gesichtspflegecreme  50ml",
+              "beschreibung": "Nährende Gesichtscreme mit UVA/UVB-Schutz – stärkt Hautstruktur, verbessert Teint, schützt vor Feuchtigkeitsverlust & UV-Schäden.",
+              "preis_eur": "74.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-D4-Complex-Gesichtspflegecreme-50ml-p115778005",
+              "tabellenname": "Crema D4 Complex",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3457001999.jpg"
+            }
+          ]
+        }
+      },
+      "seborrhoische_haut_akne": {
+        "label": "Seborrhoische Haut / Akne",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "3700",
+              "shop_name": "Gel Detergente / Gesichtsreinigung 200ml",
+              "beschreibung": "Gesichtsreiniger mit 2 % Glykolsäure – entfernt sanft abgestorbene Zellen, glättet verdickte Hautstellen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Detergente-Gesichtsreinigung-200ml-p115778014",
+              "tabellenname": "Gel Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110253785.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3758",
+              "shop_name": "Mousse Detergente",
+              "beschreibung": "Beruhigender Gesichtsreiniger mit Bio-Arnika, Ginseng, Ringelblume & Efeu – reinigt sanft, spendet Feuchtigkeit, schützt Hautgleichgewicht.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Mousse-Detergente-p471474289",
+              "tabellenname": "Mousse Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110306741.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "5700",
+              "shop_name": "Peeling Riso Viso / Gesichtspeeling mit Reis 50ml",
+              "beschreibung": "Peeling mit Jojoba-Mikrosphären Glättende Gesichtscreme für alle Hauttypen, hergestellt mit Reispulver, süßem Mandel- und Jojobaöl. Beseitigt sanft tote Zellen und Verunreinigungen und bereitet die Haut für weitere Schönheitsbehandlungen vor. Inhaltsstoffe: Wasser, oryza sativa Pulver, Glycerin,…",
+              "preis_eur": "32.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Peeling-Riso-Viso-Gesichtspeeling-mit-Reis-50ml-p115778006",
+              "tabellenname": "Peeling Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358197.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4903",
+              "shop_name": "Papaverella / Reinigende und adstringierende Gesichtsmaske",
+              "beschreibung": "Reinigende & adstringierende Gesichtsmaske – reguliert Talgproduktion, entfernt Unreinheiten, ideal für fettige, seborrhoische & Mischhaut.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Papaverella-Reinigende-und-adstringierende-Gesichtsmaske-p210641234",
+              "tabellenname": "Maschera Papaverella",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456866112.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_C",
+              "shop_name": "AROMA C – Adstringierend",
+              "beschreibung": "Lavendel & Thymian Aroma – pflegt die Kopfhaut, verfeinert Poren und wirkt unterstützend bei Hyperhidrose und Seborrhoe.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-C-Adstringierend-p307232049",
+              "tabellenname": "Aroma C",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063495397.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_DP",
+              "shop_name": "AROMA DP – Entgiftend",
+              "beschreibung": "Aroma mit Lavendel, Zitrone, Eukalyptus & Cajeput – reinigt Haut, entgiftet und bereitet ideal auf Aroma V Behandlung vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-DP-Entgiftend-p307234035",
+              "tabellenname": "Aroma DP",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063501623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_S",
+              "shop_name": "AROMA S – Entschlackend",
+              "beschreibung": "Salbei, Zypresse, Thymian & Rosmarin Aroma – reinigt Haarfollikel, reduziert Talg, Mitesser und Schweiß effektiv.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-S-Entschlackend-p307231136",
+              "tabellenname": "Aroma S",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063533319.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "4904",
+              "shop_name": "Acqua Di Hamamelis / Adstringierendes und beruhigendes Tonic 200ml",
+              "beschreibung": "Adstringierendes und beruhigendes Tonic für normale und Mischhaut basierend auf Hamamelis, Hafer, Schafgarbe und Ringelblume \n Gesichtswasser für normale und Mischhaut, mit Hamamelis, Hafer, Schafgarbe und Ringelblume – alkoholfrei. Es wirkt reinigend, adstringierend, feuchtigkeitsspendend und…",
+              "preis_eur": "27.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Acqua-Di-Hamamelis-Adstringierendes-und-beruhigendes-Tonic-200ml-p210864284",
+              "tabellenname": "Acqua di Hamamelis",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456814180.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "4901",
+              "shop_name": "Gel Noir / Erfrischendes und antibakterielles Haut-Gel",
+              "beschreibung": "Antibakterielles Gel – schützt Mischhaut & Seborrhoe, reduziert Rötungen, bekämpft freie Radikale.",
+              "preis_eur": "42.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Noir-Erfrischendes-und-antibakterielles-Haut-Gel-p210550674",
+              "tabellenname": "Gel Noir",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456829495.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5250",
+              "shop_name": "Lift Up Serum / Intensive Gesichtspflege mit Schneckenextrakt 30ml",
+              "beschreibung": "Intensives Gesichtsserum mit Schneckenextrakt & Hyaluronsäure – polstert auf, stärkt Elastizität, regeneriert & beruhigt reife Haut.",
+              "preis_eur": "79.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Serum-Intensive-Gesichtspflege-mit-Schneckenextrakt-30ml-p115778008",
+              "tabellenname": "Lift Up Serum",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456829412.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "3900",
+              "shop_name": "Crema Acida / Schützende Gesichtscreme für pH-Wertstabilität 50ml",
+              "beschreibung": "Schützende Gesichtscreme mit pH-Ausgleich – bewahrt Säureschutzmantel, pflegt mit Kamille, Hafer, Kokos & Mandel.",
+              "preis_eur": "62.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Acida-Schützende-Gesichtscreme-für-pH-Wertstabilität-50ml-p115778001",
+              "tabellenname": "Crema Acida",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456949763.jpg"
+            }
+          ]
+        }
+      },
+      "stresshaut_aeltere_haut": {
+        "label": "Stresshaut / ältere Haut",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "3700",
+              "shop_name": "Gel Detergente / Gesichtsreinigung 200ml",
+              "beschreibung": "Gesichtsreiniger mit 2 % Glykolsäure – entfernt sanft abgestorbene Zellen, glättet verdickte Hautstellen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Detergente-Gesichtsreinigung-200ml-p115778014",
+              "tabellenname": "Gel Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110253785.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3757",
+              "shop_name": "Latte Detergente",
+              "beschreibung": "Sanfte Reinigungsmilch mit Bio-Arnika, Hafer & Vitamin E – entfernt Unreinheiten, spendet Feuchtigkeit, täglich schonend für alle Hauttypen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Detergente-p471474006",
+              "tabellenname": "Latte Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110281041.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3756",
+              "shop_name": "Olio Detergente",
+              "beschreibung": "Sanftes Gesichtsreinigungsöl – entfernt Unreinheiten, spendet Feuchtigkeit, ideal für reife, trockene & dehydrierte Haut, täglich anwendbar.",
+              "preis_eur": "34.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Detergente-p471449865",
+              "tabellenname": "Olio Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110270501.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "5700",
+              "shop_name": "Peeling Riso Viso / Gesichtspeeling mit Reis 50ml",
+              "beschreibung": "Peeling mit Jojoba-Mikrosphären Glättende Gesichtscreme für alle Hauttypen, hergestellt mit Reispulver, süßem Mandel- und Jojobaöl. Beseitigt sanft tote Zellen und Verunreinigungen und bereitet die Haut für weitere Schönheitsbehandlungen vor. Inhaltsstoffe: Wasser, oryza sativa Pulver, Glycerin,…",
+              "preis_eur": "32.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Peeling-Riso-Viso-Gesichtspeeling-mit-Reis-50ml-p115778006",
+              "tabellenname": "Peeling Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358197.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_E",
+              "shop_name": "AROMA E – Belebend",
+              "beschreibung": "Minze, Rosmarin, Wacholder & Thymian Aroma – tonisiert und erfrischt Haut und Kopfhaut für ein vitales Hautgefühl.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-E-Belebend-p307233077",
+              "tabellenname": "Aroma E",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063495760.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_H",
+              "shop_name": "AROMA H – Feuchtigkeitsspendend",
+              "beschreibung": "Waldkiefer, Wacholder, Zypresse & Salbei Aroma – strafft trockene Haut, spendet Feuchtigkeit und ergänzt Aroma DP Anwendungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-H-Feuchtigkeitsspendend-p307233097",
+              "tabellenname": "Aroma H",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063530255.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "4905",
+              "shop_name": "Acqua Di Arnica / Feuchtigkeitsspendendes Gesichtswasser für normale und trockene Haut 200ml",
+              "beschreibung": "Alkoholfreies Gesichtswasser mit Arnika & Hyaluronsäure – spendet Feuchtigkeit, macht die Haut geschmeidig und strahlend.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acqua-Di-Arnica-Feuchtigkeitsspendendes-Gesichtswasser-für-normale-und-trockene-Haut-200ml-p528717562",
+              "tabellenname": "Acqua di Arnica",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3447665515.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "5250",
+              "shop_name": "Lift Up Serum / Intensive Gesichtspflege mit Schneckenextrakt 30ml",
+              "beschreibung": "Intensives Gesichtsserum mit Schneckenextrakt & Hyaluronsäure – polstert auf, stärkt Elastizität, regeneriert & beruhigt reife Haut.",
+              "preis_eur": "79.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Serum-Intensive-Gesichtspflege-mit-Schneckenextrakt-30ml-p115778008",
+              "tabellenname": "Lift Up Serum",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456829412.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4900",
+              "shop_name": "Acido Jaluronico / Intensive Gesichtspflege mit Hyaluron 30ml",
+              "beschreibung": "Hyaluron-Serum mit Aloe Vera & Camellia – intensiv feuchtigkeitsspendend, strafft und verbessert Spannkraft sowie Elastizität.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acido-Jaluronico-Intensive-Gesichtspflege-mit-Hyaluron-30ml-p115778009",
+              "tabellenname": "Acido Jaluronico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456817225.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7760",
+              "shop_name": "Fiale Viso / Gesichtspflegeampullen gegen Falten 8x10ml",
+              "beschreibung": "Intensiv-Feuchtigkeitsbehandlung mit Hyaluronsäure, Vitaminen, Kamille & Zaubernuss – strafft, pflegt und verleiht Hautglanz.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Viso-Gesichtspflegeampullen-gegen-Falten-8x10ml-p115778013",
+              "tabellenname": "Fiale Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355439.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "5251",
+              "shop_name": "Lift Up Augenkonturcreme",
+              "beschreibung": "Feuchtigkeitsspendende Anti-Aging Gesichtscreme mit Schneckenextrakt, Immortelle & Borretsch – glättet Falten, polstert auf, versorgt die Haut intensiv.",
+              "preis_eur": "55.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Augenkonturcreme-p207396076",
+              "tabellenname": "Lift Up Cont. Occhi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456841628.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4750",
+              "shop_name": "Crema D4 Complex / Gesichtspflegecreme  50ml",
+              "beschreibung": "Nährende Gesichtscreme mit UVA/UVB-Schutz – stärkt Hautstruktur, verbessert Teint, schützt vor Feuchtigkeitsverlust & UV-Schäden.",
+              "preis_eur": "74.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-D4-Complex-Gesichtspflegecreme-50ml-p115778005",
+              "tabellenname": "Crema D4 Complex",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3457001999.jpg"
+            }
+          ]
+        }
+      },
+      "sensible_haut": {
+        "label": "Sensible Haut",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "3758",
+              "shop_name": "Mousse Detergente",
+              "beschreibung": "Beruhigender Gesichtsreiniger mit Bio-Arnika, Ginseng, Ringelblume & Efeu – reinigt sanft, spendet Feuchtigkeit, schützt Hautgleichgewicht.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Mousse-Detergente-p471474289",
+              "tabellenname": "Mousse Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110306741.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3757",
+              "shop_name": "Latte Detergente",
+              "beschreibung": "Sanfte Reinigungsmilch mit Bio-Arnika, Hafer & Vitamin E – entfernt Unreinheiten, spendet Feuchtigkeit, täglich schonend für alle Hauttypen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Detergente-p471474006",
+              "tabellenname": "Latte Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110281041.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "AROMA_A",
+              "shop_name": "AROMA A – Entspannend",
+              "beschreibung": "Sanftes Petit Grain Aroma – beruhigt Haut und Kopfhaut, entspannt und bereitet optimal auf die nächste Pflege vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-A-Entspannend-p307222232",
+              "tabellenname": "Aroma A",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063509015.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "4905",
+              "shop_name": "Acqua Di Arnica / Feuchtigkeitsspendendes Gesichtswasser für normale und trockene Haut 200ml",
+              "beschreibung": "Alkoholfreies Gesichtswasser mit Arnika & Hyaluronsäure – spendet Feuchtigkeit, macht die Haut geschmeidig und strahlend.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acqua-Di-Arnica-Feuchtigkeitsspendendes-Gesichtswasser-für-normale-und-trockene-Haut-200ml-p528717562",
+              "tabellenname": "Acqua di Arnica",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3447665515.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "4901",
+              "shop_name": "Gel Noir / Erfrischendes und antibakterielles Haut-Gel",
+              "beschreibung": "Antibakterielles Gel – schützt Mischhaut & Seborrhoe, reduziert Rötungen, bekämpft freie Radikale.",
+              "preis_eur": "42.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Noir-Erfrischendes-und-antibakterielles-Haut-Gel-p210550674",
+              "tabellenname": "Gel Noir",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456829495.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4900",
+              "shop_name": "Acido Jaluronico / Intensive Gesichtspflege mit Hyaluron 30ml",
+              "beschreibung": "Hyaluron-Serum mit Aloe Vera & Camellia – intensiv feuchtigkeitsspendend, strafft und verbessert Spannkraft sowie Elastizität.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Acido-Jaluronico-Intensive-Gesichtspflege-mit-Hyaluron-30ml-p115778009",
+              "tabellenname": "Acido Jaluronico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456817225.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7760",
+              "shop_name": "Fiale Viso / Gesichtspflegeampullen gegen Falten 8x10ml",
+              "beschreibung": "Intensiv-Feuchtigkeitsbehandlung mit Hyaluronsäure, Vitaminen, Kamille & Zaubernuss – strafft, pflegt und verleiht Hautglanz.",
+              "preis_eur": "81.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Viso-Gesichtspflegeampullen-gegen-Falten-8x10ml-p115778013",
+              "tabellenname": "Fiale Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355439.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "3900",
+              "shop_name": "Crema Acida / Schützende Gesichtscreme für pH-Wertstabilität 50ml",
+              "beschreibung": "Schützende Gesichtscreme mit pH-Ausgleich – bewahrt Säureschutzmantel, pflegt mit Kamille, Hafer, Kokos & Mandel.",
+              "preis_eur": "62.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Acida-Schützende-Gesichtscreme-für-pH-Wertstabilität-50ml-p115778001",
+              "tabellenname": "Crema Acida",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456949763.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4600",
+              "shop_name": "Crema Liposomale Viso / Vitalisierende Gesichtscreme  50ml",
+              "beschreibung": "Antioxidative Gesichtscreme mit Vitaminen A, E, B5, Jojobaöl & Heilpflanzen – strafft, pflegt und verbessert Elastizität trockener Haut.",
+              "preis_eur": "74.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Liposomale-Viso-Vitalisierende-Gesichtscreme-50ml-p115778002",
+              "tabellenname": "Crema Liposomale Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456950175.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4750",
+              "shop_name": "Crema D4 Complex / Gesichtspflegecreme  50ml",
+              "beschreibung": "Nährende Gesichtscreme mit UVA/UVB-Schutz – stärkt Hautstruktur, verbessert Teint, schützt vor Feuchtigkeitsverlust & UV-Schäden.",
+              "preis_eur": "74.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-D4-Complex-Gesichtspflegecreme-50ml-p115778005",
+              "tabellenname": "Crema D4 Complex",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3457001999.jpg"
+            }
+          ]
+        }
+      },
+      "pigmentstoerungen_und_flecken": {
+        "label": "Pigmentstörungen und -flecken",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "3700",
+              "shop_name": "Gel Detergente / Gesichtsreinigung 200ml",
+              "beschreibung": "Gesichtsreiniger mit 2 % Glykolsäure – entfernt sanft abgestorbene Zellen, glättet verdickte Hautstellen.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Gel-Detergente-Gesichtsreinigung-200ml-p115778014",
+              "tabellenname": "Gel Detergente",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3110253785.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "5700",
+              "shop_name": "Peeling Riso Viso / Gesichtspeeling mit Reis 50ml",
+              "beschreibung": "Peeling mit Jojoba-Mikrosphären Glättende Gesichtscreme für alle Hauttypen, hergestellt mit Reispulver, süßem Mandel- und Jojobaöl. Beseitigt sanft tote Zellen und Verunreinigungen und bereitet die Haut für weitere Schönheitsbehandlungen vor. Inhaltsstoffe: Wasser, oryza sativa Pulver, Glycerin,…",
+              "preis_eur": "32.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Peeling-Riso-Viso-Gesichtspeeling-mit-Reis-50ml-p115778006",
+              "tabellenname": "Peeling Viso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358197.jpg"
+            }
+          ],
+          "3": [],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "5250",
+              "shop_name": "Lift Up Serum / Intensive Gesichtspflege mit Schneckenextrakt 30ml",
+              "beschreibung": "Intensives Gesichtsserum mit Schneckenextrakt & Hyaluronsäure – polstert auf, stärkt Elastizität, regeneriert & beruhigt reife Haut.",
+              "preis_eur": "79.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Serum-Intensive-Gesichtspflege-mit-Schneckenextrakt-30ml-p115778008",
+              "tabellenname": "Lift Up Serum",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456829412.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "5251",
+              "shop_name": "Lift Up Augenkonturcreme",
+              "beschreibung": "Feuchtigkeitsspendende Anti-Aging Gesichtscreme mit Schneckenextrakt, Immortelle & Borretsch – glättet Falten, polstert auf, versorgt die Haut intensiv.",
+              "preis_eur": "55.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lift-Up-Augenkonturcreme-p207396076",
+              "tabellenname": "Lift Up Cont. Occhi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3456841628.jpg"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "haare": {
+    "schritte": [
+      {
+        "nummer": 1,
+        "titel": "Pre-Shampoo restrukturierend / aufbauend"
+      },
+      {
+        "nummer": 2,
+        "titel": "Shampoo"
+      },
+      {
+        "nummer": 3,
+        "titel": "Masken und Conditioner"
+      },
+      {
+        "nummer": 4,
+        "titel": "Leave-in Produkte"
+      },
+      {
+        "nummer": 5,
+        "titel": "Definition und Reparatur"
+      },
+      {
+        "nummer": 6,
+        "titel": "Integrierend"
+      }
+    ],
+    "haartypen": {
+      "empfindliche_entzuendete_haut": {
+        "label": "Empfindliche, entzündete Haut",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "7650",
+              "shop_name": "Latte Tricologico 200 ml",
+              "beschreibung": "Beruhigende & klärende Kopfhautpflege mit Pirocton-Olamin – reinigt, lindert Juckreiz, Schuppen & Rötungen, ideal vor Shampoo-Anwendung.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Tricologico-200-ml-p115771995",
+              "tabellenname": "Latte Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916837625.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_A",
+              "shop_name": "AROMA A – Entspannend",
+              "beschreibung": "Sanftes Petit Grain Aroma – beruhigt Haut und Kopfhaut, entspannt und bereitet optimal auf die nächste Pflege vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-A-Entspannend-p307222232",
+              "tabellenname": "Aroma A",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063509015.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "3000",
+              "shop_name": "Shampoo Noce di Cacao 200 ml",
+              "beschreibung": "Sanftes Shampoo – für sensible Kopfhaut & häufiges Waschen, mit Kakao- & Haferextrakt, antioxidativ, feuchtigkeitsspendend & ausgleichend.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Noce-di-Cacao-200-ml-p115771969",
+              "tabellenname": "Shampoo Cacao",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588237.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7001",
+              "shop_name": "Shampoo Tricologico / Shampoo gegen Kopfhautprobleme 200ml",
+              "beschreibung": "Shampoo gegen trockene Schuppen & Juckreiz – mit Pirocton-Olamin, Zink, Teebaumöl & Rosmarin, regulierend, beruhigend, gründlich reinigend, ideal für seborrhoische Kopfhaut & trockene Schuppen.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Tricologico-Shampoo-gegen-Kopfhautprobleme-200ml-p170433964",
+              "tabellenname": "Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5502580294.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "7660",
+              "shop_name": "Complemento Acido",
+              "beschreibung": "Beruhigendes Post-Shampoo Spray – lindert Juckreiz, normalisiert pH-Wert und schützt Kopfhaut vor Umwelteinflüssen.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Complemento-Acido-p169067718",
+              "tabellenname": "Complemento Acido",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607634676.jpg"
+            }
+          ],
+          "5": [],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "seborrhoische_haut_fettige_schuppen": {
+        "label": "Seborrhoische Haut, fettige Schuppen",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "7650",
+              "shop_name": "Latte Tricologico 200 ml",
+              "beschreibung": "Beruhigende & klärende Kopfhautpflege mit Pirocton-Olamin – reinigt, lindert Juckreiz, Schuppen & Rötungen, ideal vor Shampoo-Anwendung.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Tricologico-200-ml-p115771995",
+              "tabellenname": "Latte Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916837625.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_DP",
+              "shop_name": "AROMA DP – Entgiftend",
+              "beschreibung": "Aroma mit Lavendel, Zitrone, Eukalyptus & Cajeput – reinigt Haut, entgiftet und bereitet ideal auf Aroma V Behandlung vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-DP-Entgiftend-p307234035",
+              "tabellenname": "Aroma DP",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063501623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_S",
+              "shop_name": "AROMA S – Entschlackend",
+              "beschreibung": "Salbei, Zypresse, Thymian & Rosmarin Aroma – reinigt Haarfollikel, reduziert Talg, Mitesser und Schweiß effektiv.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-S-Entschlackend-p307231136",
+              "tabellenname": "Aroma S",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063533319.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_C",
+              "shop_name": "AROMA C – Adstringierend",
+              "beschreibung": "Lavendel & Thymian Aroma – pflegt die Kopfhaut, verfeinert Poren und wirkt unterstützend bei Hyperhidrose und Seborrhoe.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-C-Adstringierend-p307232049",
+              "tabellenname": "Aroma C",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063495397.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "PHPN",
+              "shop_name": "Phytoplancton",
+              "beschreibung": "Mineralisierende Haarkur – für trockenes, behandeltes & strapaziertes Haar, mit Diatomeenerde, mineralisierend, reinigend & stärkend für gesundes Haar.",
+              "preis_eur": "52.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Phytoplancton-p268116881",
+              "tabellenname": "Phytoplancton",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916824721.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1803",
+              "shop_name": "Micro Peeling",
+              "beschreibung": "Mikropeeling für die Kopfhaut – entfernt sanft abgestorbene Hautzellen, überschüssigen Talg und Rückstände. Sorgt für ein erfrischtes, gereinigtes Kopfhautgefühl und bereitet optimal auf Behandlungen gegen Haarausfall, Seborrhoe oder Irritationen vor.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Micro-Peeling-p797025012",
+              "tabellenname": "Micropeeling",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5383919196.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "6800",
+              "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+              "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "6850",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 100ml",
+                  "beschreibung": "Reinigung mit Frischegefühl für häufigen Gebrauch. Orangenextrakt macht dieses Shampoo ganz besonders erfrischend. Mit seinem vitalisierenden Duft und der Freundlichkeit auch zu sensibler Haut ist dieses Shampoo prädestiniert für häufige Anwendungen, auch bei Hyperhidrose. Als Wachmacher in den…",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-100ml-p115771968",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358543.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "6800",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+                  "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+                }
+              ],
+              "tabellenname": "Shampoo Arancia",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "6300",
+              "shop_name": "Shampoo CC-Black Carbon  200 ml",
+              "beschreibung": "Reinigende & adstringierende Pflege – mit aktivierter Pflanzenkohle, tiefenwirksam reinigend, ausgleichend, für weiches, sauberes Haar, ideal bei seborrhoischer Kopfhaut & Hyperhidrose.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-CC-Black-Carbon-200-ml-p115771965",
+              "tabellenname": "CC-Black",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4529045387.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7001",
+              "shop_name": "Shampoo Tricologico / Shampoo gegen Kopfhautprobleme 200ml",
+              "beschreibung": "Shampoo gegen trockene Schuppen & Juckreiz – mit Pirocton-Olamin, Zink, Teebaumöl & Rosmarin, regulierend, beruhigend, gründlich reinigend, ideal für seborrhoische Kopfhaut & trockene Schuppen.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Tricologico-Shampoo-gegen-Kopfhautprobleme-200ml-p170433964",
+              "tabellenname": "Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5502580294.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "7660",
+              "shop_name": "Complemento Acido",
+              "beschreibung": "Beruhigendes Post-Shampoo Spray – lindert Juckreiz, normalisiert pH-Wert und schützt Kopfhaut vor Umwelteinflüssen.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Complemento-Acido-p169067718",
+              "tabellenname": "Complemento Acido",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607634676.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "5": [],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "dehydrierte_haut_trockene_schuppen": {
+        "label": "Dehydrierte Haut, trockene Schuppen",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "7650",
+              "shop_name": "Latte Tricologico 200 ml",
+              "beschreibung": "Beruhigende & klärende Kopfhautpflege mit Pirocton-Olamin – reinigt, lindert Juckreiz, Schuppen & Rötungen, ideal vor Shampoo-Anwendung.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Tricologico-200-ml-p115771995",
+              "tabellenname": "Latte Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916837625.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_DP",
+              "shop_name": "AROMA DP – Entgiftend",
+              "beschreibung": "Aroma mit Lavendel, Zitrone, Eukalyptus & Cajeput – reinigt Haut, entgiftet und bereitet ideal auf Aroma V Behandlung vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-DP-Entgiftend-p307234035",
+              "tabellenname": "Aroma DP",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063501623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_H",
+              "shop_name": "AROMA H – Feuchtigkeitsspendend",
+              "beschreibung": "Waldkiefer, Wacholder, Zypresse & Salbei Aroma – strafft trockene Haut, spendet Feuchtigkeit und ergänzt Aroma DP Anwendungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-H-Feuchtigkeitsspendend-p307233097",
+              "tabellenname": "Aroma H",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063530255.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_S",
+              "shop_name": "AROMA S – Entschlackend",
+              "beschreibung": "Salbei, Zypresse, Thymian & Rosmarin Aroma – reinigt Haarfollikel, reduziert Talg, Mitesser und Schweiß effektiv.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-S-Entschlackend-p307231136",
+              "tabellenname": "Aroma S",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063533319.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "PHPN",
+              "shop_name": "Phytoplancton",
+              "beschreibung": "Mineralisierende Haarkur – für trockenes, behandeltes & strapaziertes Haar, mit Diatomeenerde, mineralisierend, reinigend & stärkend für gesundes Haar.",
+              "preis_eur": "52.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Phytoplancton-p268116881",
+              "tabellenname": "Phytoplancton",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916824721.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1803",
+              "shop_name": "Micro Peeling",
+              "beschreibung": "Mikropeeling für die Kopfhaut – entfernt sanft abgestorbene Hautzellen, überschüssigen Talg und Rückstände. Sorgt für ein erfrischtes, gereinigtes Kopfhautgefühl und bereitet optimal auf Behandlungen gegen Haarausfall, Seborrhoe oder Irritationen vor.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Micro-Peeling-p797025012",
+              "tabellenname": "Micropeeling",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5383919196.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "6800",
+              "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+              "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "6850",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 100ml",
+                  "beschreibung": "Reinigung mit Frischegefühl für häufigen Gebrauch. Orangenextrakt macht dieses Shampoo ganz besonders erfrischend. Mit seinem vitalisierenden Duft und der Freundlichkeit auch zu sensibler Haut ist dieses Shampoo prädestiniert für häufige Anwendungen, auch bei Hyperhidrose. Als Wachmacher in den…",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-100ml-p115771968",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358543.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "6800",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+                  "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+                }
+              ],
+              "tabellenname": "Shampoo Arancia",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1000",
+              "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+              "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1550",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 100ml",
+                  "beschreibung": "Nährreiches Shampoo mit Honig Versorgung für trockene, normale und kräftige Haare, hergestellt mit reinem Akazienhonig. Dieses Shampoo versorgt mit Nährstoffen und verstärkt den natürlichen Schutz der Haare.  Reinigungsstufe:  Hoch  Kopfhaut typ:  Normale und trockene Kopfhaut  Haar typ: …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-100ml-p115771972",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358593.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1000",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+                  "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+                }
+              ],
+              "tabellenname": "Miele",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7001",
+              "shop_name": "Shampoo Tricologico / Shampoo gegen Kopfhautprobleme 200ml",
+              "beschreibung": "Shampoo gegen trockene Schuppen & Juckreiz – mit Pirocton-Olamin, Zink, Teebaumöl & Rosmarin, regulierend, beruhigend, gründlich reinigend, ideal für seborrhoische Kopfhaut & trockene Schuppen.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Tricologico-Shampoo-gegen-Kopfhautprobleme-200ml-p170433964",
+              "tabellenname": "Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5502580294.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "7660",
+              "shop_name": "Complemento Acido",
+              "beschreibung": "Beruhigendes Post-Shampoo Spray – lindert Juckreiz, normalisiert pH-Wert und schützt Kopfhaut vor Umwelteinflüssen.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Complemento-Acido-p169067718",
+              "tabellenname": "Complemento Acido",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607634676.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "5": [],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "haarausfall_duenner_werdendes_haar": {
+        "label": "Haarausfall, dünner werdendes Haar",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "7650",
+              "shop_name": "Latte Tricologico 200 ml",
+              "beschreibung": "Beruhigende & klärende Kopfhautpflege mit Pirocton-Olamin – reinigt, lindert Juckreiz, Schuppen & Rötungen, ideal vor Shampoo-Anwendung.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Tricologico-200-ml-p115771995",
+              "tabellenname": "Latte Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916837625.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_DP",
+              "shop_name": "AROMA DP – Entgiftend",
+              "beschreibung": "Aroma mit Lavendel, Zitrone, Eukalyptus & Cajeput – reinigt Haut, entgiftet und bereitet ideal auf Aroma V Behandlung vor.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-DP-Entgiftend-p307234035",
+              "tabellenname": "Aroma DP",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063501623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_E",
+              "shop_name": "AROMA E – Belebend",
+              "beschreibung": "Minze, Rosmarin, Wacholder & Thymian Aroma – tonisiert und erfrischt Haut und Kopfhaut für ein vitales Hautgefühl.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-E-Belebend-p307233077",
+              "tabellenname": "Aroma E",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063495760.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_H",
+              "shop_name": "AROMA H – Feuchtigkeitsspendend",
+              "beschreibung": "Waldkiefer, Wacholder, Zypresse & Salbei Aroma – strafft trockene Haut, spendet Feuchtigkeit und ergänzt Aroma DP Anwendungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-H-Feuchtigkeitsspendend-p307233097",
+              "tabellenname": "Aroma H",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063530255.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "AROMA_V",
+              "shop_name": "AROMA V – Beruhigend",
+              "beschreibung": "Lavendel, Majoran, Ylang-Ylang & Zitrone Aroma – entschlackt, entwässert und entfernt Schwellungen sowie Verunreinigungen.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/AROMA-V-Beruhigend-p307234126",
+              "tabellenname": "Aroma V",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/2063549011.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1803",
+              "shop_name": "Micro Peeling",
+              "beschreibung": "Mikropeeling für die Kopfhaut – entfernt sanft abgestorbene Hautzellen, überschüssigen Talg und Rückstände. Sorgt für ein erfrischtes, gereinigtes Kopfhautgefühl und bereitet optimal auf Behandlungen gegen Haarausfall, Seborrhoe oder Irritationen vor.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Micro-Peeling-p797025012",
+              "tabellenname": "Micropeeling",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5383919196.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Shampoo Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1000",
+              "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+              "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1550",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 100ml",
+                  "beschreibung": "Nährreiches Shampoo mit Honig Versorgung für trockene, normale und kräftige Haare, hergestellt mit reinem Akazienhonig. Dieses Shampoo versorgt mit Nährstoffen und verstärkt den natürlichen Schutz der Haare.  Reinigungsstufe:  Hoch  Kopfhaut typ:  Normale und trockene Kopfhaut  Haar typ: …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-100ml-p115771972",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358593.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1000",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+                  "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+                }
+              ],
+              "tabellenname": "Miele",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "2000",
+              "shop_name": "Shampoo di Riso 200 ml",
+              "beschreibung": "Volumenpflege für feines & normales Haar – mit Reisöl & Phytokeratin, feuchtigkeitsspendend, volumenverstärkend, verleiht Fülle, Struktur & Vitalität.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-di-Riso-200-ml-p115771966",
+              "tabellenname": "Riso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944889.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5003",
+              "shop_name": "Keratin Shampoo",
+              "beschreibung": "Kräftigendes Shampoo mit pflanzlichem Keratin & Kräuterextrakten – stärkt Haarfollikel, fördert Wachstum, reduziert Haarausfall, ideal für strapaziertes Haar.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Keratin-Shampoo-p754029562",
+              "tabellenname": "Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942341787.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1700",
+              "shop_name": "Glossy / Proteinmaske 15 ml",
+              "beschreibung": "Restrukturierende Proteinbehandlung mit Kollagen & Rizin – stärkt feines Haar, repariert Spliss und erhöht Volumen.",
+              "preis_eur": "23.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Glossy-Proteinmaske-15-ml-p115771963",
+              "tabellenname": "Glossy Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4725937441.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Fiale Biotam",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7660",
+              "shop_name": "Complemento Acido",
+              "beschreibung": "Beruhigendes Post-Shampoo Spray – lindert Juckreiz, normalisiert pH-Wert und schützt Kopfhaut vor Umwelteinflüssen.",
+              "preis_eur": "29.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Complemento-Acido-p169067718",
+              "tabellenname": "Complemento Acido",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607634676.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7860",
+              "shop_name": "Fiale Oligoelementi / Mineral-Ampullen für Hautpflege 8x10ml",
+              "beschreibung": "Mineralisierende Hydrotonika – feuchtigkeitsspendend, stärkt Spannkraft & Elastizität von Gesicht, Körper & Kopfhaut.",
+              "preis_eur": "76.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Fiale-Oligoelementi-Mineral-Ampullen-für-Hautpflege-8x10ml-p115778012",
+              "tabellenname": "Fiale Oligoelementi",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355434.jpg"
+            }
+          ],
+          "5": [],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "trockenes_bruechiges_behandeltes_haar": {
+        "label": "Trockenes, brüchiges, behandeltes Haar",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "1410",
+              "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+              "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+              "preis_eur": "41.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1360",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 100ml",
+                  "beschreibung": "Milde Restrukturierung, Versorgung mit Vitaminen für feine und normale, Haare sowie alle Kopfhauttypen Restrukturierung und Nahrungsversorgung für die Haare, hergestellt mit dem ätherischen Öl des madagassischen Ylang-Ylang und angereichert mit den Vitaminen A und E. Hilft die Spannkraft und…",
+                  "preis_eur": "23.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-100ml-p115771988",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358167.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1410",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+                  "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+                  "preis_eur": "41.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+                }
+              ],
+              "hinweis": "Aktuell sind laut Export beide Groessen (100ml und 200ml) im Shop deaktiviert. Bitte pruefen und ggf. eine Variante aktivieren.",
+              "tabellenname": "Olio Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1230",
+              "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 200ml",
+              "beschreibung": "Nährende & regenerierende Haarkur mit Bio-Arganöl, Vitamin E & Traubenkernöl – stärkt trockenes, strapaziertes Haar, macht es geschmeidig & elastisch.",
+              "preis_eur": "49.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-200ml-p115771985",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1215",
+                  "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 100ml",
+                  "beschreibung": "Mittelstarke Restrukturierung und Vitamin-Versorgung für kräftige und stark beschädigte Haare sowie alle Kopfhauttypen \n Versorgt und restrukturiert die Haare, hergestellt mit Arganöl aus Marokko und angereichert mit Vitamin A und E. Stellt die Spannkraft und Geschmeidigkeit der trockenen und…",
+                  "preis_eur": "23.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-100ml-p115771986",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358157.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1230",
+                  "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 200ml",
+                  "beschreibung": "Nährende & regenerierende Haarkur mit Bio-Arganöl, Vitamin E & Traubenkernöl – stärkt trockenes, strapaziertes Haar, macht es geschmeidig & elastisch.",
+                  "preis_eur": "49.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-200ml-p115771985",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5293491182.jpg"
+                }
+              ],
+              "tabellenname": "Olio Argan",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5293491182.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "FANG01",
+              "shop_name": "Mineralschlamm Fango 200ml",
+              "beschreibung": "Mineralienversorgung für behandelte, trockene, feine, lockige Haare und alle Kopfhauttypen Damit unsere Haare trotz wiederkehrender Beanspruchung durch Färben, Bleichen, Bürsten und Glätten nicht an Glanz und Volumen verlieren, ist es an uns, sie mit dem wichtigsten zur Regeneration zu versorgen.…",
+              "preis_eur": "27.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Mineralschlamm-Fango-200ml-p115771962",
+              "tabellenname": "Maschera Fango",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358132.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1620",
+              "shop_name": "Lipogen \"A\" 50 ml / Rekonstruierendes organisches Haarnährmittel",
+              "beschreibung": "Pflanzliche Haarbutter mit Kokosöl & Vitamin A – nährt, restrukturiert strapaziertes Haar, verleiht Glanz, Geschmeidigkeit & leichten Sonnenschutz.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lipogen-A-50-ml-Rekonstruierendes-organisches-Haarnährmittel-p115771998",
+              "tabellenname": "Lipogen A",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587435.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "3000",
+              "shop_name": "Shampoo Noce di Cacao 200 ml",
+              "beschreibung": "Sanftes Shampoo – für sensible Kopfhaut & häufiges Waschen, mit Kakao- & Haferextrakt, antioxidativ, feuchtigkeitsspendend & ausgleichend.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Noce-di-Cacao-200-ml-p115771969",
+              "tabellenname": "Shampoo Cacao",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588237.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5000",
+              "shop_name": "Shampoo Condition Plus 200 ml",
+              "beschreibung": "Schutzpflege für coloriertes & behandeltes Haar – mit Schafgarbe, Ringelblume & Hafer, spendet Feuchtigkeit, schützt Haarfarbe & verlängert Haltbarkeit.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Condition-Plus-200-ml-p115771970",
+              "tabellenname": "Condition",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851538.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1000",
+              "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+              "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1550",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 100ml",
+                  "beschreibung": "Nährreiches Shampoo mit Honig Versorgung für trockene, normale und kräftige Haare, hergestellt mit reinem Akazienhonig. Dieses Shampoo versorgt mit Nährstoffen und verstärkt den natürlichen Schutz der Haare.  Reinigungsstufe:  Hoch  Kopfhaut typ:  Normale und trockene Kopfhaut  Haar typ: …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-100ml-p115771972",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358593.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1000",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+                  "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+                }
+              ],
+              "tabellenname": "Miele",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5003",
+              "shop_name": "Keratin Shampoo",
+              "beschreibung": "Kräftigendes Shampoo mit pflanzlichem Keratin & Kräuterextrakten – stärkt Haarfollikel, fördert Wachstum, reduziert Haarausfall, ideal für strapaziertes Haar.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Keratin-Shampoo-p754029562",
+              "tabellenname": "Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942341787.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "8250",
+              "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+              "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "8150",
+                  "shop_name": "Conditioner pH Ylang-Ylang 100ml",
+                  "beschreibung": "Glanzspendender Conditioner und Pflege für feine, gefärbte und normale Haare \n Zur Anwendung nach dem Shampoonieren \n \n Es ist ein leichtes aber hochwirksames Konditionierungsmittel für feines, sprödes, gefärbtes und normales Haar, hergestellt mit Öl aus dem madagassischen Ylang-Ylang. Wirkt…",
+                  "preis_eur": "25.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-100ml-p115771981",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355328.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "8250",
+                  "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+                  "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+                  "preis_eur": "39.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+                }
+              ],
+              "tabellenname": "Cond. Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "9250",
+              "shop_name": "Conditioner PH Primula 200 ml",
+              "beschreibung": "Glanzgebender Conditioner mit Phytokeratin, Primel & Mandelöl – entwirrt, stärkt, glättet und schenkt Geschmeidigkeit.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Conditioner-PH-Primula-200-ml-p115771979",
+              "tabellenname": "Cond. Primula",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4485057561.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "9300",
+              "shop_name": "Maschera Riparatrice / Repair Mask 200 ml",
+              "beschreibung": "Intensive Haarpflege mit Sesam- & Rizinusöl, Palmrosen- & Chicorée-Extrakt – stärkt geschädigtes Haar, macht es geschmeidig & glänzend.",
+              "preis_eur": "49.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Maschera-Riparatrice-Repair-Mask-200-ml-p115772000",
+              "tabellenname": "Maschera Riparatrice",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540604290.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1700",
+              "shop_name": "Glossy / Proteinmaske 15 ml",
+              "beschreibung": "Restrukturierende Proteinbehandlung mit Kollagen & Rizin – stärkt feines Haar, repariert Spliss und erhöht Volumen.",
+              "preis_eur": "23.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Glossy-Proteinmaske-15-ml-p115771963",
+              "tabellenname": "Glossy Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4725937441.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "PK1",
+              "shop_name": "Pure Keratin",
+              "beschreibung": "Kräftigendes & schützendes Haarspray – mit pflanzlichem Keratin, Weizenproteinen, Aminosäuren & Zuckerderivaten, stärkt, schützt & verleiht Glanz ohne zu beschweren.",
+              "preis_eur": "37.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Pure-Keratin-p754024735",
+              "tabellenname": "Pure Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942363980.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "8160",
+              "shop_name": "Rugiada",
+              "beschreibung": "Glanz- & Entwirrungsspray – für alle Haartypen, verleiht Geschmeidigkeit & mehr Glanz, erleichtert Entwirren durch unsichtbaren Mikrofilm.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Rugiada-p169824968",
+              "tabellenname": "Rugiada",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588247.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1300",
+              "shop_name": "Restoring 50ml",
+              "beschreibung": "Schützendes Emolliens – für alle Hauttypen, bekämpft Kräuselungen & überschüssige Feuchtigkeit, bildet transparenten, feuchtigkeitsabweisenden Schutzfilm.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Restoring-50ml-p115771989",
+              "tabellenname": "Restoring",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607641623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "SDP",
+              "shop_name": "Silk Daily Protection",
+              "beschreibung": "Schützendes Haaröl – mit Argan-, Leinsamen-, Hanf- & Jojoba-Öl, schützt vor äußeren Einflüssen, baut geschädigtes Haar auf & verleiht Geschmeidigkeit ohne Rückstände.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Silk-Daily-Protection-p282143626",
+              "tabellenname": "Silk Daily Protection",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4591237907.jpg"
+            }
+          ],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "feines_haar": {
+        "label": "Feines Haar",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "1410",
+              "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+              "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+              "preis_eur": "41.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1360",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 100ml",
+                  "beschreibung": "Milde Restrukturierung, Versorgung mit Vitaminen für feine und normale, Haare sowie alle Kopfhauttypen Restrukturierung und Nahrungsversorgung für die Haare, hergestellt mit dem ätherischen Öl des madagassischen Ylang-Ylang und angereichert mit den Vitaminen A und E. Hilft die Spannkraft und…",
+                  "preis_eur": "23.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-100ml-p115771988",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358167.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1410",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+                  "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+                  "preis_eur": "41.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+                }
+              ],
+              "hinweis": "Aktuell sind laut Export beide Groessen (100ml und 200ml) im Shop deaktiviert. Bitte pruefen und ggf. eine Variante aktivieren.",
+              "tabellenname": "Olio Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "7650",
+              "shop_name": "Latte Tricologico 200 ml",
+              "beschreibung": "Beruhigende & klärende Kopfhautpflege mit Pirocton-Olamin – reinigt, lindert Juckreiz, Schuppen & Rötungen, ideal vor Shampoo-Anwendung.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Latte-Tricologico-200-ml-p115771995",
+              "tabellenname": "Latte Tricologico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916837625.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "PHPN",
+              "shop_name": "Phytoplancton",
+              "beschreibung": "Mineralisierende Haarkur – für trockenes, behandeltes & strapaziertes Haar, mit Diatomeenerde, mineralisierend, reinigend & stärkend für gesundes Haar.",
+              "preis_eur": "52.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Phytoplancton-p268116881",
+              "tabellenname": "Phytoplancton",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916824721.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "6800",
+              "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+              "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "6850",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 100ml",
+                  "beschreibung": "Reinigung mit Frischegefühl für häufigen Gebrauch. Orangenextrakt macht dieses Shampoo ganz besonders erfrischend. Mit seinem vitalisierenden Duft und der Freundlichkeit auch zu sensibler Haut ist dieses Shampoo prädestiniert für häufige Anwendungen, auch bei Hyperhidrose. Als Wachmacher in den…",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-100ml-p115771968",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358543.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "6800",
+                  "shop_name": "Shampoo Arancia / Shampoo mit Orange 200 ml",
+                  "beschreibung": "Erfrischendes Shampoo – sanft für alle Haartypen, mit Orangenextrakt, ideal für tägliche Anwendung & Pflege bei Hyperhidrose.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Arancia-Shampoo-mit-Orange-200-ml-p115771967",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+                }
+              ],
+              "tabellenname": "Shampoo Arancia",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3916851543.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "3000",
+              "shop_name": "Shampoo Noce di Cacao 200 ml",
+              "beschreibung": "Sanftes Shampoo – für sensible Kopfhaut & häufiges Waschen, mit Kakao- & Haferextrakt, antioxidativ, feuchtigkeitsspendend & ausgleichend.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Noce-di-Cacao-200-ml-p115771969",
+              "tabellenname": "Cacao",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588237.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "2000",
+              "shop_name": "Shampoo di Riso 200 ml",
+              "beschreibung": "Volumenpflege für feines & normales Haar – mit Reisöl & Phytokeratin, feuchtigkeitsspendend, volumenverstärkend, verleiht Fülle, Struktur & Vitalität.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-di-Riso-200-ml-p115771966",
+              "tabellenname": "Riso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944889.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5003",
+              "shop_name": "Keratin Shampoo",
+              "beschreibung": "Kräftigendes Shampoo mit pflanzlichem Keratin & Kräuterextrakten – stärkt Haarfollikel, fördert Wachstum, reduziert Haarausfall, ideal für strapaziertes Haar.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Keratin-Shampoo-p754029562",
+              "tabellenname": "Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942341787.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "8250",
+              "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+              "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "8150",
+                  "shop_name": "Conditioner pH Ylang-Ylang 100ml",
+                  "beschreibung": "Glanzspendender Conditioner und Pflege für feine, gefärbte und normale Haare \n Zur Anwendung nach dem Shampoonieren \n \n Es ist ein leichtes aber hochwirksames Konditionierungsmittel für feines, sprödes, gefärbtes und normales Haar, hergestellt mit Öl aus dem madagassischen Ylang-Ylang. Wirkt…",
+                  "preis_eur": "25.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-100ml-p115771981",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355328.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "8250",
+                  "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+                  "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+                  "preis_eur": "39.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+                }
+              ],
+              "tabellenname": "Cond. Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1800",
+              "shop_name": "Crema Alghe / Mineralmaske 150 ml",
+              "beschreibung": "Feuchtigkeitsspendende Kopfhautmaske – Pirocton-Olamin, Zink & Teebaumöl, lindert Juckreiz und beugt Schuppen vor.",
+              "preis_eur": "43.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Crema-Alghe-Mineralmaske-150-ml-p115771961",
+              "tabellenname": "Crema Alghe",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5461244750.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1700",
+              "shop_name": "Glossy / Proteinmaske 15 ml",
+              "beschreibung": "Restrukturierende Proteinbehandlung mit Kollagen & Rizin – stärkt feines Haar, repariert Spliss und erhöht Volumen.",
+              "preis_eur": "23.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Glossy-Proteinmaske-15-ml-p115771963",
+              "tabellenname": "Glossy Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4725937441.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "PK1",
+              "shop_name": "Pure Keratin",
+              "beschreibung": "Kräftigendes & schützendes Haarspray – mit pflanzlichem Keratin, Weizenproteinen, Aminosäuren & Zuckerderivaten, stärkt, schützt & verleiht Glanz ohne zu beschweren.",
+              "preis_eur": "37.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Pure-Keratin-p754024735",
+              "tabellenname": "Pure Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942363980.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "SM01",
+              "shop_name": "Styling Mousse",
+              "beschreibung": "Anti-Frizz- & Volumenschaum – für lockiges, welliges oder krauses Haar, mit Panthenol, Heidelbeer-, Rotweinrebe- und Salbei-Extrakten. Bändigt Frizz, fixiert sanft und sorgt für natürlichen Halt ohne zu beschweren.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Styling-Mousse-p502510421",
+              "tabellenname": "Styling Mousse",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3277628672.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "8160",
+              "shop_name": "Rugiada",
+              "beschreibung": "Glanz- & Entwirrungsspray – für alle Haartypen, verleiht Geschmeidigkeit & mehr Glanz, erleichtert Entwirren durch unsichtbaren Mikrofilm.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Rugiada-p169824968",
+              "tabellenname": "Rugiada",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588247.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1010",
+              "shop_name": "Iodin / Vitamin-Haarpflegegel 200ml",
+              "beschreibung": "Styling-Gel mit Provitamin B5 & Meeresalgen – formgebend, feuchtigkeitsspendend, verleiht Halt & gepflegtes Styling.",
+              "preis_eur": "34.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Iodin-Vitamin-Haarpflegegel-200ml-p115771990",
+              "tabellenname": "Iodin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4474041008.jpg"
+            }
+          ],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      },
+      "lockiges_gewelltes_krauses_haar": {
+        "label": "Lockiges, gewelltes, krauses Haar",
+        "produkte": {
+          "1": [
+            {
+              "gefunden": true,
+              "sku": "1410",
+              "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+              "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+              "preis_eur": "41.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1360",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 100ml",
+                  "beschreibung": "Milde Restrukturierung, Versorgung mit Vitaminen für feine und normale, Haare sowie alle Kopfhauttypen Restrukturierung und Nahrungsversorgung für die Haare, hergestellt mit dem ätherischen Öl des madagassischen Ylang-Ylang und angereichert mit den Vitaminen A und E. Hilft die Spannkraft und…",
+                  "preis_eur": "23.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-100ml-p115771988",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358167.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1410",
+                  "shop_name": "Olio Vitaminico Ylang-Ylang / Vitaminöl Ylang-Ylang 200ml",
+                  "beschreibung": "NÄHRENDE & REGENERIERENDE HAARKUR mit UV-Filtern\n \n Restrukturierende Pflege für das Haar, formuliert mit Ylang-Ylang-Öl aus Madagaskar , angereichert mit Vitamin A und Vitamin E . \nVerleiht Geschmeidigkeit und Glanz bei trockenem, strapaziertem Haar und nährt die Kopfhaut .\nMit Sonnenschutzfiltern…",
+                  "preis_eur": "41.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-Ylang-Ylang-Vitaminöl-Ylang-Ylang-200ml-p115771987",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+                }
+              ],
+              "hinweis": "Aktuell sind laut Export beide Groessen (100ml und 200ml) im Shop deaktiviert. Bitte pruefen und ggf. eine Variante aktivieren.",
+              "tabellenname": "Olio Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607640096.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1230",
+              "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 200ml",
+              "beschreibung": "Nährende & regenerierende Haarkur mit Bio-Arganöl, Vitamin E & Traubenkernöl – stärkt trockenes, strapaziertes Haar, macht es geschmeidig & elastisch.",
+              "preis_eur": "49.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-200ml-p115771985",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1215",
+                  "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 100ml",
+                  "beschreibung": "Mittelstarke Restrukturierung und Vitamin-Versorgung für kräftige und stark beschädigte Haare sowie alle Kopfhauttypen \n Versorgt und restrukturiert die Haare, hergestellt mit Arganöl aus Marokko und angereichert mit Vitamin A und E. Stellt die Spannkraft und Geschmeidigkeit der trockenen und…",
+                  "preis_eur": "23.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-100ml-p115771986",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358157.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1230",
+                  "shop_name": "Olio Vitaminico di Argan / Vitaminöl Argan 200ml",
+                  "beschreibung": "Nährende & regenerierende Haarkur mit Bio-Arganöl, Vitamin E & Traubenkernöl – stärkt trockenes, strapaziertes Haar, macht es geschmeidig & elastisch.",
+                  "preis_eur": "49.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Olio-Vitaminico-di-Argan-Vitaminöl-Argan-200ml-p115771985",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5293491182.jpg"
+                }
+              ],
+              "tabellenname": "Olio Argan",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/5293491182.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "FANG01",
+              "shop_name": "Mineralschlamm Fango 200ml",
+              "beschreibung": "Mineralienversorgung für behandelte, trockene, feine, lockige Haare und alle Kopfhauttypen Damit unsere Haare trotz wiederkehrender Beanspruchung durch Färben, Bleichen, Bürsten und Glätten nicht an Glanz und Volumen verlieren, ist es an uns, sie mit dem wichtigsten zur Regeneration zu versorgen.…",
+              "preis_eur": "27.00",
+              "verfuegbar": false,
+              "url": "https://www.biohairbeauty.shop/products/Mineralschlamm-Fango-200ml-p115771962",
+              "tabellenname": "Maschera Fango",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358132.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1620",
+              "shop_name": "Lipogen \"A\" 50 ml / Rekonstruierendes organisches Haarnährmittel",
+              "beschreibung": "Pflanzliche Haarbutter mit Kokosöl & Vitamin A – nährt, restrukturiert strapaziertes Haar, verleiht Glanz, Geschmeidigkeit & leichten Sonnenschutz.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Lipogen-A-50-ml-Rekonstruierendes-organisches-Haarnährmittel-p115771998",
+              "tabellenname": "Lipogen A",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587435.jpg"
+            }
+          ],
+          "2": [
+            {
+              "gefunden": true,
+              "sku": "4000",
+              "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+              "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "4550",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 100ml",
+                  "beschreibung": "Shampoo mit Protein Befeuchtung für gekräuselte und trockene Haare Befeuchtung für gekräuselte und trockene Haare, hergestellt mit Seidenprotein. Dieses Shampoo hat eine seidenweiche und glanzverstärkende Wirkung.  Reinigungsstufe:  Mittel  Kopfhaut typ:  Alle Hauttypen  Haar typ:   …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-100ml-p115771974",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358578.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "4000",
+                  "shop_name": "Shampoo Idrosilk / Shampoo mit Seidenprotein 200ml",
+                  "beschreibung": "Feuchtigkeits- & Glättungspflege – für alle Haartypen, mit Seidenproteinen & Brennnessel, hydratisierend, glanzverstärkend, geschmeidig machend, ideal bei gereizter Kopfhaut.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Idrosilk-Shampoo-mit-Seidenprotein-200ml-p115771973",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+                }
+              ],
+              "tabellenname": "Shampoo Idrosilk",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540587320.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1000",
+              "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+              "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "1550",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 100ml",
+                  "beschreibung": "Nährreiches Shampoo mit Honig Versorgung für trockene, normale und kräftige Haare, hergestellt mit reinem Akazienhonig. Dieses Shampoo versorgt mit Nährstoffen und verstärkt den natürlichen Schutz der Haare.  Reinigungsstufe:  Hoch  Kopfhaut typ:  Normale und trockene Kopfhaut  Haar typ: …",
+                  "preis_eur": "18.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-100ml-p115771972",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506358593.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "1000",
+                  "shop_name": "Shampoo Miele / Shampoo mit Honig 200ml",
+                  "beschreibung": "Nährendes Honig-Shampoo – für normales & trockenes Haar, mit reinem Akazienhonig, stärkt Haarstruktur & natürliche Abwehrkräfte.",
+                  "preis_eur": "27.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Shampoo-Miele-Shampoo-mit-Honig-200ml-p115771971",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+                }
+              ],
+              "tabellenname": "Miele",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944918.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "2000",
+              "shop_name": "Shampoo di Riso 200 ml",
+              "beschreibung": "Volumenpflege für feines & normales Haar – mit Reisöl & Phytokeratin, feuchtigkeitsspendend, volumenverstärkend, verleiht Fülle, Struktur & Vitalität.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Shampoo-di-Riso-200-ml-p115771966",
+              "tabellenname": "Riso",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4471944889.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "5003",
+              "shop_name": "Keratin Shampoo",
+              "beschreibung": "Kräftigendes Shampoo mit pflanzlichem Keratin & Kräuterextrakten – stärkt Haarfollikel, fördert Wachstum, reduziert Haarausfall, ideal für strapaziertes Haar.",
+              "preis_eur": "27.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Keratin-Shampoo-p754029562",
+              "tabellenname": "Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942341787.jpg"
+            }
+          ],
+          "3": [
+            {
+              "gefunden": true,
+              "sku": "8250",
+              "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+              "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+              "groessenvarianten": [
+                {
+                  "gefunden": true,
+                  "sku": "8150",
+                  "shop_name": "Conditioner pH Ylang-Ylang 100ml",
+                  "beschreibung": "Glanzspendender Conditioner und Pflege für feine, gefärbte und normale Haare \n Zur Anwendung nach dem Shampoonieren \n \n Es ist ein leichtes aber hochwirksames Konditionierungsmittel für feines, sprödes, gefärbtes und normales Haar, hergestellt mit Öl aus dem madagassischen Ylang-Ylang. Wirkt…",
+                  "preis_eur": "25.00",
+                  "verfuegbar": false,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-100ml-p115771981",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/1506355328.jpg"
+                },
+                {
+                  "gefunden": true,
+                  "sku": "8250",
+                  "shop_name": "Conditioner pH Ylang-Ylang 200ml",
+                  "beschreibung": "Stärkender Conditioner mit Phytokeratin, Ylang-Ylang & Arganöl – pflegt Haarstruktur, schließt Schuppenschicht, sorgt für Glanz.",
+                  "preis_eur": "39.00",
+                  "verfuegbar": true,
+                  "url": "https://www.biohairbeauty.shop/products/Conditioner-pH-Ylang-Ylang-200ml-p115771980",
+                  "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+                }
+              ],
+              "tabellenname": "Cond. Ylang-Ylang",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3988115744.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "9250",
+              "shop_name": "Conditioner PH Primula 200 ml",
+              "beschreibung": "Glanzgebender Conditioner mit Phytokeratin, Primel & Mandelöl – entwirrt, stärkt, glättet und schenkt Geschmeidigkeit.",
+              "preis_eur": "39.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Conditioner-PH-Primula-200-ml-p115771979",
+              "tabellenname": "Cond. Primula",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4485057561.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "9300",
+              "shop_name": "Maschera Riparatrice / Repair Mask 200 ml",
+              "beschreibung": "Intensive Haarpflege mit Sesam- & Rizinusöl, Palmrosen- & Chicorée-Extrakt – stärkt geschädigtes Haar, macht es geschmeidig & glänzend.",
+              "preis_eur": "49.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Maschera-Riparatrice-Repair-Mask-200-ml-p115772000",
+              "tabellenname": "Maschera Riparatrice",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540604290.jpg"
+            }
+          ],
+          "4": [
+            {
+              "gefunden": true,
+              "sku": "PK1",
+              "shop_name": "Pure Keratin",
+              "beschreibung": "Kräftigendes & schützendes Haarspray – mit pflanzlichem Keratin, Weizenproteinen, Aminosäuren & Zuckerderivaten, stärkt, schützt & verleiht Glanz ohne zu beschweren.",
+              "preis_eur": "37.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Pure-Keratin-p754024735",
+              "tabellenname": "Pure Keratin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4942363980.jpg"
+            }
+          ],
+          "5": [
+            {
+              "gefunden": true,
+              "sku": "SM01",
+              "shop_name": "Styling Mousse",
+              "beschreibung": "Anti-Frizz- & Volumenschaum – für lockiges, welliges oder krauses Haar, mit Panthenol, Heidelbeer-, Rotweinrebe- und Salbei-Extrakten. Bändigt Frizz, fixiert sanft und sorgt für natürlichen Halt ohne zu beschweren.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Styling-Mousse-p502510421",
+              "tabellenname": "Styling Mousse",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/3277628672.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "8160",
+              "shop_name": "Rugiada",
+              "beschreibung": "Glanz- & Entwirrungsspray – für alle Haartypen, verleiht Geschmeidigkeit & mehr Glanz, erleichtert Entwirren durch unsichtbaren Mikrofilm.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Rugiada-p169824968",
+              "tabellenname": "Rugiada",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4540588247.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1010",
+              "shop_name": "Iodin / Vitamin-Haarpflegegel 200ml",
+              "beschreibung": "Styling-Gel mit Provitamin B5 & Meeresalgen – formgebend, feuchtigkeitsspendend, verleiht Halt & gepflegtes Styling.",
+              "preis_eur": "34.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Iodin-Vitamin-Haarpflegegel-200ml-p115771990",
+              "tabellenname": "Iodin",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4474041008.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "1300",
+              "shop_name": "Restoring 50ml",
+              "beschreibung": "Schützendes Emolliens – für alle Hauttypen, bekämpft Kräuselungen & überschüssige Feuchtigkeit, bildet transparenten, feuchtigkeitsabweisenden Schutzfilm.",
+              "preis_eur": "32.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Restoring-50ml-p115771989",
+              "tabellenname": "Restoring",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607641623.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "SDP",
+              "shop_name": "Silk Daily Protection",
+              "beschreibung": "Schützendes Haaröl – mit Argan-, Leinsamen-, Hanf- & Jojoba-Öl, schützt vor äußeren Einflüssen, baut geschädigtes Haar auf & verleiht Geschmeidigkeit ohne Rückstände.",
+              "preis_eur": "33.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Silk-Daily-Protection-p282143626",
+              "tabellenname": "Silk Daily Protection",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4591237907.jpg"
+            }
+          ],
+          "6": [
+            {
+              "gefunden": true,
+              "sku": "3350",
+              "shop_name": "Biotam Fiale Capelli 8x10 ml / Fördert das Haarwachstum",
+              "beschreibung": "Haarwachstumsförderndes Serum – stimuliert Haarzwiebeln, verlängert Wachstumsphase und reduziert Ausfallphase.",
+              "preis_eur": "88.00",
+              "verfuegbar": true,
+              "url": "https://www.biohairbeauty.shop/products/Biotam-Fiale-Capelli-8x10-ml-Fördert-das-Haarwachstum-p240215974",
+              "tabellenname": "Biotam-Hair",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/13985153/4607631313.jpg"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
