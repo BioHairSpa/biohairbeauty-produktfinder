@@ -420,6 +420,27 @@
   }
 
   // ---------------------------------------------------------------------
+  // Inline-Layout (nur dedizierte Beautyfinder-Seite, nicht das Overlay):
+  // Statt body/Header/Footer der Shop-Seite selbst anzufassen (Risiko von
+  // Konflikten mit dem restlichen Ecwid-Theme, das wir nicht kontrollieren),
+  // wird hier nur die eigene min-height des Containers anhand der tatsächlich
+  // gemessenen Höhe von allem, was auf der Seite darüber bzw. dem Footer
+  // darunter liegt, berechnet. So bleibt der Fix auf unser eigenes Element
+  // beschränkt — Header/Footer/body des Shops werden nicht verändert.
+  // Annahme: die Seite nutzt ein semantisches <footer>-Element; falls nicht
+  // vorhanden, wird ohne reservierten Footer-Abstand gerechnet (kein Fehler,
+  // nur ggf. etwas Freiraum unter dem Footer bei kurzem Inhalt).
+  function aktualisiereInlineMindesthoehe(container) {
+    const footer = document.querySelector('footer');
+    const containerTopAbsolut = container.getBoundingClientRect().top + window.scrollY;
+    const footerHoehe = footer ? footer.getBoundingClientRect().height : 0;
+    const mindesthoehe = window.innerHeight - containerTopAbsolut - footerHoehe;
+    if (mindesthoehe > 0) {
+      container.style.minHeight = mindesthoehe + 'px';
+    }
+  }
+
+  // ---------------------------------------------------------------------
   // Wizard-Instanz: eigener Zustand + Renderer pro Mount-Aufruf
   // (Overlay- und Inline-Mount laufen unabhängig voneinander)
   // ---------------------------------------------------------------------
@@ -437,6 +458,19 @@
       cartErrors: {}, // { [sku]: Fehlermeldung }
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
     };
+
+    if (!mountOptions.overlay) {
+      // Nur im Inline-Modus relevant — bei Breitenänderungen (z. B. Rotation,
+      // Fenster-Resize) kann sich die Höhe von Header/Footer der Shop-Seite
+      // ändern, daher neu berechnen (entprellt).
+      let resizeTimeoutId;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimeoutId);
+        resizeTimeoutId = setTimeout(function () {
+          aktualisiereInlineMindesthoehe(container);
+        }, 150);
+      });
+    }
 
     function update(patch) {
       state = Object.assign({}, state, patch);
@@ -910,6 +944,10 @@
           break;
         default:
           renderBereichScreen();
+      }
+
+      if (!mountOptions.overlay) {
+        aktualisiereInlineMindesthoehe(container);
       }
     }
 

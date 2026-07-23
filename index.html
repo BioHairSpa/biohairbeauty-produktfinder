@@ -50,18 +50,24 @@
     Simuliert die "Beautyfinder"-Seite: Wenn ?mode=inline gesetzt ist, wird
     dieser Container ins DOM eingehängt, bevor wizard.js geladen wird — genau
     das Element, das später in Ecwid per HTML-Embed-Block auf der dedizierten
-    Seite eingefügt wird.
+    Seite eingefügt wird. Zusätzlich werden ein simulierter <header> und
+    <footer> mit realistischer Höhe eingefügt, um die Höhenberechnung für den
+    Inline-Modus (volle Höhe zwischen Header/Footer, Footer angepinnt) lokal
+    testen zu können — orientiert an den tatsächlich gemessenen Höhen auf
+    www.biohairbeauty.shop (Banner + Header ≈ 130px, Footer ≈ 260px).
   -->
   <script>
     const params = new URLSearchParams(window.location.search);
     if (params.get('mode') === 'inline') {
-      const container = document.createElement('div');
-      container.id = 'produkt-finder-wizard-inline';
-      document.getElementById('test-output').appendChild(container);
-      document.getElementById('test-output').insertAdjacentHTML(
-        'beforebegin',
-        '<p><em>Modus: Inline-Mount (Beautyfinder-Seite simuliert)</em></p>'
-      );
+      document.body.style.cssText = 'max-width:none; margin:0; padding:0;';
+      document.body.innerHTML =
+        '<header style="height:130px; background:#ddd; display:flex; align-items:center; padding:0 24px; box-sizing:border-box;">' +
+          '<strong>Simulierter Shop-Header (130px)</strong>' +
+        '</header>' +
+        '<main><div id="produkt-finder-wizard-inline"></div></main>' +
+        '<footer style="min-height:260px; background:#ccc; display:flex; align-items:center; justify-content:center; box-sizing:border-box;">' +
+          '<strong>Simulierter Shop-Footer (min. 260px)</strong>' +
+        '</footer>';
     } else {
       document.getElementById('test-output').insertAdjacentHTML(
         'beforebegin',

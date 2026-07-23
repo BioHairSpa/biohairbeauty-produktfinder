@@ -75,6 +75,15 @@
   max-width: 720px;
   margin: 0 auto;
   padding: var(--wizard-spacing-lg) var(--wizard-spacing-md);
+  /* Volle verfügbare Höhe zwischen Shop-Header und -Footer, Inhalt darin
+     vertikal zentriert. Der exakte min-height-Wert wird von wizard.js anhand
+     der tatsächlichen Header-/Footer-Höhe berechnet (siehe dort) — dieser
+     calc()-Wert ist nur ein Platzhalter-Fallback, bevor JS das übernimmt bzw.
+     falls JS aus irgendeinem Grund nicht greift. */
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ---------------------------------------------------------------------
