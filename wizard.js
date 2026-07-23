@@ -305,16 +305,15 @@
   // die erst der Live-Lookup oben liefert (nicht in den JSON-Dateien enthalten).
   // ---------------------------------------------------------------------
 
-  function addToCart(ecwidId, onDone) {
-    if (typeof window.Ecwid === 'undefined' || !window.Ecwid.Cart || typeof window.Ecwid.Cart.addProduct !== 'function') {
-      const meldung =
-        'Ecwid Storefront-JS-API nicht gefunden (z. B. beim lokalen Testen außerhalb des ' +
-        'Shops, oder Ecwid hat sich auf der Seite noch nicht initialisiert).';
-      console.error('[Produkt-Finder-Wizard]', meldung);
-      onDone(false, meldung);
-      return;
-    }
+  function cartApiBereit() {
+    return (
+      typeof window.Ecwid !== 'undefined' &&
+      window.Ecwid.Cart &&
+      typeof window.Ecwid.Cart.addProduct === 'function'
+    );
+  }
 
+  function addToCart(ecwidId, onDone) {
     function ausfuehren() {
       window.Ecwid.Cart.addProduct({ id: ecwidId, quantity: 1 }, function (success, product, cart, error) {
         if (!success) {
@@ -329,17 +328,35 @@
       });
     }
 
-    // Laut Ecwid-Doku ist das dokumentierte Muster, Storefront-JS-API-Aufrufe
-    // über Ecwid.OnAPILoaded.add() auszuführen statt nur auf die Existenz von
-    // window.Ecwid zu prüfen — das Verhalten bei einem zu frühen Aufruf ist
-    // nicht dokumentiert (könnte also verpuffen). OnAPILoaded.add() ruft den
-    // Callback laut Ecwid-Konvention sofort auf, falls die API bereits
-    // vollständig geladen ist, sonst erst sobald sie es ist.
-    if (window.Ecwid.OnAPILoaded && typeof window.Ecwid.OnAPILoaded.add === 'function') {
-      window.Ecwid.OnAPILoaded.add(ausfuehren);
-    } else {
+    // Bei einem echten Live-Test hat sich gezeigt, dass Ecwid.OnAPILoaded.add()
+    // auf dieser Seite spürbar verzögert (oder gar nicht sichtbar) auslöst,
+    // obwohl Ecwid.Cart.addProduct zu diesem Zeitpunkt bereits eine echte,
+    // aufrufbare Funktion war. Deshalb: wenn addProduct schon existiert, sofort
+    // direkt aufrufen (kein unnötiges Warten) — OnAPILoaded.add() nur noch als
+    // Fallback nutzen, falls Ecwid.Cart tatsächlich noch nicht bereitsteht.
+    if (cartApiBereit()) {
       ausfuehren();
+      return;
     }
+
+    if (typeof window.Ecwid !== 'undefined' && window.Ecwid.OnAPILoaded && typeof window.Ecwid.OnAPILoaded.add === 'function') {
+      window.Ecwid.OnAPILoaded.add(function () {
+        if (cartApiBereit()) {
+          ausfuehren();
+        } else {
+          const meldung = 'Ecwid Storefront-JS-API auch nach OnAPILoaded nicht vollständig verfügbar.';
+          console.error('[Produkt-Finder-Wizard]', meldung);
+          onDone(false, meldung);
+        }
+      });
+      return;
+    }
+
+    const meldung =
+      'Ecwid Storefront-JS-API nicht gefunden (z. B. beim lokalen Testen außerhalb des ' +
+      'Shops, oder Ecwid hat sich auf der Seite noch nicht initialisiert).';
+    console.error('[Produkt-Finder-Wizard]', meldung);
+    onDone(false, meldung);
   }
 
   // ---------------------------------------------------------------------
