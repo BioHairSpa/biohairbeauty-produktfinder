@@ -1,4 +1,12 @@
-import { resolveShopFromOrigin, todayBerlin, kvKeyForShopDate, KV_TTL_SECONDS } from './logic.js';
+import {
+  resolveShopFromOrigin,
+  todayBerlin,
+  yesterdayBerlin,
+  kvKeyForShopDate,
+  KV_TTL_SECONDS,
+  buildReportEmail,
+  SHOP_IDS,
+} from './logic.js';
 
 async function handlePing(request, env) {
   const origin = request.headers.get('Origin');
@@ -44,6 +52,33 @@ async function handlePing(request, env) {
   });
 }
 
+async function sendDailyReport(env) {
+  const dateStr = yesterdayBerlin();
+  const counts = {};
+  for (const shop of SHOP_IDS) {
+    const value = await env.USAGE_KV.get(kvKeyForShopDate(shop, dateStr));
+    counts[shop] = parseInt(value || '0', 10);
+  }
+
+  const { subject, text } = buildReportEmail({ dateStr, counts });
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + env.RESEND_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: env.REPORT_FROM_EMAIL,
+      to: env.REPORT_TO_EMAIL,
+      subject: subject,
+      text: text,
+    }),
+  });
+
+  console.log('[usage-tracking] Resend-Antwort:', response.status, await response.text());
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -51,5 +86,9 @@ export default {
       return new Response('Not found', { status: 404 });
     }
     return handlePing(request, env);
+  },
+
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(sendDailyReport(env));
   },
 };
