@@ -27,8 +27,16 @@ async function handlePing(request, env) {
   }
 
   const key = kvKeyForShopDate(shop, todayBerlin());
-  const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
-  await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
+  try {
+    const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
+    await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
+  } catch (err) {
+    console.error('[usage-tracking] KV-Fehler beim Zaehlen:', err);
+    return new Response('Internal error', {
+      status: 500,
+      headers: { 'Access-Control-Allow-Origin': origin },
+    });
+  }
 
   return new Response('OK', {
     status: 200,
