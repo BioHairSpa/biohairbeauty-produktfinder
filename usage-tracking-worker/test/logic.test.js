@@ -1,6 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { resolveShopFromOrigin, todayBerlin, yesterdayBerlin } from '../src/logic.js';
+import {
+  resolveShopFromOrigin,
+  todayBerlin,
+  yesterdayBerlin,
+  kvKeyForShopDate,
+  KV_TTL_SECONDS,
+} from '../src/logic.js';
 
 test('resolveShopFromOrigin erkennt Hauptshop', () => {
   assert.equal(resolveShopFromOrigin('https://www.biohairbeauty.shop'), 'hauptshop');
@@ -43,4 +49,12 @@ test('yesterdayBerlin liefert den Kalendertag davor', () => {
 test('yesterdayBerlin funktioniert ueber einen Monatswechsel hinweg', () => {
   const date = new Date('2026-08-01T10:00:00Z');
   assert.equal(yesterdayBerlin(date), '2026-07-31');
+});
+
+test('kvKeyForShopDate baut den erwarteten Schluessel', () => {
+  assert.equal(kvKeyForShopDate('hauptshop', '2026-07-27'), 'count:hauptshop:2026-07-27');
+});
+
+test('KV_TTL_SECONDS entspricht 30 Tagen', () => {
+  assert.equal(KV_TTL_SECONDS, 30 * 24 * 60 * 60);
 });

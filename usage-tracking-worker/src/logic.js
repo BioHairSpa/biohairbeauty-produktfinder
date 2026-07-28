@@ -30,3 +30,9 @@ export function yesterdayBerlin(date) {
   const previousDay = new Date(noonUtc - 24 * 60 * 60 * 1000);
   return todayBerlin(previousDay);
 }
+
+export const KV_TTL_SECONDS = 30 * 24 * 60 * 60;
+
+export function kvKeyForShopDate(shop, dateStr) {
+  return 'count:' + shop + ':' + dateStr;
+}
