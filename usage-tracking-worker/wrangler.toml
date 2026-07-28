@@ -14,4 +14,4 @@ enabled = true
 
 [vars]
 REPORT_TO_EMAIL = "ag@biohairspa.de"
-REPORT_FROM_EMAIL = "Produkt-Finder-Wizard <report@REPLACE_WITH_VERIFIED_SENDER_DOMAIN>"
+REPORT_FROM_EMAIL = "Produkt-Finder-Wizard <onboarding@resend.dev>"
