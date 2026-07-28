@@ -978,11 +978,8 @@
     }
     const payload = JSON.stringify({ shop: config.key });
     try {
-      if (navigator.sendBeacon) {
-        const blob = new Blob([payload], { type: 'application/json' });
-        if (navigator.sendBeacon(USAGE_PING_URL, blob)) {
-          return;
-        }
+      if (navigator.sendBeacon && navigator.sendBeacon(USAGE_PING_URL, payload)) {
+        return;
       }
       fetch(USAGE_PING_URL, {
         method: 'POST',
