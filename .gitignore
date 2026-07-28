@@ -1,1 +1,4 @@
 .env
+usage-tracking-worker/node_modules
+usage-tracking-worker/.wrangler
+usage-tracking-worker/.dev.vars

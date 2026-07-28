@@ -1,0 +1,14 @@
+{
+  "name": "biohairbeauty-usage-tracking-worker",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test test/",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.114.0"
+  }
+}
