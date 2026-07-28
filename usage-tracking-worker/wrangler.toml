@@ -9,6 +9,9 @@ id = "REPLACE_WITH_KV_NAMESPACE_ID"
 [triggers]
 crons = ["0 5 * * *"]
 
+[observability]
+enabled = true
+
 [vars]
 REPORT_TO_EMAIL = "ag@biohairspa.de"
 REPORT_FROM_EMAIL = "Produkt-Finder-Wizard <report@REPLACE_WITH_VERIFIED_SENDER_DOMAIN>"

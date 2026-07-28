@@ -26,6 +26,18 @@ test('resolveShopFromOrigin lehnt fehlenden Origin ab', () => {
   assert.equal(resolveShopFromOrigin(undefined), null);
 });
 
+test('resolveShopFromOrigin lehnt "constructor" als Origin ab', () => {
+  assert.equal(resolveShopFromOrigin('constructor'), null);
+});
+
+test('resolveShopFromOrigin lehnt "toString" als Origin ab', () => {
+  assert.equal(resolveShopFromOrigin('toString'), null);
+});
+
+test('resolveShopFromOrigin lehnt "__proto__" als Origin ab', () => {
+  assert.equal(resolveShopFromOrigin('__proto__'), null);
+});
+
 test('todayBerlin formatiert als YYYY-MM-DD', () => {
   const date = new Date('2026-07-28T10:00:00Z'); // 12:00 Berlin (CEST, UTC+2)
   assert.equal(todayBerlin(date), '2026-07-28');

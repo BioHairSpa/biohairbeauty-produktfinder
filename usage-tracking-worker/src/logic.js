@@ -9,7 +9,10 @@ export function resolveShopFromOrigin(origin) {
   if (!origin) {
     return null;
   }
-  return SHOP_ORIGINS[origin] || null;
+  if (!Object.prototype.hasOwnProperty.call(SHOP_ORIGINS, origin)) {
+    return null;
+  }
+  return SHOP_ORIGINS[origin];
 }
 
 const berlinDateFormatter = new Intl.DateTimeFormat('en-CA', {

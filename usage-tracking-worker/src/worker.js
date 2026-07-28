@@ -62,21 +62,30 @@ async function sendDailyReport(env) {
 
   const { subject, text } = buildReportEmail({ dateStr, counts });
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + env.RESEND_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: env.REPORT_FROM_EMAIL,
-      to: env.REPORT_TO_EMAIL,
-      subject: subject,
-      text: text,
-    }),
-  });
+  try {
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + env.RESEND_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: env.REPORT_FROM_EMAIL,
+        to: env.REPORT_TO_EMAIL,
+        subject: subject,
+        text: text,
+      }),
+    });
 
-  console.log('[usage-tracking] Resend-Antwort:', response.status, await response.text());
+    const body = await response.text();
+    if (response.ok) {
+      console.log('[usage-tracking] Resend-Antwort:', response.status, body);
+    } else {
+      console.error('[usage-tracking] Resend-Fehler:', response.status, body);
+    }
+  } catch (err) {
+    console.error('[usage-tracking] Netzwerkfehler beim Versand des Tagesreports:', err);
+  }
 }
 
 export default {
