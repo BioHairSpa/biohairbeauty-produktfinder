@@ -4,7 +4,7 @@ compatibility_date = "2026-07-28"
 
 [[kv_namespaces]]
 binding = "USAGE_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "b8dec324e7314e4ca7d0b8c51e97504c"
 
 [triggers]
 crons = ["0 5 * * *"]
