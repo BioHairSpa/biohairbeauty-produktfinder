@@ -970,7 +970,7 @@
   // TODO: nach dem Deployment des Cloudflare Workers (siehe README, Abschnitt
   // "Manuelle Schritte: Nutzungs-Tracking einrichten") die echte Worker-URL
   // eintragen. Leerer String = Tracking ist deaktiviert, kein Fehler fuer den Kunden.
-  const USAGE_PING_URL = '';
+  const USAGE_PING_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/ping';
 
   function pingUsage() {
     if (!USAGE_PING_URL) {
