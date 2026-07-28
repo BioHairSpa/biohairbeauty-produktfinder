@@ -30,6 +30,11 @@ test('todayBerlin rechnet UTC-Zeit kurz vor Mitternacht korrekt in Berlin-Folget
   assert.equal(todayBerlin(date), '2026-07-29');
 });
 
+test('todayBerlin behandelt Winterzeit (CET, UTC+1) korrekt, nicht mit Sommer-Offset verwechselt', () => {
+  const date = new Date('2026-01-15T22:30:00Z'); // 23:30 Berlin (CET, UTC+1) - noch derselbe Tag
+  assert.equal(todayBerlin(date), '2026-01-15');
+});
+
 test('yesterdayBerlin liefert den Kalendertag davor', () => {
   const date = new Date('2026-07-28T10:00:00Z');
   assert.equal(yesterdayBerlin(date), '2026-07-27');
