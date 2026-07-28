@@ -31,6 +31,7 @@ biohairbeauty-produktfinder/
 ├── wizard.js                      gesamte Wizard-Logik (kein Framework, kein Build-Schritt)
 ├── wizard.css                     Wizard-Styling, importiert design-tokens.css
 ├── index.html                     lokaler Test-Harness (nicht Teil des Deployments)
+├── usage-tracking-worker/         Cloudflare Worker: Nutzungs-Tracking (Schritt 6)
 ├── .env.example                   Vorlage für lokale Build-/Update-Skripte
 └── .gitignore                     schließt .env aus
 ```
@@ -45,6 +46,9 @@ biohairbeauty-produktfinder/
       denselben generischen Renderer wie Gesicht, keine Code-Duplizierung
 - [x] **Schritt 4** — Live-Verfügbarkeitsprüfung & Warenkorb-Integration (Code fertig,
       siehe "Noch zu tun" unten für den ausstehenden Live-Test mit echtem Token)
+- [x] **Schritt 6** — Tägliches Nutzungs-Tracking pro Shop (Cloudflare Worker + KV +
+      Resend, Code fertig, siehe "Manuelle Schritte: Nutzungs-Tracking einrichten" für
+      das ausstehende Deployment und "Noch zu tun" für den ausstehenden Live-Test)
 
 ## Lokal testen
 
@@ -114,6 +118,34 @@ Schritt erforderlich ist.
 
 ---
 
+## Manuelle Schritte: Nutzungs-Tracking einrichten (Schritt 6)
+
+Der Code für das tägliche Nutzungs-Tracking ist fertig (`usage-tracking-worker/`), das
+Deployment erfordert aber echte Cloudflare- und Resend-Accounts — das kannst nur du
+selbst einrichten:
+
+1. Cloudflare-Account prüfen/anlegen, Zugriff auf Workers + KV sicherstellen.
+2. `wrangler` lokal einrichten: `cd usage-tracking-worker && npm install`, dann
+   `npx wrangler login`.
+3. KV-Namespace erstellen: `npx wrangler kv namespace create USAGE_KV` — die
+   ausgegebene `id` in `usage-tracking-worker/wrangler.toml` anstelle von
+   `REPLACE_WITH_KV_NAMESPACE_ID` eintragen.
+4. Resend-Account prüfen/anlegen, Absender-Domain verifizieren (SPF/DKIM-Einträge beim
+   DNS-Provider der Domain setzen, z. B. für `biohairbeauty.shop`).
+5. `REPORT_FROM_EMAIL` in `usage-tracking-worker/wrangler.toml` auf eine Adresse der
+   verifizierten Domain setzen (anstelle von `REPLACE_WITH_VERIFIED_SENDER_DOMAIN`).
+6. Resend-API-Key erzeugen, als Worker-Secret hinterlegen (nie im Code):
+   `cd usage-tracking-worker && npx wrangler secret put RESEND_API_KEY`.
+7. Worker deployen: `cd usage-tracking-worker && npx wrangler deploy`. Der Cron
+   Trigger (täglich 5:00 UTC) wird dabei automatisch aus `wrangler.toml` aktiviert.
+8. Die vom Deployment ausgegebene Worker-URL (z. B.
+   `https://biohairbeauty-usage-tracking.<dein-account>.workers.dev`) plus `/ping` in
+   `wizard.js` als `USAGE_PING_URL` eintragen und committen.
+9. `wizard.js`/`wizard.css` sind bereits über GitHub Pages eingebunden (siehe oben) —
+   nach dem Push ist der Ping automatisch live auf beiden Shops.
+
+---
+
 ## API-Zugänge
 
 Für beide Shops existiert eine eigene Custom App mit Scope `read_catalog`. Secret-Tokens
@@ -171,3 +203,8 @@ numerische Produkt-ID braucht, die nur der Live-Lookup liefert.
   daher muss der komplette Fluss "Auswahl → In den Warenkorb → Warenkorb prüfen" einmal
   auf einer echten Store-Seite (z. B. über die vorläufig eingetragene JS-/CSS-URL auf
   einer Testseite) durchgeklickt werden.
+- **Nutzungs-Tracking Live-Test**: Nach dem Deployment (siehe "Manuelle Schritte:
+  Nutzungs-Tracking einrichten") einmal auf beiden echten Shop-Domains den Wizard öffnen
+  und in Cloudflare (`npx wrangler kv key get ... --binding=USAGE_KV`) prüfen, ob der
+  Zähler hochgezählt wird. Am Folgetag prüfen, ob die tägliche Bericht-E-Mail bei
+  ag@biohairspa.de ankommt (mit den tatsächlichen Zahlen des Vortages).
