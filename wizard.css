@@ -232,7 +232,7 @@
   display: block;
   object-fit: contain;
   object-position: center;
-  background: var(--wizard-color-creme);
+  background: #ffffff;
   flex-shrink: 0;
 }
 
