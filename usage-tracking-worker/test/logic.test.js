@@ -6,6 +6,7 @@ import {
   yesterdayBerlin,
   kvKeyForShopDate,
   KV_TTL_SECONDS,
+  buildReportEmail,
 } from '../src/logic.js';
 
 test('resolveShopFromOrigin erkennt Hauptshop', () => {
@@ -57,4 +58,18 @@ test('kvKeyForShopDate baut den erwarteten Schluessel', () => {
 
 test('KV_TTL_SECONDS entspricht 30 Tagen', () => {
   assert.equal(KV_TTL_SECONDS, 30 * 24 * 60 * 60);
+});
+
+test('buildReportEmail formatiert Betreff und Text mit beiden Shops', () => {
+  const { subject, text } = buildReportEmail({
+    dateStr: '2026-07-27',
+    counts: { hauptshop: 42, member: 7 },
+  });
+  assert.equal(subject, 'Wizard-Nutzung 27.07.2026');
+  assert.equal(text, 'Hauptshop: 42 Öffnungen\nMember-Shop: 7 Öffnungen');
+});
+
+test('buildReportEmail behandelt fehlende Zaehler als 0', () => {
+  const { text } = buildReportEmail({ dateStr: '2026-07-27', counts: {} });
+  assert.equal(text, 'Hauptshop: 0 Öffnungen\nMember-Shop: 0 Öffnungen');
 });

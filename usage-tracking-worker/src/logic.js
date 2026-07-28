@@ -36,3 +36,27 @@ export const KV_TTL_SECONDS = 30 * 24 * 60 * 60;
 export function kvKeyForShopDate(shop, dateStr) {
   return 'count:' + shop + ':' + dateStr;
 }
+
+const SHOP_LABELS = {
+  hauptshop: 'Hauptshop',
+  member: 'Member-Shop',
+};
+
+function formatGermanDate(dateStr) {
+  const [year, month, day] = dateStr.split('-');
+  return day + '.' + month + '.' + year;
+}
+
+export function buildReportEmail(input) {
+  const dateStr = input.dateStr;
+  const counts = input.counts;
+  const germanDate = formatGermanDate(dateStr);
+  const lines = SHOP_IDS.map(function (shop) {
+    const count = counts[shop] || 0;
+    return SHOP_LABELS[shop] + ': ' + count + ' Öffnungen';
+  });
+  return {
+    subject: 'Wizard-Nutzung ' + germanDate,
+    text: lines.join('\n'),
+  };
+}
