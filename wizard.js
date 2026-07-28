@@ -961,12 +961,48 @@
   // oder schwebender Auslöser-Button + Overlay (Standardfall, jede Seite)
   // ---------------------------------------------------------------------
 
+  // ---------------------------------------------------------------------
+  // usageTracking — meldet jede Wizard-Oeffnung an den Cloudflare Worker aus
+  // Schritt 6 (getrennte Zaehlung pro Shop, taeglicher E-Mail-Bericht). Fire-
+  // and-forget: darf den Wizard nie blockieren oder einen Fehler werfen.
+  // ---------------------------------------------------------------------
+
+  // TODO: nach dem Deployment des Cloudflare Workers (siehe README, Abschnitt
+  // "Manuelle Schritte: Nutzungs-Tracking einrichten") die echte Worker-URL
+  // eintragen. Leerer String = Tracking ist deaktiviert, kein Fehler fuer den Kunden.
+  const USAGE_PING_URL = '';
+
+  function pingUsage() {
+    if (!USAGE_PING_URL) {
+      return;
+    }
+    const payload = JSON.stringify({ shop: config.key });
+    try {
+      if (navigator.sendBeacon) {
+        const blob = new Blob([payload], { type: 'application/json' });
+        if (navigator.sendBeacon(USAGE_PING_URL, blob)) {
+          return;
+        }
+      }
+      fetch(USAGE_PING_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      }).catch(function () {});
+    } catch (e) {
+      // Tracking darf den Wizard nie beeintraechtigen.
+    }
+  }
+
   const INLINE_CONTAINER_ID = 'produkt-finder-wizard-inline';
 
   function mount() {
     const inlineContainer = document.getElementById(INLINE_CONTAINER_ID);
 
     if (inlineContainer) {
+      pingUsage();
+
       // Der von der Nutzerin in Ecwid eingebettete Container (mit der ID)
       // wird zum reinen Vollbreite-Hintergrund (siehe CSS). Der eigentliche
       // Wizard-Inhalt kommt in einen neuen inneren Wrapper, der wie gewohnt
@@ -997,6 +1033,8 @@
   let overlayEl = null;
 
   function openOverlay() {
+    pingUsage();
+
     if (overlayEl) {
       overlayEl.classList.add('wizard-overlay--open');
       return;
