@@ -77,16 +77,42 @@ test('KV_TTL_SECONDS entspricht 30 Tagen', () => {
   assert.equal(KV_TTL_SECONDS, 30 * 24 * 60 * 60);
 });
 
-test('buildReportEmail formatiert Betreff und Text mit beiden Shops', () => {
+test('buildReportEmail formatiert Betreff und Text mit beiden Shops und allen Metriken', () => {
   const { subject, text } = buildReportEmail({
     dateStr: '2026-07-27',
-    counts: { hauptshop: 42, member: 7 },
+    counts: {
+      hauptshop: { opens: 42, clicks: 15, cart: 6 },
+      member: { opens: 7, clicks: 3, cart: 1 },
+    },
   });
   assert.equal(subject, 'Wizard-Nutzung 27.07.2026');
-  assert.equal(text, 'Hauptshop: 42 Öffnungen\nMember-Shop: 7 Öffnungen');
+  assert.equal(
+    text,
+    'Hauptshop: 42 Öffnungen, 15 Klicks, 6 Warenkorb-Ereignisse\n' +
+      'Member-Shop: 7 Öffnungen, 3 Klicks, 1 Warenkorb-Ereignisse'
+  );
 });
 
-test('buildReportEmail behandelt fehlende Zaehler als 0', () => {
+test('buildReportEmail behandelt komplett leeres counts-Objekt als 0', () => {
   const { text } = buildReportEmail({ dateStr: '2026-07-27', counts: {} });
-  assert.equal(text, 'Hauptshop: 0 Öffnungen\nMember-Shop: 0 Öffnungen');
+  assert.equal(
+    text,
+    'Hauptshop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse\n' +
+      'Member-Shop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+  );
+});
+
+test('buildReportEmail behandelt fehlende Einzelmetrik als 0', () => {
+  const { text } = buildReportEmail({
+    dateStr: '2026-07-27',
+    counts: {
+      hauptshop: { opens: 10, cart: 2 },
+      member: { opens: 1 },
+    },
+  });
+  assert.equal(
+    text,
+    'Hauptshop: 10 Öffnungen, 0 Klicks, 2 Warenkorb-Ereignisse\n' +
+      'Member-Shop: 1 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+  );
 });

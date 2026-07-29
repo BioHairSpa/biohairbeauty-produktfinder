@@ -50,13 +50,25 @@ function formatGermanDate(dateStr) {
   return day + '.' + month + '.' + year;
 }
 
+const METRIC_ORDER = ['opens', 'clicks', 'cart'];
+
+const METRIC_LABELS = {
+  opens: 'Öffnungen',
+  clicks: 'Klicks',
+  cart: 'Warenkorb-Ereignisse',
+};
+
 export function buildReportEmail(input) {
   const dateStr = input.dateStr;
   const counts = input.counts;
   const germanDate = formatGermanDate(dateStr);
   const lines = SHOP_IDS.map(function (shop) {
-    const count = counts[shop] || 0;
-    return SHOP_LABELS[shop] + ': ' + count + ' Öffnungen';
+    const shopCounts = counts[shop] || {};
+    const parts = METRIC_ORDER.map(function (metric) {
+      const value = shopCounts[metric] || 0;
+      return value + ' ' + METRIC_LABELS[metric];
+    });
+    return SHOP_LABELS[shop] + ': ' + parts.join(', ');
   });
   return {
     subject: 'Wizard-Nutzung ' + germanDate,
