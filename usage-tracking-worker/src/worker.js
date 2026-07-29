@@ -56,8 +56,14 @@ async function sendDailyReport(env) {
   const dateStr = yesterdayBerlin();
   const counts = {};
   for (const shop of SHOP_IDS) {
-    const value = await env.USAGE_KV.get(kvKeyForShopDate('count', shop, dateStr));
-    counts[shop] = parseInt(value || '0', 10);
+    const opens = await env.USAGE_KV.get(kvKeyForShopDate('count', shop, dateStr));
+    const clicks = await env.USAGE_KV.get(kvKeyForShopDate('clicks', shop, dateStr));
+    const cart = await env.USAGE_KV.get(kvKeyForShopDate('cart', shop, dateStr));
+    counts[shop] = {
+      opens: parseInt(opens || '0', 10),
+      clicks: parseInt(clicks || '0', 10),
+      cart: parseInt(cart || '0', 10),
+    };
   }
 
   const { subject, text } = buildReportEmail({ dateStr, counts });
