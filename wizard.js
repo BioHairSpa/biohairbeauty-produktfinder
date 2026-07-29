@@ -668,6 +668,7 @@
           onClick: () => {
             addToCart(ecwidId, (success, error) => {
               if (success) {
+                pingCartEvent();
                 const nextCartAdded = Object.assign({}, state.cartAdded);
                 nextCartAdded[sku] = true;
                 const nextCartErrors = Object.assign({}, state.cartErrors);
@@ -746,6 +747,7 @@
             {
               className: 'wizard-produkt-link',
               attrs: { href: angezeigtesProdukt.url, target: '_blank', rel: 'noopener noreferrer' },
+              onClick: pingProductClick,
             },
             [bildElement, nameElement]
           )
@@ -962,26 +964,37 @@
   // ---------------------------------------------------------------------
 
   // ---------------------------------------------------------------------
-  // usageTracking — meldet jede Wizard-Oeffnung an den Cloudflare Worker aus
-  // Schritt 6 (getrennte Zaehlung pro Shop, taeglicher E-Mail-Bericht). Fire-
-  // and-forget: darf den Wizard nie blockieren oder einen Fehler werfen.
+  // usageTracking — meldet Wizard-Oeffnungen, Produktlink-Klicks und
+  // Warenkorb-Ereignisse an den Cloudflare Worker aus Schritt 6 (getrennte
+  // Zaehlung pro Shop, taeglicher E-Mail-Bericht). Fire-and-forget: darf den
+  // Wizard nie blockieren oder einen Fehler werfen.
   // ---------------------------------------------------------------------
 
   // TODO: nach dem Deployment des Cloudflare Workers (siehe README, Abschnitt
   // "Manuelle Schritte: Nutzungs-Tracking einrichten") die echte Worker-URL
   // eintragen. Leerer String = Tracking ist deaktiviert, kein Fehler fuer den Kunden.
   const USAGE_PING_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/ping';
+  // TODO: analog zu USAGE_PING_URL — nach Deployment die echte Worker-URL fuer
+  // Produktlink-Klicks eintragen.
+  const USAGE_CLICK_URL = '';
+  // TODO: analog zu USAGE_PING_URL — nach Deployment die echte Worker-URL fuer
+  // Warenkorb-Ereignisse eintragen.
+  const USAGE_CART_URL = '';
 
-  function pingUsage() {
-    if (!USAGE_PING_URL) {
+  // Wichtig: Payload wird als Plain-String an sendBeacon uebergeben (kein Blob,
+  // kein 'application/json'-Content-Type) — das hatte beim urspruenglichen
+  // Oeffnungs-Ping einen CORS-Preflight-Bug verursacht (Browser hat den
+  // Preflight geschickt, aber nie den eigentlichen POST — siehe Commit 1535557).
+  function sendUsageBeacon(url) {
+    if (!url) {
       return;
     }
     const payload = JSON.stringify({ shop: config.key });
     try {
-      if (navigator.sendBeacon && navigator.sendBeacon(USAGE_PING_URL, payload)) {
+      if (navigator.sendBeacon && navigator.sendBeacon(url, payload)) {
         return;
       }
-      fetch(USAGE_PING_URL, {
+      fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: payload,
@@ -990,6 +1003,18 @@
     } catch (e) {
       // Tracking darf den Wizard nie beeintraechtigen.
     }
+  }
+
+  function pingUsage() {
+    sendUsageBeacon(USAGE_PING_URL);
+  }
+
+  function pingProductClick() {
+    sendUsageBeacon(USAGE_CLICK_URL);
+  }
+
+  function pingCartEvent() {
+    sendUsageBeacon(USAGE_CART_URL);
   }
 
   const INLINE_CONTAINER_ID = 'produkt-finder-wizard-inline';
