@@ -140,10 +140,13 @@ getrennt pro Shop — alle drei erscheinen in derselben täglichen Bericht-E-Mai
    `cd usage-tracking-worker && npx wrangler secret put RESEND_API_KEY`.
 7. Worker deployen: `cd usage-tracking-worker && npx wrangler deploy`. Der Cron
    Trigger (täglich 5:00 UTC) wird dabei automatisch aus `wrangler.toml` aktiviert.
-8. Die vom Deployment ausgegebene Worker-URL (z. B.
-   `https://biohairbeauty-usage-tracking.<dein-account>.workers.dev`) plus `/ping` in
-   `wizard.js` als `USAGE_PING_URL` eintragen und committen.
-9. `wizard.js`/`wizard.css` sind bereits über GitHub Pages eingebunden (siehe oben) —
+8. Falls der Worker bereits früher deployt wurde (z. B. für `/ping`): `npx wrangler
+   deploy` erneut ausführen, damit die neuen Routen `/click` und `/cart` live sind.
+9. Die vom Deployment ausgegebene Worker-URL (z. B.
+   `https://biohairbeauty-usage-tracking.<dein-account>.workers.dev`) plus `/ping`,
+   `/click` bzw. `/cart` in `wizard.js` als `USAGE_PING_URL`, `USAGE_CLICK_URL` und
+   `USAGE_CART_URL` eintragen und committen.
+10. `wizard.js`/`wizard.css` sind bereits über GitHub Pages eingebunden (siehe oben) —
    nach dem Push ist der Ping automatisch live auf beiden Shops.
 
 ---
