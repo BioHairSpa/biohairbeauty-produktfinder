@@ -34,7 +34,7 @@ async function handlePing(request, env) {
     return new Response('Forbidden', { status: 403 });
   }
 
-  const key = kvKeyForShopDate(shop, todayBerlin());
+  const key = kvKeyForShopDate('count', shop, todayBerlin());
   try {
     const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
     await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
@@ -56,7 +56,7 @@ async function sendDailyReport(env) {
   const dateStr = yesterdayBerlin();
   const counts = {};
   for (const shop of SHOP_IDS) {
-    const value = await env.USAGE_KV.get(kvKeyForShopDate(shop, dateStr));
+    const value = await env.USAGE_KV.get(kvKeyForShopDate('count', shop, dateStr));
     counts[shop] = parseInt(value || '0', 10);
   }
 

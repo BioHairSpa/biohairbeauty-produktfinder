@@ -65,7 +65,12 @@ test('yesterdayBerlin funktioniert ueber einen Monatswechsel hinweg', () => {
 });
 
 test('kvKeyForShopDate baut den erwarteten Schluessel', () => {
-  assert.equal(kvKeyForShopDate('hauptshop', '2026-07-27'), 'count:hauptshop:2026-07-27');
+  assert.equal(kvKeyForShopDate('count', 'hauptshop', '2026-07-27'), 'count:hauptshop:2026-07-27');
+});
+
+test('kvKeyForShopDate baut unterschiedliche Schluessel fuer unterschiedliche Prefixe', () => {
+  assert.equal(kvKeyForShopDate('clicks', 'hauptshop', '2026-07-27'), 'clicks:hauptshop:2026-07-27');
+  assert.equal(kvKeyForShopDate('cart', 'hauptshop', '2026-07-27'), 'cart:hauptshop:2026-07-27');
 });
 
 test('KV_TTL_SECONDS entspricht 30 Tagen', () => {

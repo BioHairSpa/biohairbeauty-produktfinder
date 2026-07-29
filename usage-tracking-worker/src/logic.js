@@ -36,8 +36,8 @@ export function yesterdayBerlin(date) {
 
 export const KV_TTL_SECONDS = 30 * 24 * 60 * 60;
 
-export function kvKeyForShopDate(shop, dateStr) {
-  return 'count:' + shop + ':' + dateStr;
+export function kvKeyForShopDate(prefix, shop, dateStr) {
+  return prefix + ':' + shop + ':' + dateStr;
 }
 
 const SHOP_LABELS = {
