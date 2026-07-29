@@ -8,7 +8,7 @@ import {
   SHOP_IDS,
 } from './logic.js';
 
-async function handlePing(request, env) {
+async function handleCounterEvent(request, env, metricPrefix) {
   const origin = request.headers.get('Origin');
   const shop = resolveShopFromOrigin(origin);
 
@@ -34,12 +34,12 @@ async function handlePing(request, env) {
     return new Response('Forbidden', { status: 403 });
   }
 
-  const key = kvKeyForShopDate('count', shop, todayBerlin());
+  const key = kvKeyForShopDate(metricPrefix, shop, todayBerlin());
   try {
     const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
     await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
   } catch (err) {
-    console.error('[usage-tracking] KV-Fehler beim Zaehlen:', err);
+    console.error('[usage-tracking] KV-Fehler beim Zaehlen (' + metricPrefix + '):', err);
     return new Response('Internal error', {
       status: 500,
       headers: { 'Access-Control-Allow-Origin': origin },
@@ -91,10 +91,16 @@ async function sendDailyReport(env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname !== '/ping') {
-      return new Response('Not found', { status: 404 });
+    if (url.pathname === '/ping') {
+      return handleCounterEvent(request, env, 'count');
     }
-    return handlePing(request, env);
+    if (url.pathname === '/click') {
+      return handleCounterEvent(request, env, 'clicks');
+    }
+    if (url.pathname === '/cart') {
+      return handleCounterEvent(request, env, 'cart');
+    }
+    return new Response('Not found', { status: 404 });
   },
 
   async scheduled(event, env, ctx) {
