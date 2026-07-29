@@ -122,7 +122,9 @@ Schritt erforderlich ist.
 
 Der Code für das tägliche Nutzungs-Tracking ist fertig (`usage-tracking-worker/`), das
 Deployment erfordert aber echte Cloudflare- und Resend-Accounts — das kannst nur du
-selbst einrichten:
+selbst einrichten. Neben Wizard-Öffnungen (`/ping`) zählt der Worker inzwischen auch
+Produktlink-Klicks (`/click`) und erfolgreiche Warenkorb-Ereignisse (`/cart`), jeweils
+getrennt pro Shop — alle drei erscheinen in derselben täglichen Bericht-E-Mail.
 
 1. Cloudflare-Account prüfen/anlegen, Zugriff auf Workers + KV sicherstellen.
 2. `wrangler` lokal einrichten: `cd usage-tracking-worker && npm install`, dann
@@ -204,7 +206,9 @@ numerische Produkt-ID braucht, die nur der Live-Lookup liefert.
   auf einer echten Store-Seite (z. B. über die vorläufig eingetragene JS-/CSS-URL auf
   einer Testseite) durchgeklickt werden.
 - **Nutzungs-Tracking Live-Test**: Nach dem Deployment (siehe "Manuelle Schritte:
-  Nutzungs-Tracking einrichten") einmal auf beiden echten Shop-Domains den Wizard öffnen
-  und in Cloudflare (`npx wrangler kv key get ... --binding=USAGE_KV`) prüfen, ob der
-  Zähler hochgezählt wird. Am Folgetag prüfen, ob die tägliche Bericht-E-Mail bei
-  ag@biohairspa.de ankommt (mit den tatsächlichen Zahlen des Vortages).
+  Nutzungs-Tracking einrichten") einmal auf beiden echten Shop-Domains den Wizard öffnen,
+  einen Produktlink anklicken und ein Produkt in den Warenkorb legen — danach in
+  Cloudflare (`npx wrangler kv key get ... --binding=USAGE_KV --remote`) prüfen, ob alle
+  drei Zähler (`count:`, `clicks:`, `cart:`) hochgezählt werden. Am Folgetag prüfen, ob
+  die tägliche Bericht-E-Mail bei ag@biohairspa.de ankommt und alle drei Metriken pro
+  Shop enthält.
