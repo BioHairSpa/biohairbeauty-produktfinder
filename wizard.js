@@ -133,6 +133,110 @@
     },
   };
 
+  // ---------------------------------------------------------------------
+  // "Hilfe bei der Wahl" — Chip-zu-Synonym-Zuordnung pro Bereich/Schritt.
+  // Synonyme bereits kleingeschrieben hinterlegt (nur der zu pruefende
+  // Beschreibungstext wird zur Laufzeit normalisiert). Trefferqualitaet
+  // haengt von den echten Live-Beschreibungstexten in Ecwid ab - diese
+  // Konfiguration ist bewusst zentral und leicht nachjustierbar.
+  // ---------------------------------------------------------------------
+
+  const HILFE_CHIPS = {
+    gesicht: {
+      steps: {
+        1: [
+          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'unrein', 'mitesser', 'pore'] },
+          { label: 'Fettige Haut', synonyme: ['fettig', 'öl'] },
+          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+        ],
+        2: [
+          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'unrein', 'mitesser', 'pore'] },
+          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
+          { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
+          { label: 'Narbenpflege', synonyme: ['narbe'] },
+        ],
+        3: [
+          { label: 'Mischhaut', synonyme: ['mischhaut'] },
+          { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
+          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+        ],
+        4: [
+          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
+          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
+          { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
+          { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
+        ],
+        5: [
+          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
+          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+          { label: 'Fettige Haut', synonyme: ['fettig', 'öl'] },
+        ],
+      },
+    },
+    haare: {
+      steps: {
+        1: [
+          { label: 'Schuppen & Kopfhautpeeling', synonyme: ['schuppen', 'psoriasis', 'seborrh', 'peeling'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig', 'öl', 'talg'] },
+          { label: 'Trockene Kopfhaut', synonyme: ['trocken', 'dehydriert'] },
+          { label: 'Empfindliche Kopfhaut', synonyme: ['empfindlich', 'sensibel', 'entzünd', 'ekzem', 'reizung', 'juckreiz', 'rötung', 'gerötet'] },
+        ],
+        2: [
+          { label: 'Schuppen', synonyme: ['schuppen', 'psoriasis', 'seborrh'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig', 'öl', 'talg'] },
+          { label: 'Empfindliche Kopfhaut & häufiges Waschen', synonyme: ['trocken', 'empfindlich', 'sensibel', 'entzünd', 'ekzem', 'reizung', 'häufig', 'täglich'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+        ],
+        3: [
+          { label: 'Juckreiz & Schuppen', synonyme: ['juckreiz', 'schuppen', 'psoriasis', 'seborrh'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+          { label: 'Trockenes Haar & Spliss', synonyme: ['trocken', 'strapaziert', 'brüchig', 'spliss'] },
+          { label: 'Glanz & Kräftigung', synonyme: ['glanz', 'geschmeidig', 'entwirr', 'stärk', 'kräftig'] },
+        ],
+        4: [
+          { label: 'Beruhigung Kopfhaut', synonyme: ['beruhig', 'juckreiz', 'lindert', 'entzünd', 'reizung'] },
+          { label: 'Schutz vor Umwelteinflüssen', synonyme: ['schutz', 'umwelt', 'uv'] },
+          { label: 'Kräftigung & Glanz', synonyme: ['kräftig', 'stärk', 'glanz'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+        ],
+        5: [
+          { label: 'Lockiges Haar & Frizz', synonyme: ['lockig', 'kraus', 'wellig', 'frizz', 'anti-frizz'] },
+          { label: 'Glanz & Geschmeidigkeit', synonyme: ['glanz', 'geschmeidig'] },
+          { label: 'Reparatur & Spliss', synonyme: ['reparatur', 'brüchig', 'entwirr', 'spliss'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+        ],
+        6: [
+          { label: 'Haarausfall', synonyme: ['ausfall', 'ausfallphase'] },
+          { label: 'Haarwachstum', synonyme: ['wachstum', 'wachstumsphase'] },
+          { label: 'Dünner werdendes Haar', synonyme: ['dünn', 'volumen'] },
+          { label: 'Haarzwiebeln stärken', synonyme: ['haarzwiebel', 'follikel'] },
+        ],
+      },
+    },
+  };
+
+  function getHilfeChips(bereich, schrittNummer) {
+    const eintrag = HILFE_CHIPS[bereich];
+    if (!eintrag) return [];
+    return (eintrag.steps && eintrag.steps[schrittNummer]) || eintrag.default || [];
+  }
+
+  function stripHtml(html) {
+    return (html || '').replace(/<[^>]*>/g, ' ');
+  }
+
+  function normalisiereBeschreibung(html) {
+    return stripHtml(html).toLowerCase();
+  }
+
+  function chipHatTreffer(chip, beschreibungLive) {
+    const normalisiert = normalisiereBeschreibung(beschreibungLive);
+    return chip.synonyme.some((synonym) => normalisiert.indexOf(synonym) !== -1);
+  }
+
   const preisFormatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
