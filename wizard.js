@@ -198,10 +198,10 @@
     }
   }
 
-  // Liefert { verfuegbar, ecwidId, imageUrl } oder null (kein Token hinterlegt /
-  // Live-Check fehlgeschlagen -> Aufrufer soll dann auf den JSON-Snapshot
-  // zurückfallen). imageUrl kommt aus demselben Suchaufruf wie die
-  // Verfügbarkeit — kein zusätzlicher Request nötig.
+  // Liefert { verfuegbar, ecwidId, imageUrl, beschreibung } oder null (kein Token
+  // hinterlegt / Live-Check fehlgeschlagen -> Aufrufer soll dann auf den
+  // JSON-Snapshot zurückfallen). imageUrl/beschreibung kommen aus demselben
+  // Suchaufruf wie die Verfügbarkeit — kein zusätzlicher Request nötig.
   function fetchLiveInfo(sku) {
     if (!config.publicToken) return Promise.resolve(null);
     if (liveInfoCache[sku]) return liveInfoCache[sku];
@@ -233,8 +233,9 @@
               verfuegbar: !!item.enabled && (item.unlimited || item.inStock),
               ecwidId: item.id,
               imageUrl: item.imageUrl || null,
+              beschreibung: item.description || null,
             }
-          : { verfuegbar: false, ecwidId: null, imageUrl: null };
+          : { verfuegbar: false, ecwidId: null, imageUrl: null, beschreibung: null };
         writeSessionCache(sku, result);
         return result;
       })
@@ -270,12 +271,15 @@
       if (!konnteLiveGeprueftWerden) {
         // Kein Token hinterlegt oder alle Anfragen fehlgeschlagen -> stiller
         // Fallback auf den JSON-Snapshot, keine blockierende Fehlermeldung.
+        // beschreibungLive bleibt null - "Hilfe bei der Wahl" nutzt niemals den
+        // JSON-Snapshot als Ersatz fuer die Live-Beschreibung.
         return {
           produkt: produkt,
           ecwidId: null,
           istVerfuegbar: produkt.verfuegbar,
           liveGeprueft: false,
           bildUrl: produkt.bild_url,
+          beschreibungLive: null,
         };
       }
 
@@ -287,6 +291,7 @@
           istVerfuegbar: true,
           liveGeprueft: true,
           bildUrl: verfuegbarerKandidat.liveInfo.imageUrl || verfuegbarerKandidat.kandidat.bild_url,
+          beschreibungLive: verfuegbarerKandidat.liveInfo.beschreibung,
         };
       }
 
@@ -296,6 +301,7 @@
         istVerfuegbar: false,
         liveGeprueft: true,
         bildUrl: produkt.bild_url,
+        beschreibungLive: null,
       };
     });
   }
@@ -619,6 +625,7 @@
         istVerfuegbar: produkt.verfuegbar,
         liveGeprueft: false,
         bildUrl: produkt.bild_url,
+        beschreibungLive: null,
       };
     }
 
