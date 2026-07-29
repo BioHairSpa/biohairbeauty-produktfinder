@@ -976,10 +976,10 @@
   const USAGE_PING_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/ping';
   // TODO: analog zu USAGE_PING_URL — nach Deployment die echte Worker-URL fuer
   // Produktlink-Klicks eintragen.
-  const USAGE_CLICK_URL = '';
+  const USAGE_CLICK_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/click';
   // TODO: analog zu USAGE_PING_URL — nach Deployment die echte Worker-URL fuer
   // Warenkorb-Ereignisse eintragen.
-  const USAGE_CART_URL = '';
+  const USAGE_CART_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/cart';
 
   // Wichtig: Payload wird als Plain-String an sendBeacon uebergeben (kein Blob,
   // kein 'application/json'-Content-Type) — das hatte beim urspruenglichen
