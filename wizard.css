@@ -308,6 +308,12 @@
 
 .wizard-hilfe-button {
   margin-bottom: var(--wizard-spacing-sm);
+  font-size: 14px;
+  text-decoration: none;
+  border: 1px solid var(--wizard-color-fast-schwarz);
+  border-radius: var(--wizard-radius);
+  padding: 8px 16px;
+  background: transparent;
 }
 
 .wizard-hilfe-button:disabled {

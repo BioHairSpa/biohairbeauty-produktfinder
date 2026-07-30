@@ -145,67 +145,67 @@
     gesicht: {
       steps: {
         1: [
-          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'unrein', 'mitesser', 'pore'] },
-          { label: 'Fettige Haut', synonyme: ['fettig', 'öl'] },
-          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
-          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'mitesser'], ausschluss: ['dehydrierte haut'] },
+          { label: 'Fettige Haut', synonyme: ['fettige haut'], ausschluss: ['empfindliche und normale haut'] },
+          { label: 'Trockene Haut', synonyme: ['dehydrierte haut'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindliche und normale haut'] },
         ],
         2: [
-          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'unrein', 'mitesser', 'pore'] },
-          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
+          { label: 'Unreine Haut/Akne', synonyme: ['mitesser'] },
+          { label: 'Falten/reife Haut', synonyme: ['reife haut', 'anti-aging'] },
           { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
           { label: 'Narbenpflege', synonyme: ['narbe'] },
         ],
         3: [
           { label: 'Mischhaut', synonyme: ['mischhaut'] },
           { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
-          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
-          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+          { label: 'Trockene Haut', synonyme: ['trockene haut'] },
+          { label: 'Empfindliche Haut', synonyme: ['ekzem', 'psoriasis'] },
         ],
         4: [
-          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
-          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
+          { label: 'Falten/reife Haut', synonyme: ['reife haut', 'anti-aging'], ausschluss: ['bartrasur'] },
+          { label: 'Trockene Haut', synonyme: ['trockene haut'] },
           { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
           { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
         ],
         5: [
-          { label: 'Trockene Haut', synonyme: ['trocken', 'dehydriert', 'feuchtigkeit'] },
-          { label: 'Falten/reife Haut', synonyme: ['falten', 'straff', 'elastizität', 'kollagen', 'reif', 'anti-aging'] },
+          { label: 'Trockene Haut', synonyme: ['trockene haut'], ausschluss: ['reife haut'] },
+          { label: 'Falten/reife Haut', synonyme: ['reife haut mit geringer elastizität'] },
           { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
-          { label: 'Fettige Haut', synonyme: ['fettig', 'öl'] },
+          { label: 'Fettige Haut', synonyme: ['fettige haut'] },
         ],
       },
     },
     haare: {
       steps: {
         1: [
-          { label: 'Schuppen & Kopfhautpeeling', synonyme: ['schuppen', 'psoriasis', 'seborrh', 'peeling'] },
-          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig', 'öl', 'talg'] },
-          { label: 'Trockene Kopfhaut', synonyme: ['trocken', 'dehydriert'] },
-          { label: 'Empfindliche Kopfhaut', synonyme: ['empfindlich', 'sensibel', 'entzünd', 'ekzem', 'reizung', 'juckreiz', 'rötung', 'gerötet'] },
+          { label: 'Schuppen & Kopfhautpeeling', synonyme: ['schuppenflechte', 'seborrhoische dermatitis', 'seborrhoische und schuppige', 'kopfhaut-peeling'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['kopfhaut mit hyperhidrose'] },
+          { label: 'Trockene Kopfhaut', synonyme: ['trockene und dehydrierte haut'] },
+          { label: 'Empfindliche Kopfhaut', synonyme: ['für empfindliche'] },
         ],
         2: [
-          { label: 'Schuppen', synonyme: ['schuppen', 'psoriasis', 'seborrh'] },
-          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig', 'öl', 'talg'] },
-          { label: 'Empfindliche Kopfhaut & häufiges Waschen', synonyme: ['trocken', 'empfindlich', 'sensibel', 'entzünd', 'ekzem', 'reizung', 'häufig', 'täglich'] },
-          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+          { label: 'Schuppen', synonyme: ['trockene schuppen', 'trockenen schuppen'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig/schwitzig'] },
+          { label: 'Empfindliche Kopfhaut & häufiges Waschen', synonyme: ['sensible kopfhaut'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbschutz', 'colorschutz', 'gefärbtes haar', 'coloriertes haar'] },
         ],
         3: [
-          { label: 'Juckreiz & Schuppen', synonyme: ['juckreiz', 'schuppen', 'psoriasis', 'seborrh'] },
-          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
-          { label: 'Trockenes Haar & Spliss', synonyme: ['trocken', 'strapaziert', 'brüchig', 'spliss'] },
-          { label: 'Glanz & Kräftigung', synonyme: ['glanz', 'geschmeidig', 'entwirr', 'stärk', 'kräftig'] },
+          { label: 'Juckreiz & Schuppen', synonyme: ['schuppenbildung', 'lindert juckreiz'] },
+          { label: 'Coloriertes Haar', synonyme: ['gefärbt', 'farbschutz', 'colorschutz'], ausschluss: ['glänzender weichspüler'] },
+          { label: 'Trockenes Haar & Spliss', synonyme: ['trockene kopfhaut'] },
+          { label: 'Glanz & Kräftigung', synonyme: ['glänzender weichspüler'] },
         ],
         4: [
-          { label: 'Beruhigung Kopfhaut', synonyme: ['beruhig', 'juckreiz', 'lindert', 'entzünd', 'reizung'] },
-          { label: 'Schutz vor Umwelteinflüssen', synonyme: ['schutz', 'umwelt', 'uv'] },
-          { label: 'Kräftigung & Glanz', synonyme: ['kräftig', 'stärk', 'glanz'] },
+          { label: 'Beruhigung Kopfhaut', synonyme: ['beruhig', 'juckreiz', 'lindert'] },
+          { label: 'Schutz vor Umwelteinflüssen', synonyme: ['schutz', 'umwelt', 'uv', 'witterung'] },
+          { label: 'Kräftigung & Glanz', synonyme: ['glanz und geschmeidigkeit'] },
           { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
         ],
         5: [
-          { label: 'Lockiges Haar & Frizz', synonyme: ['lockig', 'kraus', 'wellig', 'frizz', 'anti-frizz'] },
-          { label: 'Glanz & Geschmeidigkeit', synonyme: ['glanz', 'geschmeidig'] },
-          { label: 'Reparatur & Spliss', synonyme: ['reparatur', 'brüchig', 'entwirr', 'spliss'] },
+          { label: 'Lockiges Haar & Frizz', synonyme: ['anti-frizz-schaum'] },
+          { label: 'Glanz & Geschmeidigkeit', synonyme: ['glanz und geschmeidigkeit'], ausschluss: ['reduziert spliss', 'anti-frizz-schaum'] },
+          { label: 'Reparatur & Spliss', synonyme: ['reduziert spliss'] },
           { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
         ],
         6: [
@@ -234,7 +234,15 @@
 
   function chipHatTreffer(chip, beschreibungLive) {
     const normalisiert = normalisiereBeschreibung(beschreibungLive);
-    return chip.synonyme.some((synonym) => normalisiert.indexOf(synonym) !== -1);
+    const hatSynonym = chip.synonyme.some((synonym) => normalisiert.indexOf(synonym) !== -1);
+    if (!hatSynonym) return false;
+    // Optionale Ausschluss-Liste: Produkt gilt trotz Synonym-Treffer nicht als
+    // Treffer, wenn einer der Ausschluss-Begriffe ebenfalls vorkommt - dient
+    // dazu, thematisch verwandte Chips im selben Schritt zu trennen (z. B.
+    // "Trockene Haut" vs. "Falten/reife Haut", wenn ein Produkt beide Themen
+    // in seiner Beschreibung nennt).
+    const ausschluss = chip.ausschluss || [];
+    return !ausschluss.some((begriff) => normalisiert.indexOf(begriff) !== -1);
   }
 
   const preisFormatter = new Intl.NumberFormat('de-DE', {
@@ -569,8 +577,7 @@
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
       hilfeOffen: false, // Chip-Reihe für "Hilfe bei der Wahl" sichtbar?
       hilfeAktiverChip: null, // Label des aktuell aktiven Chips oder null
-      hilfeErgebnisSku: null, // SKU der hervorgehobenen Karte (nur bei eindeutigem Treffer)
-      hilfeKeineEindeutigeEmpfehlung: false,
+      hilfeErgebnisSkus: [], // SKUs aller Treffer des aktiven Chips; Laenge = Trefferanzahl
       hilfeSchluessel: null, // zuletzt gerenderter Kontext-Schluessel (Bereich|Typ|Schritt), fuer Reset-Erkennung
     };
 
@@ -821,8 +828,11 @@
       const selection = state.selections[schrittNummer];
       const isSelected = !!selection && selection.sku === angezeigtesProdukt.sku;
 
+      const hilfeTrefferAnzahl = state.hilfeErgebnisSkus.length;
       const istEmpfohlen =
-        !!state.hilfeAktiverChip && state.hilfeErgebnisSku === angezeigtesProdukt.sku;
+        !!state.hilfeAktiverChip &&
+        (hilfeTrefferAnzahl === 1 || hilfeTrefferAnzahl === 2) &&
+        state.hilfeErgebnisSkus.indexOf(angezeigtesProdukt.sku) !== -1;
 
       const card = el('div', {
         className:
@@ -923,8 +933,7 @@
       );
       update({
         hilfeAktiverChip: chip.label,
-        hilfeErgebnisSku: treffer.length === 1 ? treffer[0].produkt.sku : null,
-        hilfeKeineEindeutigeEmpfehlung: treffer.length !== 1,
+        hilfeErgebnisSkus: treffer.map((resolved) => resolved.produkt.sku),
       });
     }
 
@@ -945,8 +954,7 @@
                 : {
                     hilfeOffen: false,
                     hilfeAktiverChip: null,
-                    hilfeErgebnisSku: null,
-                    hilfeKeineEindeutigeEmpfehlung: false,
+                    hilfeErgebnisSkus: [],
                   }
             );
           },
@@ -969,13 +977,23 @@
         });
         wrapper.appendChild(chipRow);
 
-        if (state.hilfeAktiverChip && state.hilfeKeineEindeutigeEmpfehlung) {
-          wrapper.appendChild(
-            el('div', {
-              className: 'wizard-hilfe-hinweis',
-              text: 'Keine eindeutige Empfehlung – wähl gern selbst aus',
-            })
-          );
+        if (state.hilfeAktiverChip) {
+          const hilfeTrefferAnzahl = state.hilfeErgebnisSkus.length;
+          if (hilfeTrefferAnzahl === 2) {
+            wrapper.appendChild(
+              el('div', {
+                className: 'wizard-hilfe-hinweis',
+                text: 'Diese beiden Produkte passen zu deinem Anliegen',
+              })
+            );
+          } else if (hilfeTrefferAnzahl !== 1) {
+            wrapper.appendChild(
+              el('div', {
+                className: 'wizard-hilfe-hinweis',
+                text: 'Keine eindeutige Empfehlung – wähl gern selbst aus',
+              })
+            );
+          }
         }
       }
 
@@ -1000,8 +1018,7 @@
           hilfeSchluessel: hilfeSchluessel,
           hilfeOffen: false,
           hilfeAktiverChip: null,
-          hilfeErgebnisSku: null,
-          hilfeKeineEindeutigeEmpfehlung: false,
+          hilfeErgebnisSkus: [],
         });
         return;
       }
