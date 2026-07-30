@@ -5,6 +5,7 @@ import {
   kvKeyForShopDate,
   sessionListKvKey,
   addSessionIdIfMissing,
+  sessionCount,
   KV_TTL_SECONDS,
   buildReportEmail,
   SHOP_IDS,
@@ -36,7 +37,8 @@ async function handleCounterEvent(request, env, metricPrefix) {
     return new Response('Forbidden', { status: 403 });
   }
 
-  const key = kvKeyForShopDate(metricPrefix, shop, todayBerlin());
+  const dateStr = todayBerlin();
+  const key = kvKeyForShopDate(metricPrefix, shop, dateStr);
   try {
     const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
     await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
@@ -70,7 +72,7 @@ async function handleCounterEvent(request, env, metricPrefix) {
   // Schreibvorgang beim zweiten Mal). Bei diesem Traffic-Volumen (Handvoll
   // Events pro Tag) akzeptabel.
   if (sessionId) {
-    const sessionKey = sessionListKvKey(metricPrefix, shop, todayBerlin());
+    const sessionKey = sessionListKvKey(metricPrefix, shop, dateStr);
     try {
       const existing = await env.USAGE_KV.get(sessionKey);
       const { list, changed } = addSessionIdIfMissing(existing, sessionId);
@@ -104,9 +106,9 @@ async function sendDailyReport(env) {
       opens: parseInt(opens || '0', 10),
       clicks: parseInt(clicks || '0', 10),
       cart: parseInt(cart || '0', 10),
-      opensSessions: opensSessions ? JSON.parse(opensSessions).length : 0,
-      clicksSessions: clicksSessions ? JSON.parse(clicksSessions).length : 0,
-      cartSessions: cartSessions ? JSON.parse(cartSessions).length : 0,
+      opensSessions: sessionCount(opensSessions),
+      clicksSessions: sessionCount(clicksSessions),
+      cartSessions: sessionCount(cartSessions),
     };
   }
 

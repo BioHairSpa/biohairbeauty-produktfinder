@@ -9,6 +9,7 @@ import {
   buildReportEmail,
   sessionListKvKey,
   addSessionIdIfMissing,
+  sessionCount,
 } from '../src/logic.js';
 
 test('resolveShopFromOrigin erkennt Hauptshop', () => {
@@ -151,4 +152,21 @@ test('addSessionIdIfMissing fuegt eine zweite, unterschiedliche ID hinzu', () =>
 test('addSessionIdIfMissing behandelt kaputtes JSON wie eine leere Liste', () => {
   const result = addSessionIdIfMissing('{nicht valides json', 'session-a');
   assert.deepEqual(result, { list: ['session-a'], changed: true });
+});
+
+test('sessionCount liefert die Laenge einer gueltigen JSON-Liste', () => {
+  assert.equal(sessionCount(JSON.stringify(['a', 'b', 'c'])), 3);
+});
+
+test('sessionCount liefert 0 fuer null/fehlenden Wert', () => {
+  assert.equal(sessionCount(null), 0);
+  assert.equal(sessionCount(undefined), 0);
+});
+
+test('sessionCount liefert 0 bei kaputtem JSON, statt zu werfen', () => {
+  assert.equal(sessionCount('{nicht valides json'), 0);
+});
+
+test('sessionCount liefert 0 bei gueltigem JSON, das kein Array ist (nicht .length des Strings)', () => {
+  assert.equal(sessionCount('"abc"'), 0);
 });

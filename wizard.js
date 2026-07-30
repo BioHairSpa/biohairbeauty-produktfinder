@@ -1214,10 +1214,6 @@
   // Warenkorb-Ereignisse eintragen.
   const USAGE_CART_URL = 'https://biohairbeauty-usage-tracking.fuerihrehaare.workers.dev/cart';
 
-  // Wichtig: Payload wird als Plain-String an sendBeacon uebergeben (kein Blob,
-  // kein 'application/json'-Content-Type) — das hatte beim urspruenglichen
-  // Oeffnungs-Ping einen CORS-Preflight-Bug verursacht (Browser hat den
-  // Preflight geschickt, aber nie den eigentlichen POST — siehe Commit 1535557).
   const USAGE_SESSION_STORAGE_KEY = 'wizardUsageSessionId';
 
   function createFallbackId() {
@@ -1247,6 +1243,10 @@
     }
   }
 
+  // Wichtig: Payload wird als Plain-String an sendBeacon uebergeben (kein Blob,
+  // kein 'application/json'-Content-Type) — das hatte beim urspruenglichen
+  // Oeffnungs-Ping einen CORS-Preflight-Bug verursacht (Browser hat den
+  // Preflight geschickt, aber nie den eigentlichen POST — siehe Commit 1535557).
   function sendUsageBeacon(url) {
     if (!url) {
       return;

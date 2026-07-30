@@ -215,6 +215,8 @@ numerische Produkt-ID braucht, die nur der Live-Lookup liefert.
   Nutzungs-Tracking einrichten") einmal auf beiden echten Shop-Domains den Wizard öffnen,
   einen Produktlink anklicken und ein Produkt in den Warenkorb legen — danach in
   Cloudflare (`npx wrangler kv key get ... --binding=USAGE_KV --remote`) prüfen, ob alle
-  drei Zähler (`count:`, `clicks:`, `cart:`) hochgezählt werden. Am Folgetag prüfen, ob
-  die tägliche Bericht-E-Mail bei ag@biohairspa.de ankommt und alle drei Metriken pro
-  Shop enthält.
+  drei Zähler (`count:`, `clicks:`, `cart:`) hochgezählt werden, sowie ob die
+  zugehörigen `sessions:count:`, `sessions:clicks:` und `sessions:cart:` Schlüssel
+  eine Sitzungs-ID enthalten. Am Folgetag prüfen, ob die tägliche Bericht-E-Mail bei
+  ag@biohairspa.de ankommt und alle drei Metriken pro Shop inklusive der jeweiligen
+  Sitzungszahl (z. B. "(N Sitzungen)") enthält.

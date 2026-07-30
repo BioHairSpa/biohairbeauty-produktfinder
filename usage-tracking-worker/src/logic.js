@@ -44,6 +44,15 @@ export function sessionListKvKey(metricPrefix, shop, dateStr) {
   return 'sessions:' + metricPrefix + ':' + shop + ':' + dateStr;
 }
 
+export function sessionCount(existingListJson) {
+  try {
+    const list = existingListJson ? JSON.parse(existingListJson) : [];
+    return Array.isArray(list) ? list.length : 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
 export function addSessionIdIfMissing(existingListJson, sessionId) {
   let liste;
   try {
