@@ -125,6 +125,9 @@ Deployment erfordert aber echte Cloudflare- und Resend-Accounts — das kannst n
 selbst einrichten. Neben Wizard-Öffnungen (`/ping`) zählt der Worker inzwischen auch
 Produktlink-Klicks (`/click`) und erfolgreiche Warenkorb-Ereignisse (`/cart`), jeweils
 getrennt pro Shop — alle drei erscheinen in derselben täglichen Bericht-E-Mail.
+Pro Metrik wird zusätzlich die Anzahl eindeutiger Browser-Sitzungen ausgewiesen (z. B.
+"42 Öffnungen (18 Sitzungen)") — eine Sitzung endet mit dem Schließen des Tabs
+(`sessionStorage`, keine dauerhafte Wiedererkennung über Tage hinweg).
 
 1. Cloudflare-Account prüfen/anlegen, Zugriff auf Workers + KV sicherstellen.
 2. `wrangler` lokal einrichten: `cd usage-tracking-worker && npm install`, dann

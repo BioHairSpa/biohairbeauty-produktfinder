@@ -97,10 +97,16 @@ async function sendDailyReport(env) {
     const opens = await env.USAGE_KV.get(kvKeyForShopDate('count', shop, dateStr));
     const clicks = await env.USAGE_KV.get(kvKeyForShopDate('clicks', shop, dateStr));
     const cart = await env.USAGE_KV.get(kvKeyForShopDate('cart', shop, dateStr));
+    const opensSessions = await env.USAGE_KV.get(sessionListKvKey('count', shop, dateStr));
+    const clicksSessions = await env.USAGE_KV.get(sessionListKvKey('clicks', shop, dateStr));
+    const cartSessions = await env.USAGE_KV.get(sessionListKvKey('cart', shop, dateStr));
     counts[shop] = {
       opens: parseInt(opens || '0', 10),
       clicks: parseInt(clicks || '0', 10),
       cart: parseInt(cart || '0', 10),
+      opensSessions: opensSessions ? JSON.parse(opensSessions).length : 0,
+      clicksSessions: clicksSessions ? JSON.parse(clicksSessions).length : 0,
+      cartSessions: cartSessions ? JSON.parse(cartSessions).length : 0,
     };
   }
 
