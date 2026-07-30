@@ -567,6 +567,11 @@
       cartAdded: {}, // { [sku]: true }
       cartErrors: {}, // { [sku]: Fehlermeldung }
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
+      hilfeOffen: false, // Chip-Reihe für "Hilfe bei der Wahl" sichtbar?
+      hilfeAktiverChip: null, // Label des aktuell aktiven Chips oder null
+      hilfeErgebnisSku: null, // SKU der hervorgehobenen Karte (nur bei eindeutigem Treffer)
+      hilfeKeineEindeutigeEmpfehlung: false,
+      hilfeSchrittNummer: null, // zuletzt gerenderte Schritt-Nummer, fuer Reset-Erkennung
     };
 
     if (!mountOptions.overlay) {
@@ -906,6 +911,15 @@
       const schritte = getSchritte(data, state.bereich);
       const idx = state.currentStepIndex;
       const schritt = schritte[idx];
+
+      // Schrittwechsel erkannt (Navigation vor/zurück, Bereichswechsel) -> Hilfe-
+      // Zustand zurücksetzen. Gleiches Idiom wie der bestehende Auto-Skip leerer
+      // Schritte weiter unten: State ändern + return, kein Render in diesem Aufruf.
+      if (state.hilfeSchrittNummer !== schritt.nummer) {
+        update({ hilfeSchrittNummer: schritt.nummer, hilfeOffen: false, hilfeAktiverChip: null });
+        return;
+      }
+
       const isLastStep = idx === schritte.length - 1;
       const produkte = getProdukte(data, state.bereich, state.typKey, schritt.nummer);
 
