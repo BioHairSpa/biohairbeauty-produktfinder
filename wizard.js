@@ -571,7 +571,7 @@
       hilfeAktiverChip: null, // Label des aktuell aktiven Chips oder null
       hilfeErgebnisSku: null, // SKU der hervorgehobenen Karte (nur bei eindeutigem Treffer)
       hilfeKeineEindeutigeEmpfehlung: false,
-      hilfeSchrittNummer: null, // zuletzt gerenderte Schritt-Nummer, fuer Reset-Erkennung
+      hilfeSchluessel: null, // zuletzt gerenderter Kontext-Schluessel (Bereich|Typ|Schritt), fuer Reset-Erkennung
     };
 
     if (!mountOptions.overlay) {
@@ -937,7 +937,19 @@
           className: 'wizard-button-secondary wizard-hilfe-button',
           attrs: { type: 'button', disabled: liveBereit ? null : 'disabled' },
           text: 'Hilfe bei der Wahl',
-          onClick: () => update({ hilfeOffen: !state.hilfeOffen }),
+          onClick: () => {
+            const wirdGeoeffnet = !state.hilfeOffen;
+            update(
+              wirdGeoeffnet
+                ? { hilfeOffen: true }
+                : {
+                    hilfeOffen: false,
+                    hilfeAktiverChip: null,
+                    hilfeErgebnisSku: null,
+                    hilfeKeineEindeutigeEmpfehlung: false,
+                  }
+            );
+          },
         })
       );
 
@@ -975,11 +987,22 @@
       const idx = state.currentStepIndex;
       const schritt = schritte[idx];
 
-      // Schrittwechsel erkannt (Navigation vor/zurück, Bereichswechsel) -> Hilfe-
-      // Zustand zurücksetzen. Gleiches Idiom wie der bestehende Auto-Skip leerer
-      // Schritte weiter unten: State ändern + return, kein Render in diesem Aufruf.
-      if (state.hilfeSchrittNummer !== schritt.nummer) {
-        update({ hilfeSchrittNummer: schritt.nummer, hilfeOffen: false, hilfeAktiverChip: null });
+      // Kontextwechsel erkannt (Schritt, Hauttyp/Haartyp ODER Bereich) -> Hilfe-
+      // Zustand komplett zurücksetzen. Gleiches Idiom wie der bestehende Auto-Skip
+      // leerer Schritte weiter unten: State ändern + return, kein Render in diesem
+      // Aufruf. Schlüssel statt nur schritt.nummer, weil Gesicht und Haare
+      // ueberlappende Schritt-Nummern haben (beide starten bei 1) - ein reiner
+      // Nummern-Vergleich wuerde beim Bereichs-/Typ-Wechsel faelschlich nicht
+      // zuruecksetzen.
+      const hilfeSchluessel = state.bereich + '|' + state.typKey + '|' + schritt.nummer;
+      if (state.hilfeSchluessel !== hilfeSchluessel) {
+        update({
+          hilfeSchluessel: hilfeSchluessel,
+          hilfeOffen: false,
+          hilfeAktiverChip: null,
+          hilfeErgebnisSku: null,
+          hilfeKeineEindeutigeEmpfehlung: false,
+        });
         return;
       }
 
