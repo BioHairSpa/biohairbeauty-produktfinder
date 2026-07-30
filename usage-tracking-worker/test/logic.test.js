@@ -7,6 +7,9 @@ import {
   kvKeyForShopDate,
   KV_TTL_SECONDS,
   buildReportEmail,
+  sessionListKvKey,
+  addSessionIdIfMissing,
+  sessionCount,
 } from '../src/logic.js';
 
 test('resolveShopFromOrigin erkennt Hauptshop', () => {
@@ -77,42 +80,93 @@ test('KV_TTL_SECONDS entspricht 30 Tagen', () => {
   assert.equal(KV_TTL_SECONDS, 30 * 24 * 60 * 60);
 });
 
-test('buildReportEmail formatiert Betreff und Text mit beiden Shops und allen Metriken', () => {
+test('buildReportEmail formatiert Betreff und Text mit beiden Shops, allen Metriken und Sitzungszahlen', () => {
   const { subject, text } = buildReportEmail({
     dateStr: '2026-07-27',
     counts: {
-      hauptshop: { opens: 42, clicks: 15, cart: 6 },
-      member: { opens: 7, clicks: 3, cart: 1 },
+      hauptshop: { opens: 42, clicks: 15, cart: 6, opensSessions: 18, clicksSessions: 9, cartSessions: 4 },
+      member: { opens: 7, clicks: 3, cart: 1, opensSessions: 5, clicksSessions: 2, cartSessions: 1 },
     },
   });
   assert.equal(subject, 'Wizard-Nutzung 27.07.2026');
   assert.equal(
     text,
-    'Hauptshop: 42 Öffnungen, 15 Klicks, 6 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 7 Öffnungen, 3 Klicks, 1 Warenkorb-Ereignisse'
+    'Hauptshop: 42 Öffnungen (18 Sitzungen), 15 Klicks (9 Sitzungen), 6 Warenkorb-Ereignisse (4 Sitzungen)\n' +
+      'Member-Shop: 7 Öffnungen (5 Sitzungen), 3 Klicks (2 Sitzungen), 1 Warenkorb-Ereignisse (1 Sitzungen)'
   );
 });
 
-test('buildReportEmail behandelt komplett leeres counts-Objekt als 0', () => {
+test('buildReportEmail behandelt komplett leeres counts-Objekt als 0 (inkl. Sitzungen)', () => {
   const { text } = buildReportEmail({ dateStr: '2026-07-27', counts: {} });
   assert.equal(
     text,
-    'Hauptshop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+    'Hauptshop: 0 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)\n' +
+      'Member-Shop: 0 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)'
   );
 });
 
-test('buildReportEmail behandelt fehlende Einzelmetrik als 0', () => {
+test('buildReportEmail behandelt fehlende Einzelmetrik und fehlende Sitzungsfelder als 0', () => {
   const { text } = buildReportEmail({
     dateStr: '2026-07-27',
     counts: {
-      hauptshop: { opens: 10, cart: 2 },
+      hauptshop: { opens: 10, cart: 2, opensSessions: 6 },
       member: { opens: 1 },
     },
   });
   assert.equal(
     text,
-    'Hauptshop: 10 Öffnungen, 0 Klicks, 2 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 1 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+    'Hauptshop: 10 Öffnungen (6 Sitzungen), 0 Klicks (0 Sitzungen), 2 Warenkorb-Ereignisse (0 Sitzungen)\n' +
+      'Member-Shop: 1 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)'
   );
+});
+
+test('sessionListKvKey baut den erwarteten Schluessel', () => {
+  assert.equal(
+    sessionListKvKey('count', 'hauptshop', '2026-07-27'),
+    'sessions:count:hauptshop:2026-07-27'
+  );
+});
+
+test('sessionListKvKey baut unterschiedliche Schluessel fuer unterschiedliche Metrik-Praefixe', () => {
+  assert.equal(sessionListKvKey('clicks', 'hauptshop', '2026-07-27'), 'sessions:clicks:hauptshop:2026-07-27');
+  assert.equal(sessionListKvKey('cart', 'hauptshop', '2026-07-27'), 'sessions:cart:hauptshop:2026-07-27');
+});
+
+test('addSessionIdIfMissing fuegt neue ID zu leerer Liste (null) hinzu', () => {
+  const result = addSessionIdIfMissing(null, 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: true });
+});
+
+test('addSessionIdIfMissing erkennt dieselbe ID als bereits vorhanden', () => {
+  const bestehend = JSON.stringify(['session-a']);
+  const result = addSessionIdIfMissing(bestehend, 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: false });
+});
+
+test('addSessionIdIfMissing fuegt eine zweite, unterschiedliche ID hinzu', () => {
+  const bestehend = JSON.stringify(['session-a']);
+  const result = addSessionIdIfMissing(bestehend, 'session-b');
+  assert.deepEqual(result, { list: ['session-a', 'session-b'], changed: true });
+});
+
+test('addSessionIdIfMissing behandelt kaputtes JSON wie eine leere Liste', () => {
+  const result = addSessionIdIfMissing('{nicht valides json', 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: true });
+});
+
+test('sessionCount liefert die Laenge einer gueltigen JSON-Liste', () => {
+  assert.equal(sessionCount(JSON.stringify(['a', 'b', 'c'])), 3);
+});
+
+test('sessionCount liefert 0 fuer null/fehlenden Wert', () => {
+  assert.equal(sessionCount(null), 0);
+  assert.equal(sessionCount(undefined), 0);
+});
+
+test('sessionCount liefert 0 bei kaputtem JSON, statt zu werfen', () => {
+  assert.equal(sessionCount('{nicht valides json'), 0);
+});
+
+test('sessionCount liefert 0 bei gueltigem JSON, das kein Array ist (nicht .length des Strings)', () => {
+  assert.equal(sessionCount('"abc"'), 0);
 });

@@ -40,6 +40,33 @@ export function kvKeyForShopDate(prefix, shop, dateStr) {
   return prefix + ':' + shop + ':' + dateStr;
 }
 
+export function sessionListKvKey(metricPrefix, shop, dateStr) {
+  return 'sessions:' + metricPrefix + ':' + shop + ':' + dateStr;
+}
+
+export function sessionCount(existingListJson) {
+  try {
+    const list = existingListJson ? JSON.parse(existingListJson) : [];
+    return Array.isArray(list) ? list.length : 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
+export function addSessionIdIfMissing(existingListJson, sessionId) {
+  let liste;
+  try {
+    liste = existingListJson ? JSON.parse(existingListJson) : [];
+    if (!Array.isArray(liste)) liste = [];
+  } catch (error) {
+    liste = [];
+  }
+  if (liste.indexOf(sessionId) !== -1) {
+    return { list: liste, changed: false };
+  }
+  return { list: liste.concat([sessionId]), changed: true };
+}
+
 const SHOP_LABELS = {
   hauptshop: 'Hauptshop',
   member: 'Member-Shop',
@@ -58,6 +85,12 @@ const METRIC_LABELS = {
   cart: 'Warenkorb-Ereignisse',
 };
 
+const METRIC_SESSION_FIELDS = {
+  opens: 'opensSessions',
+  clicks: 'clicksSessions',
+  cart: 'cartSessions',
+};
+
 export function buildReportEmail(input) {
   const dateStr = input.dateStr;
   const counts = input.counts;
@@ -66,7 +99,8 @@ export function buildReportEmail(input) {
     const shopCounts = counts[shop] || {};
     const parts = METRIC_ORDER.map(function (metric) {
       const value = shopCounts[metric] || 0;
-      return value + ' ' + METRIC_LABELS[metric];
+      const sessionValue = shopCounts[METRIC_SESSION_FIELDS[metric]] || 0;
+      return value + ' ' + METRIC_LABELS[metric] + ' (' + sessionValue + ' Sitzungen)';
     });
     return SHOP_LABELS[shop] + ': ' + parts.join(', ');
   });

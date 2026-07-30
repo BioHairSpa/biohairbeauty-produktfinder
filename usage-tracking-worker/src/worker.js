@@ -3,6 +3,9 @@ import {
   todayBerlin,
   yesterdayBerlin,
   kvKeyForShopDate,
+  sessionListKvKey,
+  addSessionIdIfMissing,
+  sessionCount,
   KV_TTL_SECONDS,
   buildReportEmail,
   SHOP_IDS,
@@ -34,7 +37,8 @@ async function handleCounterEvent(request, env, metricPrefix) {
     return new Response('Forbidden', { status: 403 });
   }
 
-  const key = kvKeyForShopDate(metricPrefix, shop, todayBerlin());
+  const dateStr = todayBerlin();
+  const key = kvKeyForShopDate(metricPrefix, shop, dateStr);
   try {
     const current = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
     await env.USAGE_KV.put(key, String(current + 1), { expirationTtl: KV_TTL_SECONDS });
@@ -44,6 +48,42 @@ async function handleCounterEvent(request, env, metricPrefix) {
       status: 500,
       headers: { 'Access-Control-Allow-Origin': origin },
     });
+  }
+
+  let sessionId = null;
+  try {
+    const body = await request.text();
+    const parsed = body ? JSON.parse(body) : null;
+    if (parsed && typeof parsed.sessionId === 'string' && parsed.sessionId) {
+      sessionId = parsed.sessionId;
+    }
+  } catch (err) {
+    // Payload-Parsing ist best-effort - ein kaputter/fehlender Body darf den
+    // bereits erfolgten Zaehler-Increment oben nicht rueckgaengig machen oder
+    // die Antwort auf 500 setzen.
+  }
+
+  // Sitzungs-Liste aktualisieren: rein additiv, darf den obigen Zaehler-Erfolg
+  // nicht beeintraechtigen. Race-Bedingung bewusst nicht geloest: Dieses
+  // Read-Modify-Write ist nicht atomar. Zwei praktisch gleichzeitige Requests mit
+  // unterschiedlichen neuen Sitzungs-IDs koennten sich gegenseitig ueberschreiben
+  // (der zweite Schreibvorgang gewinnt und enthaelt nur seine eigene neue ID).
+  // Dieselbe ID doppelt zu senden ist dagegen unkritisch (idempotent, kein
+  // Schreibvorgang beim zweiten Mal). Bei diesem Traffic-Volumen (Handvoll
+  // Events pro Tag) akzeptabel.
+  if (sessionId) {
+    const sessionKey = sessionListKvKey(metricPrefix, shop, dateStr);
+    try {
+      const existing = await env.USAGE_KV.get(sessionKey);
+      const { list, changed } = addSessionIdIfMissing(existing, sessionId);
+      if (changed) {
+        await env.USAGE_KV.put(sessionKey, JSON.stringify(list), {
+          expirationTtl: KV_TTL_SECONDS,
+        });
+      }
+    } catch (err) {
+      console.error('[usage-tracking] KV-Fehler bei Sitzungs-Liste (' + metricPrefix + '):', err);
+    }
   }
 
   return new Response('OK', {
@@ -59,10 +99,16 @@ async function sendDailyReport(env) {
     const opens = await env.USAGE_KV.get(kvKeyForShopDate('count', shop, dateStr));
     const clicks = await env.USAGE_KV.get(kvKeyForShopDate('clicks', shop, dateStr));
     const cart = await env.USAGE_KV.get(kvKeyForShopDate('cart', shop, dateStr));
+    const opensSessions = await env.USAGE_KV.get(sessionListKvKey('count', shop, dateStr));
+    const clicksSessions = await env.USAGE_KV.get(sessionListKvKey('clicks', shop, dateStr));
+    const cartSessions = await env.USAGE_KV.get(sessionListKvKey('cart', shop, dateStr));
     counts[shop] = {
       opens: parseInt(opens || '0', 10),
       clicks: parseInt(clicks || '0', 10),
       cart: parseInt(cart || '0', 10),
+      opensSessions: sessionCount(opensSessions),
+      clicksSessions: sessionCount(clicksSessions),
+      cartSessions: sessionCount(cartSessions),
     };
   }
 
