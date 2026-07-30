@@ -1218,11 +1218,40 @@
   // kein 'application/json'-Content-Type) — das hatte beim urspruenglichen
   // Oeffnungs-Ping einen CORS-Preflight-Bug verursacht (Browser hat den
   // Preflight geschickt, aber nie den eigentlichen POST — siehe Commit 1535557).
+  const USAGE_SESSION_STORAGE_KEY = 'wizardUsageSessionId';
+
+  function createFallbackId() {
+    // Nur fuer Browser ohne crypto.randomUUID (sehr alt / kein sicherer Kontext) -
+    // muss nicht kryptografisch sicher sein, nur innerhalb eines Tages eindeutig genug.
+    return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  }
+
+  function neueSessionId() {
+    return typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : createFallbackId();
+  }
+
+  function getOrCreateSessionId() {
+    try {
+      const bestehend = sessionStorage.getItem(USAGE_SESSION_STORAGE_KEY);
+      if (bestehend) return bestehend;
+      const neu = neueSessionId();
+      sessionStorage.setItem(USAGE_SESSION_STORAGE_KEY, neu);
+      return neu;
+    } catch (error) {
+      // sessionStorage evtl. nicht verfuegbar (z. B. Safari privat) - dann pro
+      // Aufruf neu generieren; Beacon funktioniert weiter, nur ohne
+      // Sitzungs-Kontinuitaet innerhalb dieses Edge-Case.
+      return neueSessionId();
+    }
+  }
+
   function sendUsageBeacon(url) {
     if (!url) {
       return;
     }
-    const payload = JSON.stringify({ shop: config.key });
+    const payload = JSON.stringify({ shop: config.key, sessionId: getOrCreateSessionId() });
     try {
       if (navigator.sendBeacon && navigator.sendBeacon(url, payload)) {
         return;
