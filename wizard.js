@@ -133,6 +133,118 @@
     },
   };
 
+  // ---------------------------------------------------------------------
+  // "Hilfe bei der Wahl" — Chip-zu-Synonym-Zuordnung pro Bereich/Schritt.
+  // Synonyme bereits kleingeschrieben hinterlegt (nur der zu pruefende
+  // Beschreibungstext wird zur Laufzeit normalisiert). Trefferqualitaet
+  // haengt von den echten Live-Beschreibungstexten in Ecwid ab - diese
+  // Konfiguration ist bewusst zentral und leicht nachjustierbar.
+  // ---------------------------------------------------------------------
+
+  const HILFE_CHIPS = {
+    gesicht: {
+      steps: {
+        1: [
+          { label: 'Unreine Haut/Akne', synonyme: ['akne', 'mitesser'], ausschluss: ['dehydrierte haut'] },
+          { label: 'Fettige Haut', synonyme: ['fettige haut'], ausschluss: ['empfindliche und normale haut'] },
+          { label: 'Trockene Haut', synonyme: ['dehydrierte haut'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindliche und normale haut'] },
+        ],
+        2: [
+          { label: 'Unreine Haut/Akne', synonyme: ['mitesser'] },
+          { label: 'Falten/reife Haut', synonyme: ['reife haut', 'anti-aging'] },
+          { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
+          { label: 'Narbenpflege', synonyme: ['narbe'] },
+        ],
+        3: [
+          { label: 'Mischhaut', synonyme: ['mischhaut'] },
+          { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
+          { label: 'Trockene Haut', synonyme: ['trockene haut'] },
+          { label: 'Empfindliche Haut', synonyme: ['ekzem', 'psoriasis'] },
+        ],
+        4: [
+          { label: 'Falten/reife Haut', synonyme: ['reife haut', 'anti-aging'], ausschluss: ['bartrasur'] },
+          { label: 'Trockene Haut', synonyme: ['trockene haut'] },
+          { label: 'Pigmentflecken', synonyme: ['pigment', 'fleck'] },
+          { label: 'Rötungen/Couperose', synonyme: ['rötung', 'couperose', 'rosacea'] },
+        ],
+        5: [
+          { label: 'Trockene Haut', synonyme: ['trockene haut'], ausschluss: ['reife haut'] },
+          { label: 'Falten/reife Haut', synonyme: ['reife haut mit geringer elastizität'] },
+          { label: 'Empfindliche Haut', synonyme: ['empfindlich', 'sensib', 'entzünd', 'ekzem', 'psoriasis', 'irritiert'] },
+          { label: 'Fettige Haut', synonyme: ['fettige haut'] },
+        ],
+      },
+    },
+    haare: {
+      steps: {
+        1: [
+          { label: 'Schuppen & Kopfhautpeeling', synonyme: ['schuppenflechte', 'seborrhoische dermatitis', 'seborrhoische und schuppige', 'kopfhaut-peeling'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['kopfhaut mit hyperhidrose'] },
+          { label: 'Trockene Kopfhaut', synonyme: ['trockene und dehydrierte haut'] },
+          { label: 'Empfindliche Kopfhaut', synonyme: ['für empfindliche'] },
+        ],
+        2: [
+          { label: 'Schuppen', synonyme: ['trockene schuppen', 'trockenen schuppen'] },
+          { label: 'Fettige Kopfhaut/Haare', synonyme: ['fettig/schwitzig'] },
+          { label: 'Empfindliche Kopfhaut & häufiges Waschen', synonyme: ['sensible kopfhaut'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbschutz', 'colorschutz', 'gefärbtes haar', 'coloriertes haar'] },
+        ],
+        3: [
+          { label: 'Juckreiz & Schuppen', synonyme: ['schuppenbildung', 'lindert juckreiz'] },
+          { label: 'Coloriertes Haar', synonyme: ['gefärbt', 'farbschutz', 'colorschutz'], ausschluss: ['glänzender weichspüler'] },
+          { label: 'Trockenes Haar & Spliss', synonyme: ['trockene kopfhaut'] },
+          { label: 'Glanz & Kräftigung', synonyme: ['glänzender weichspüler'] },
+        ],
+        4: [
+          { label: 'Beruhigung Kopfhaut', synonyme: ['beruhig', 'juckreiz', 'lindert'] },
+          { label: 'Schutz vor Umwelteinflüssen', synonyme: ['schutz', 'umwelt', 'uv', 'witterung'] },
+          { label: 'Kräftigung & Glanz', synonyme: ['glanz und geschmeidigkeit'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+        ],
+        5: [
+          { label: 'Lockiges Haar & Frizz', synonyme: ['anti-frizz-schaum'] },
+          { label: 'Glanz & Geschmeidigkeit', synonyme: ['glanz und geschmeidigkeit'], ausschluss: ['reduziert spliss', 'anti-frizz-schaum'] },
+          { label: 'Reparatur & Spliss', synonyme: ['reduziert spliss'] },
+          { label: 'Coloriertes Haar', synonyme: ['farbe', 'gefärbt', 'farbschutz', 'colorschutz'] },
+        ],
+        6: [
+          { label: 'Haarausfall', synonyme: ['ausfall', 'ausfallphase'] },
+          { label: 'Haarwachstum', synonyme: ['wachstum', 'wachstumsphase'] },
+          { label: 'Dünner werdendes Haar', synonyme: ['dünn', 'volumen'] },
+          { label: 'Haarzwiebeln stärken', synonyme: ['haarzwiebel', 'follikel'] },
+        ],
+      },
+    },
+  };
+
+  function getHilfeChips(bereich, schrittNummer) {
+    const eintrag = HILFE_CHIPS[bereich];
+    if (!eintrag) return [];
+    return (eintrag.steps && eintrag.steps[schrittNummer]) || eintrag.default || [];
+  }
+
+  function stripHtml(html) {
+    return (html || '').replace(/<[^>]*>/g, ' ');
+  }
+
+  function normalisiereBeschreibung(html) {
+    return stripHtml(html).toLowerCase();
+  }
+
+  function chipHatTreffer(chip, beschreibungLive) {
+    const normalisiert = normalisiereBeschreibung(beschreibungLive);
+    const hatSynonym = chip.synonyme.some((synonym) => normalisiert.indexOf(synonym) !== -1);
+    if (!hatSynonym) return false;
+    // Optionale Ausschluss-Liste: Produkt gilt trotz Synonym-Treffer nicht als
+    // Treffer, wenn einer der Ausschluss-Begriffe ebenfalls vorkommt - dient
+    // dazu, thematisch verwandte Chips im selben Schritt zu trennen (z. B.
+    // "Trockene Haut" vs. "Falten/reife Haut", wenn ein Produkt beide Themen
+    // in seiner Beschreibung nennt).
+    const ausschluss = chip.ausschluss || [];
+    return !ausschluss.some((begriff) => normalisiert.indexOf(begriff) !== -1);
+  }
+
   const preisFormatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
@@ -198,10 +310,10 @@
     }
   }
 
-  // Liefert { verfuegbar, ecwidId, imageUrl } oder null (kein Token hinterlegt /
-  // Live-Check fehlgeschlagen -> Aufrufer soll dann auf den JSON-Snapshot
-  // zurückfallen). imageUrl kommt aus demselben Suchaufruf wie die
-  // Verfügbarkeit — kein zusätzlicher Request nötig.
+  // Liefert { verfuegbar, ecwidId, imageUrl, beschreibung } oder null (kein Token
+  // hinterlegt / Live-Check fehlgeschlagen -> Aufrufer soll dann auf den
+  // JSON-Snapshot zurückfallen). imageUrl/beschreibung kommen aus demselben
+  // Suchaufruf wie die Verfügbarkeit — kein zusätzlicher Request nötig.
   function fetchLiveInfo(sku) {
     if (!config.publicToken) return Promise.resolve(null);
     if (liveInfoCache[sku]) return liveInfoCache[sku];
@@ -233,8 +345,9 @@
               verfuegbar: !!item.enabled && (item.unlimited || item.inStock),
               ecwidId: item.id,
               imageUrl: item.imageUrl || null,
+              beschreibung: item.description || null,
             }
-          : { verfuegbar: false, ecwidId: null, imageUrl: null };
+          : { verfuegbar: false, ecwidId: null, imageUrl: null, beschreibung: null };
         writeSessionCache(sku, result);
         return result;
       })
@@ -270,12 +383,15 @@
       if (!konnteLiveGeprueftWerden) {
         // Kein Token hinterlegt oder alle Anfragen fehlgeschlagen -> stiller
         // Fallback auf den JSON-Snapshot, keine blockierende Fehlermeldung.
+        // beschreibungLive bleibt null - "Hilfe bei der Wahl" nutzt niemals den
+        // JSON-Snapshot als Ersatz fuer die Live-Beschreibung.
         return {
           produkt: produkt,
           ecwidId: null,
           istVerfuegbar: produkt.verfuegbar,
           liveGeprueft: false,
           bildUrl: produkt.bild_url,
+          beschreibungLive: null,
         };
       }
 
@@ -287,6 +403,7 @@
           istVerfuegbar: true,
           liveGeprueft: true,
           bildUrl: verfuegbarerKandidat.liveInfo.imageUrl || verfuegbarerKandidat.kandidat.bild_url,
+          beschreibungLive: verfuegbarerKandidat.liveInfo.beschreibung,
         };
       }
 
@@ -296,6 +413,7 @@
         istVerfuegbar: false,
         liveGeprueft: true,
         bildUrl: produkt.bild_url,
+        beschreibungLive: null,
       };
     });
   }
@@ -457,6 +575,10 @@
       cartAdded: {}, // { [sku]: true }
       cartErrors: {}, // { [sku]: Fehlermeldung }
       liveByStep: {}, // { [schrittNummer]: { status: 'loading' | 'ready', results } }
+      hilfeOffen: false, // Chip-Reihe für "Hilfe bei der Wahl" sichtbar?
+      hilfeAktiverChip: null, // Label des aktuell aktiven Chips oder null
+      hilfeErgebnisSkus: [], // SKUs aller Treffer des aktiven Chips; Laenge = Trefferanzahl
+      hilfeSchluessel: null, // zuletzt gerenderter Kontext-Schluessel (Bereich|Typ|Schritt), fuer Reset-Erkennung
     };
 
     if (!mountOptions.overlay) {
@@ -619,6 +741,7 @@
         istVerfuegbar: produkt.verfuegbar,
         liveGeprueft: false,
         bildUrl: produkt.bild_url,
+        beschreibungLive: null,
       };
     }
 
@@ -705,8 +828,17 @@
       const selection = state.selections[schrittNummer];
       const isSelected = !!selection && selection.sku === angezeigtesProdukt.sku;
 
+      const hilfeTrefferAnzahl = state.hilfeErgebnisSkus.length;
+      const istEmpfohlen =
+        !!state.hilfeAktiverChip &&
+        (hilfeTrefferAnzahl === 1 || hilfeTrefferAnzahl === 2) &&
+        state.hilfeErgebnisSkus.indexOf(angezeigtesProdukt.sku) !== -1;
+
       const card = el('div', {
-        className: 'wizard-produkt-card' + (isSelected ? ' wizard-produkt-card--selected' : ''),
+        className:
+          'wizard-produkt-card' +
+          (isSelected ? ' wizard-produkt-card--selected' : '') +
+          (istEmpfohlen ? ' wizard-produkt-card--empfohlen' : ''),
       });
 
       // Bild bevorzugt live von Ecwid (resolvedInfo.bildUrl), JSON-Snapshot
@@ -791,10 +923,106 @@
       return card;
     }
 
+    function handleHilfeChipClick(chip, verfuegbareResolved) {
+      if (state.hilfeAktiverChip === chip.label) {
+        update({ hilfeAktiverChip: null });
+        return;
+      }
+      const treffer = verfuegbareResolved.filter((resolved) =>
+        chipHatTreffer(chip, resolved.beschreibungLive)
+      );
+      update({
+        hilfeAktiverChip: chip.label,
+        hilfeErgebnisSkus: treffer.map((resolved) => resolved.produkt.sku),
+      });
+    }
+
+    function renderHilfeBereich(schritt, verfuegbareResolved, liveEntry) {
+      const wrapper = el('div', { className: 'wizard-hilfe-bereich' });
+      const liveBereit = !!liveEntry && liveEntry.status === 'ready';
+
+      wrapper.appendChild(
+        el('button', {
+          className: 'wizard-button-secondary wizard-hilfe-button',
+          attrs: { type: 'button', disabled: liveBereit ? null : 'disabled' },
+          text: 'Hilfe bei der Wahl',
+          onClick: () => {
+            const wirdGeoeffnet = !state.hilfeOffen;
+            update(
+              wirdGeoeffnet
+                ? { hilfeOffen: true }
+                : {
+                    hilfeOffen: false,
+                    hilfeAktiverChip: null,
+                    hilfeErgebnisSkus: [],
+                  }
+            );
+          },
+        })
+      );
+
+      if (state.hilfeOffen) {
+        const chips = getHilfeChips(state.bereich, schritt.nummer);
+        const chipRow = el('div', { className: 'wizard-hilfe-chips' });
+        chips.forEach((chip) => {
+          const istAktiv = state.hilfeAktiverChip === chip.label;
+          chipRow.appendChild(
+            el('button', {
+              className: 'wizard-hilfe-chip' + (istAktiv ? ' wizard-hilfe-chip--aktiv' : ''),
+              attrs: { type: 'button' },
+              text: chip.label,
+              onClick: () => handleHilfeChipClick(chip, verfuegbareResolved),
+            })
+          );
+        });
+        wrapper.appendChild(chipRow);
+
+        if (state.hilfeAktiverChip) {
+          const hilfeTrefferAnzahl = state.hilfeErgebnisSkus.length;
+          if (hilfeTrefferAnzahl === 2) {
+            wrapper.appendChild(
+              el('div', {
+                className: 'wizard-hilfe-hinweis',
+                text: 'Diese beiden Produkte passen zu deinem Anliegen',
+              })
+            );
+          } else if (hilfeTrefferAnzahl !== 1) {
+            wrapper.appendChild(
+              el('div', {
+                className: 'wizard-hilfe-hinweis',
+                text: 'Keine eindeutige Empfehlung – wähl gern selbst aus',
+              })
+            );
+          }
+        }
+      }
+
+      return wrapper;
+    }
+
     function renderSchrittScreen() {
       const schritte = getSchritte(data, state.bereich);
       const idx = state.currentStepIndex;
       const schritt = schritte[idx];
+
+      // Kontextwechsel erkannt (Schritt, Hauttyp/Haartyp ODER Bereich) -> Hilfe-
+      // Zustand komplett zurücksetzen. Gleiches Idiom wie der bestehende Auto-Skip
+      // leerer Schritte weiter unten: State ändern + return, kein Render in diesem
+      // Aufruf. Schlüssel statt nur schritt.nummer, weil Gesicht und Haare
+      // ueberlappende Schritt-Nummern haben (beide starten bei 1) - ein reiner
+      // Nummern-Vergleich wuerde beim Bereichs-/Typ-Wechsel faelschlich nicht
+      // zuruecksetzen.
+      const hilfeSchluessel = state.bereich + '|' + state.typKey + '|' + schritt.nummer;
+      if (state.hilfeSchluessel !== hilfeSchluessel) {
+        update({
+          hilfeSchluessel: hilfeSchluessel,
+          hilfeOffen: false,
+          hilfeAktiverChip: null,
+          hilfeErgebnisSkus: [],
+        });
+        return;
+      }
+
       const isLastStep = idx === schritte.length - 1;
       const produkte = getProdukte(data, state.bereich, state.typKey, schritt.nummer);
 
@@ -843,6 +1071,11 @@
       container.appendChild(
         el('h2', { text: 'Schritt ' + (idx + 1) + ' von ' + schritte.length + ': ' + schritt.titel })
       );
+      if (verfuegbareResolved.length > 1) {
+        // Bei genau einem sichtbaren Produkt gibt es ohnehin keine Alternative
+        // zur Auswahl - "Hilfe bei der Wahl" waere dort sinnlos.
+        container.appendChild(renderHilfeBereich(schritt, verfuegbareResolved, liveEntry));
+      }
 
       const grid = el('div', { className: 'wizard-produkt-grid' });
       verfuegbareResolved.forEach((resolved) => {
