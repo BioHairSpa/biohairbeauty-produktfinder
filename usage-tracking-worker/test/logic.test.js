@@ -79,43 +79,43 @@ test('KV_TTL_SECONDS entspricht 30 Tagen', () => {
   assert.equal(KV_TTL_SECONDS, 30 * 24 * 60 * 60);
 });
 
-test('buildReportEmail formatiert Betreff und Text mit beiden Shops und allen Metriken', () => {
+test('buildReportEmail formatiert Betreff und Text mit beiden Shops, allen Metriken und Sitzungszahlen', () => {
   const { subject, text } = buildReportEmail({
     dateStr: '2026-07-27',
     counts: {
-      hauptshop: { opens: 42, clicks: 15, cart: 6 },
-      member: { opens: 7, clicks: 3, cart: 1 },
+      hauptshop: { opens: 42, clicks: 15, cart: 6, opensSessions: 18, clicksSessions: 9, cartSessions: 4 },
+      member: { opens: 7, clicks: 3, cart: 1, opensSessions: 5, clicksSessions: 2, cartSessions: 1 },
     },
   });
   assert.equal(subject, 'Wizard-Nutzung 27.07.2026');
   assert.equal(
     text,
-    'Hauptshop: 42 Öffnungen, 15 Klicks, 6 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 7 Öffnungen, 3 Klicks, 1 Warenkorb-Ereignisse'
+    'Hauptshop: 42 Öffnungen (18 Sitzungen), 15 Klicks (9 Sitzungen), 6 Warenkorb-Ereignisse (4 Sitzungen)\n' +
+      'Member-Shop: 7 Öffnungen (5 Sitzungen), 3 Klicks (2 Sitzungen), 1 Warenkorb-Ereignisse (1 Sitzungen)'
   );
 });
 
-test('buildReportEmail behandelt komplett leeres counts-Objekt als 0', () => {
+test('buildReportEmail behandelt komplett leeres counts-Objekt als 0 (inkl. Sitzungen)', () => {
   const { text } = buildReportEmail({ dateStr: '2026-07-27', counts: {} });
   assert.equal(
     text,
-    'Hauptshop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 0 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+    'Hauptshop: 0 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)\n' +
+      'Member-Shop: 0 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)'
   );
 });
 
-test('buildReportEmail behandelt fehlende Einzelmetrik als 0', () => {
+test('buildReportEmail behandelt fehlende Einzelmetrik und fehlende Sitzungsfelder als 0', () => {
   const { text } = buildReportEmail({
     dateStr: '2026-07-27',
     counts: {
-      hauptshop: { opens: 10, cart: 2 },
+      hauptshop: { opens: 10, cart: 2, opensSessions: 6 },
       member: { opens: 1 },
     },
   });
   assert.equal(
     text,
-    'Hauptshop: 10 Öffnungen, 0 Klicks, 2 Warenkorb-Ereignisse\n' +
-      'Member-Shop: 1 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
+    'Hauptshop: 10 Öffnungen (6 Sitzungen), 0 Klicks (0 Sitzungen), 2 Warenkorb-Ereignisse (0 Sitzungen)\n' +
+      'Member-Shop: 1 Öffnungen (0 Sitzungen), 0 Klicks (0 Sitzungen), 0 Warenkorb-Ereignisse (0 Sitzungen)'
   );
 });
 
