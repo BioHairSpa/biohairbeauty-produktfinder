@@ -299,6 +299,58 @@
 }
 
 /* ---------------------------------------------------------------------
+   Hilfe bei der Wahl (Chip-basierte Produktempfehlung pro Schritt)
+--------------------------------------------------------------------- */
+
+.wizard-hilfe-bereich {
+  margin-bottom: var(--wizard-spacing-sm);
+}
+
+.wizard-hilfe-button {
+  margin-bottom: var(--wizard-spacing-sm);
+}
+
+.wizard-hilfe-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  text-decoration: none;
+}
+
+.wizard-hilfe-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: var(--wizard-spacing-sm);
+}
+
+.wizard-hilfe-chip {
+  background: var(--wizard-color-weiss);
+  color: var(--wizard-color-fast-schwarz);
+  font-family: var(--wizard-font-body);
+  border: 1px solid var(--wizard-color-grau);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.wizard-hilfe-chip--aktiv {
+  border-color: var(--wizard-akzent, var(--wizard-color-fast-schwarz));
+  font-weight: 600;
+}
+
+.wizard-hilfe-hinweis {
+  font-size: 13px;
+  color: var(--wizard-color-grau);
+  margin-bottom: var(--wizard-spacing-sm);
+}
+
+.wizard-produkt-card--empfohlen {
+  border: 2px dashed var(--wizard-color-gold-akzent);
+  box-shadow: 0 0 0 1px var(--wizard-color-gold-akzent);
+}
+
+/* ---------------------------------------------------------------------
    Navigation / Zusammenfassung
 --------------------------------------------------------------------- */
 

@@ -821,8 +821,14 @@
       const selection = state.selections[schrittNummer];
       const isSelected = !!selection && selection.sku === angezeigtesProdukt.sku;
 
+      const istEmpfohlen =
+        !!state.hilfeAktiverChip && state.hilfeErgebnisSku === angezeigtesProdukt.sku;
+
       const card = el('div', {
-        className: 'wizard-produkt-card' + (isSelected ? ' wizard-produkt-card--selected' : ''),
+        className:
+          'wizard-produkt-card' +
+          (isSelected ? ' wizard-produkt-card--selected' : '') +
+          (istEmpfohlen ? ' wizard-produkt-card--empfohlen' : ''),
       });
 
       // Bild bevorzugt live von Ecwid (resolvedInfo.bildUrl), JSON-Snapshot
