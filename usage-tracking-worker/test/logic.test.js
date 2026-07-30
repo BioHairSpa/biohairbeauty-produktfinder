@@ -7,6 +7,8 @@ import {
   kvKeyForShopDate,
   KV_TTL_SECONDS,
   buildReportEmail,
+  sessionListKvKey,
+  addSessionIdIfMissing,
 } from '../src/logic.js';
 
 test('resolveShopFromOrigin erkennt Hauptshop', () => {
@@ -115,4 +117,38 @@ test('buildReportEmail behandelt fehlende Einzelmetrik als 0', () => {
     'Hauptshop: 10 Öffnungen, 0 Klicks, 2 Warenkorb-Ereignisse\n' +
       'Member-Shop: 1 Öffnungen, 0 Klicks, 0 Warenkorb-Ereignisse'
   );
+});
+
+test('sessionListKvKey baut den erwarteten Schluessel', () => {
+  assert.equal(
+    sessionListKvKey('count', 'hauptshop', '2026-07-27'),
+    'sessions:count:hauptshop:2026-07-27'
+  );
+});
+
+test('sessionListKvKey baut unterschiedliche Schluessel fuer unterschiedliche Metrik-Praefixe', () => {
+  assert.equal(sessionListKvKey('clicks', 'hauptshop', '2026-07-27'), 'sessions:clicks:hauptshop:2026-07-27');
+  assert.equal(sessionListKvKey('cart', 'hauptshop', '2026-07-27'), 'sessions:cart:hauptshop:2026-07-27');
+});
+
+test('addSessionIdIfMissing fuegt neue ID zu leerer Liste (null) hinzu', () => {
+  const result = addSessionIdIfMissing(null, 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: true });
+});
+
+test('addSessionIdIfMissing erkennt dieselbe ID als bereits vorhanden', () => {
+  const bestehend = JSON.stringify(['session-a']);
+  const result = addSessionIdIfMissing(bestehend, 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: false });
+});
+
+test('addSessionIdIfMissing fuegt eine zweite, unterschiedliche ID hinzu', () => {
+  const bestehend = JSON.stringify(['session-a']);
+  const result = addSessionIdIfMissing(bestehend, 'session-b');
+  assert.deepEqual(result, { list: ['session-a', 'session-b'], changed: true });
+});
+
+test('addSessionIdIfMissing behandelt kaputtes JSON wie eine leere Liste', () => {
+  const result = addSessionIdIfMissing('{nicht valides json', 'session-a');
+  assert.deepEqual(result, { list: ['session-a'], changed: true });
 });

@@ -40,6 +40,24 @@ export function kvKeyForShopDate(prefix, shop, dateStr) {
   return prefix + ':' + shop + ':' + dateStr;
 }
 
+export function sessionListKvKey(metricPrefix, shop, dateStr) {
+  return 'sessions:' + metricPrefix + ':' + shop + ':' + dateStr;
+}
+
+export function addSessionIdIfMissing(existingListJson, sessionId) {
+  let liste;
+  try {
+    liste = existingListJson ? JSON.parse(existingListJson) : [];
+    if (!Array.isArray(liste)) liste = [];
+  } catch (error) {
+    liste = [];
+  }
+  if (liste.indexOf(sessionId) !== -1) {
+    return { list: liste, changed: false };
+  }
+  return { list: liste.concat([sessionId]), changed: true };
+}
+
 const SHOP_LABELS = {
   hauptshop: 'Hauptshop',
   member: 'Member-Shop',
