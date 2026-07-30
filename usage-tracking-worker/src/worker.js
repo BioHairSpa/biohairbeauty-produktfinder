@@ -3,6 +3,8 @@ import {
   todayBerlin,
   yesterdayBerlin,
   kvKeyForShopDate,
+  sessionListKvKey,
+  addSessionIdIfMissing,
   KV_TTL_SECONDS,
   buildReportEmail,
   SHOP_IDS,
@@ -44,6 +46,42 @@ async function handleCounterEvent(request, env, metricPrefix) {
       status: 500,
       headers: { 'Access-Control-Allow-Origin': origin },
     });
+  }
+
+  let sessionId = null;
+  try {
+    const body = await request.text();
+    const parsed = body ? JSON.parse(body) : null;
+    if (parsed && typeof parsed.sessionId === 'string' && parsed.sessionId) {
+      sessionId = parsed.sessionId;
+    }
+  } catch (err) {
+    // Payload-Parsing ist best-effort - ein kaputter/fehlender Body darf den
+    // bereits erfolgten Zaehler-Increment oben nicht rueckgaengig machen oder
+    // die Antwort auf 500 setzen.
+  }
+
+  // Sitzungs-Liste aktualisieren: rein additiv, darf den obigen Zaehler-Erfolg
+  // nicht beeintraechtigen. Race-Bedingung bewusst nicht geloest: Dieses
+  // Read-Modify-Write ist nicht atomar. Zwei praktisch gleichzeitige Requests mit
+  // unterschiedlichen neuen Sitzungs-IDs koennten sich gegenseitig ueberschreiben
+  // (der zweite Schreibvorgang gewinnt und enthaelt nur seine eigene neue ID).
+  // Dieselbe ID doppelt zu senden ist dagegen unkritisch (idempotent, kein
+  // Schreibvorgang beim zweiten Mal). Bei diesem Traffic-Volumen (Handvoll
+  // Events pro Tag) akzeptabel.
+  if (sessionId) {
+    const sessionKey = sessionListKvKey(metricPrefix, shop, todayBerlin());
+    try {
+      const existing = await env.USAGE_KV.get(sessionKey);
+      const { list, changed } = addSessionIdIfMissing(existing, sessionId);
+      if (changed) {
+        await env.USAGE_KV.put(sessionKey, JSON.stringify(list), {
+          expirationTtl: KV_TTL_SECONDS,
+        });
+      }
+    } catch (err) {
+      console.error('[usage-tracking] KV-Fehler bei Sitzungs-Liste (' + metricPrefix + '):', err);
+    }
   }
 
   return new Response('OK', {
