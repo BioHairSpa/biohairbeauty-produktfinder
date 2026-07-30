@@ -907,6 +907,63 @@
       return card;
     }
 
+    function handleHilfeChipClick(chip, verfuegbareResolved) {
+      if (state.hilfeAktiverChip === chip.label) {
+        update({ hilfeAktiverChip: null });
+        return;
+      }
+      const treffer = verfuegbareResolved.filter((resolved) =>
+        chipHatTreffer(chip, resolved.beschreibungLive)
+      );
+      update({
+        hilfeAktiverChip: chip.label,
+        hilfeErgebnisSku: treffer.length === 1 ? treffer[0].produkt.sku : null,
+        hilfeKeineEindeutigeEmpfehlung: treffer.length !== 1,
+      });
+    }
+
+    function renderHilfeBereich(schritt, verfuegbareResolved, liveEntry) {
+      const wrapper = el('div', { className: 'wizard-hilfe-bereich' });
+      const liveBereit = !!liveEntry && liveEntry.status === 'ready';
+
+      wrapper.appendChild(
+        el('button', {
+          className: 'wizard-button-secondary wizard-hilfe-button',
+          attrs: { type: 'button', disabled: liveBereit ? null : 'disabled' },
+          text: 'Hilfe bei der Wahl',
+          onClick: () => update({ hilfeOffen: !state.hilfeOffen }),
+        })
+      );
+
+      if (state.hilfeOffen) {
+        const chips = getHilfeChips(state.bereich, schritt.nummer);
+        const chipRow = el('div', { className: 'wizard-hilfe-chips' });
+        chips.forEach((chip) => {
+          const istAktiv = state.hilfeAktiverChip === chip.label;
+          chipRow.appendChild(
+            el('button', {
+              className: 'wizard-hilfe-chip' + (istAktiv ? ' wizard-hilfe-chip--aktiv' : ''),
+              attrs: { type: 'button' },
+              text: chip.label,
+              onClick: () => handleHilfeChipClick(chip, verfuegbareResolved),
+            })
+          );
+        });
+        wrapper.appendChild(chipRow);
+
+        if (state.hilfeAktiverChip && state.hilfeKeineEindeutigeEmpfehlung) {
+          wrapper.appendChild(
+            el('div', {
+              className: 'wizard-hilfe-hinweis',
+              text: 'Keine eindeutige Empfehlung – wähl gern selbst aus',
+            })
+          );
+        }
+      }
+
+      return wrapper;
+    }
+
     function renderSchrittScreen() {
       const schritte = getSchritte(data, state.bereich);
       const idx = state.currentStepIndex;
@@ -968,6 +1025,7 @@
       container.appendChild(
         el('h2', { text: 'Schritt ' + (idx + 1) + ' von ' + schritte.length + ': ' + schritt.titel })
       );
+      container.appendChild(renderHilfeBereich(schritt, verfuegbareResolved, liveEntry));
 
       const grid = el('div', { className: 'wizard-produkt-grid' });
       verfuegbareResolved.forEach((resolved) => {
