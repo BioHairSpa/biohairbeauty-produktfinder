@@ -1071,7 +1071,11 @@
       container.appendChild(
         el('h2', { text: 'Schritt ' + (idx + 1) + ' von ' + schritte.length + ': ' + schritt.titel })
       );
-      container.appendChild(renderHilfeBereich(schritt, verfuegbareResolved, liveEntry));
+      if (verfuegbareResolved.length > 1) {
+        // Bei genau einem sichtbaren Produkt gibt es ohnehin keine Alternative
+        // zur Auswahl - "Hilfe bei der Wahl" waere dort sinnlos.
+        container.appendChild(renderHilfeBereich(schritt, verfuegbareResolved, liveEntry));
+      }
 
       const grid = el('div', { className: 'wizard-produkt-grid' });
       verfuegbareResolved.forEach((resolved) => {
