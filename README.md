@@ -31,6 +31,7 @@ biohairbeauty-produktfinder/
 ├── wizard.js                      gesamte Wizard-Logik (kein Framework, kein Build-Schritt)
 ├── wizard.css                     Wizard-Styling, importiert design-tokens.css
 ├── index.html                     lokaler Test-Harness (nicht Teil des Deployments)
+├── neues-produkt.js               Wartungsskript: neues Produkt per SKU in die JSONs eintragen
 ├── usage-tracking-worker/         Cloudflare Worker: Nutzungs-Tracking (Schritt 6)
 ├── .env.example                   Vorlage für lokale Build-/Update-Skripte
 └── .gitignore                     schließt .env aus
@@ -158,8 +159,10 @@ Pro Metrik wird zusätzlich die Anzahl eindeutiger Browser-Sitzungen ausgewiesen
 
 Für beide Shops existiert eine eigene Custom App mit Scope `read_catalog`. Secret-Tokens
 werden **nie** im Code oder in Commits hinterlegt, sondern nur lokal in einer nicht
-versionierten `.env` (siehe `.env.example`) — ausschließlich für künftige, separate
-Build-/Update-Skripte, die `produktzuordnung*.json` automatisiert aktualisieren.
+versionierten `.env` (siehe `.env.example`) — ausschließlich für lokale Wartungsskripte,
+die `produktzuordnung*.json` aktualisieren (derzeit `neues-produkt.js`, siehe
+"Produkte pflegen" unten). Der geheime Token verlässt die lokale Maschine nie und steht
+insbesondere nicht im ausgelieferten `wizard.js`.
 
 Für die clientseitige Live-Verfügbarkeitsprüfung in `wizard.js` wird ausschließlich das
 **öffentliche** Ecwid-Token verwendet (bewusst im Code sichtbar, da es laut Ecwid-Doku
@@ -174,6 +177,68 @@ Ohne eingetragenes Token läuft der Wizard weiter (kein Fehler), verwendet für 
 Verfügbarkeit aber nur den JSON-Snapshot, und der Warenkorb-Button bleibt dauerhaft im
 Zustand "Warenkorb wird vorbereitet …", da `Ecwid.Cart.addProduct` zwingend die
 numerische Produkt-ID braucht, die nur der Live-Lookup liefert.
+
+## Produkte pflegen: `neues-produkt.js`
+
+Neue Produkte werden **nicht** von Hand in die JSON-Dateien geschrieben, sondern mit
+`neues-produkt.js` eingetragen. Das Skript sucht die SKU über die Ecwid REST API in beiden
+Shops, zeigt eine Vorschau und hängt den Eintrag nach Bestätigung an die passende Stelle an.
+Name, Preis, Verfügbarkeit, URL und Bild-URL kommen dabei direkt aus Ecwid — also immer
+shop-spezifisch korrekt (die Preise unterscheiden sich zwischen Haupt- und Member-Shop).
+
+Voraussetzung ist eine lokale `.env` mit den geheimen Tokens (siehe `.env.example` und
+"API-Zugänge"). Das geheime Token sieht — anders als das öffentliche Token im Wizard — auch
+deaktivierte Produkte.
+
+```bash
+node neues-produkt.js --sku <SKU> --bereich gesicht|haare --typ <typ-schluessel> --schritt <nummer>
+```
+
+Beispiel — ein Produkt, das laut Referenztabelle zu **zwei** Hauttypen gehört:
+
+```bash
+node neues-produkt.js --sku ZNB --bereich gesicht --typ seborrhoische_haut_akne --schritt 4
+node neues-produkt.js --sku ZNB --bereich gesicht --typ sensible_haut          --schritt 4
+```
+
+**Ein Lauf deckt beide Shops ab, aber nur einen `--typ`.** Für mehrere Hauttypen bzw.
+Haartypen das Skript entsprechend mehrfach laufen lassen.
+
+Die gültigen Werte für `--typ` und `--schritt` stehen in `produktzuordnung.json` unter
+`gesicht.hauttypen` / `haare.haartypen` bzw. `*.schritte`. Bei einem Tippfehler bricht das
+Skript ab und listet alle gültigen Schlüssel mit ihren Labels auf.
+
+### Worauf beim Ausfüllen zu achten ist
+
+- **`tabellenname`** — der Vorschlag ist der Namensteil vor `/` bzw. ` – `. Enthält der
+  Produktname keinen Trenner, schlägt das Skript den vollen Namen inklusive Größenangabe vor
+  ("Zink + Niacinamid Booster 15 ml"). Der Hausstil führt **keine** Größenangabe
+  ("Gel Noir", "Lift Up Serum", "Acido Jaluronico") — in dem Fall also manuell kürzen.
+- **`beschreibung`** — normalerweise aus `seoDescription`. Ist das Feld leer, länger als
+  300 Zeichen oder enthält Zeilenumbrüche, gilt es als ungepflegte Rohbeschreibung; das
+  Skript zeigt dann den Rohtext und fragt nach einer manuellen Kurzfassung (Stil der
+  bestehenden Einträge: ca. 100–140 Zeichen). Das betrifft vor allem den **Member-Shop**.
+  Bewährt: denselben Text wie im Hauptshop verwenden (so gehandhabt bei SKU 4901 und 7760).
+- **`bild_url`** — bei frisch hochgeladenen Bildern liefert Ecwid teils eine temporäre URL
+  unter `cloudfront.net/images-tmp/…` statt `cloudfront.net/images/…`. Die funktioniert
+  sofort, kann sich aber ändern, sobald Ecwid die Verarbeitung abschließt. Bei einem später
+  gebrochenen Bild die SKU erneut abfragen und `bild_url` nachziehen.
+
+### Das Skript braucht ein echtes Terminal
+
+`neues-produkt.js` nutzt `readline/promises`. Wird stdin **gepipet**
+(`node neues-produkt.js … < antworten.txt` oder `echo … |`), schließt das readline-Interface
+nach der ersten Antwort, die nächste Frage löst nie auf und der Prozess endet **still** —
+ohne Fehlermeldung und **ohne** die JSON-Dateien zu schreiben. Das Skript daher interaktiv
+im Terminal ausführen. (Automatisiert geht es nur über einen Treiber per
+`child_process.spawn` mit `stdio: ['pipe','pipe','inherit']`, der stdin offen hält und auf
+die Prompt-Muster reagiert.)
+
+### Danach
+
+Änderungen mit `git diff` prüfen — es dürfen ausschließlich Insertions auftauchen — und
+lokal testen (siehe "Lokal testen"), bevor committet und gepusht wird. Der Push auf `master`
+ist zugleich das Deployment über GitHub Pages.
 
 ## Wie die Live-Prüfung funktioniert
 
