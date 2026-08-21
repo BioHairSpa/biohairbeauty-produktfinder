@@ -176,6 +176,17 @@
               "quelle": "member_export",
               "tabellenname": "Fiale Viso",
               "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/5040855720.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "BVC",
+              "shop_name": "Booster Vitamina C 15 ml",
+              "beschreibung": "Booster Vitamina C 15 Ml von di Luca – bekämpft freie Radikale, regt die Kollagenproduktion an und fördert straffe Haut. Mit Aloe Vera.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://member.biohairbeauty.shop/products/Booster-Vitamina-C-15-ml-p858051279",
+              "tabellenname": "Booster Vitamina C",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/858051279/6143549597.jpg"
             }
           ],
           "5": [
@@ -393,7 +404,29 @@
               "verfuegbar": true,
               "url": "https://member.biohairbeauty.shop/products/Zink-Niacinamid-Booster-15-ml-p857918778",
               "tabellenname": "Zink + Niacinamid Booster",
-              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images-tmp/120918775/6140652634.jpg"
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/857918778/6143544335.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "BOAG",
+              "shop_name": "Booster Acido Glicolico 15 ml",
+              "beschreibung": "Booster Acido Glicolico 15 Ml von di Luca – peelt sanft, fördert die Hauterneuerung und wirkt aufhellend. Mit Aloe Vera und Hyaluronsäure.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://member.biohairbeauty.shop/products/Booster-Acido-Glicolico-15-ml-p858032513",
+              "tabellenname": "Booster Acido Glicolico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/858032513/6143579345.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "BVC",
+              "shop_name": "Booster Vitamina C 15 ml",
+              "beschreibung": "Booster Vitamina C 15 Ml von di Luca – bekämpft freie Radikale, regt die Kollagenproduktion an und fördert straffe Haut. Mit Aloe Vera.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://member.biohairbeauty.shop/products/Booster-Vitamina-C-15-ml-p858051279",
+              "tabellenname": "Booster Vitamina C",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/858051279/6143549597.jpg"
             }
           ],
           "5": [
@@ -698,7 +731,7 @@
               "verfuegbar": true,
               "url": "https://member.biohairbeauty.shop/products/Zink-Niacinamid-Booster-15-ml-p857918778",
               "tabellenname": "Zink + Niacinamid Booster",
-              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images-tmp/120918775/6140652634.jpg"
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/857918778/6143544335.jpg"
             }
           ],
           "5": [
@@ -785,6 +818,28 @@
               "quelle": "member_export",
               "tabellenname": "Lift Up Serum",
               "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/5040857605.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "BOAG",
+              "shop_name": "Booster Acido Glicolico 15 ml",
+              "beschreibung": "Booster Acido Glicolico 15 Ml von di Luca – peelt sanft, fördert die Hauterneuerung und wirkt aufhellend. Mit Aloe Vera und Hyaluronsäure.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://member.biohairbeauty.shop/products/Booster-Acido-Glicolico-15-ml-p858032513",
+              "tabellenname": "Booster Acido Glicolico",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/858032513/6143579345.jpg"
+            },
+            {
+              "gefunden": true,
+              "sku": "BVC",
+              "shop_name": "Booster Vitamina C 15 ml",
+              "beschreibung": "Booster Vitamina C 15 Ml von di Luca – bekämpft freie Radikale, regt die Kollagenproduktion an und fördert straffe Haut. Mit Aloe Vera.",
+              "preis_eur": "31.00",
+              "verfuegbar": true,
+              "url": "https://member.biohairbeauty.shop/products/Booster-Vitamina-C-15-ml-p858051279",
+              "tabellenname": "Booster Vitamina C",
+              "bild_url": "https://d2j6dbq0eux0bg.cloudfront.net/images/120918775/products/858051279/6143549597.jpg"
             }
           ],
           "5": [
