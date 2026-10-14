@@ -54,17 +54,57 @@
   justify-content: center;
 }
 
-.wizard-overlay-content {
+/* Fensterrahmen: trägt Größe, Schatten und den Schließen-Knopf. Der Inhalt
+   darin scrollt separat, damit das X beim Scrollen sichtbar bleibt. Der
+   obere Innenabstand ist die Leiste für das X — so liegt das X nie über dem
+   Inhalt oder dessen Scrollleiste (z. B. Windows mit festen Scrollleisten). */
+.wizard-overlay-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 48px;
   background: var(--wizard-color-creme);
   /* min(...) statt fixer Breite: die Berechnung stellt sicher, dass immer
      mindestens --wizard-spacing-xl Abstand zum Bildschirmrand bleibt, auch
      auf kleinen Viewports, statt sich auf einen groben vw-Wert zu verlassen. */
   width: min(720px, calc(100vw - 2 * var(--wizard-spacing-xl)));
   max-height: calc(100vh - 2 * var(--wizard-spacing-xl));
-  overflow-y: auto;
   border-radius: var(--wizard-radius);
-  padding: var(--wizard-spacing-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.wizard-overlay-content {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 var(--wizard-spacing-lg) var(--wizard-spacing-lg);
+}
+
+/* Schließen-Knopf (X): dezent, 44×44 px Klickfläche (Touch-Mindestmaß). */
+.wizard-overlay-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  color: var(--wizard-color-fast-schwarz);
+  border: none;
+  border-radius: var(--wizard-radius);
+  cursor: pointer;
+}
+
+.wizard-overlay-close:hover {
+  background: var(--wizard-color-rosa-hell);
+}
+
+.wizard-overlay-close:focus-visible {
+  outline: 2px solid var(--wizard-color-fast-schwarz);
+  outline-offset: -2px;
 }
 
 /* ---------------------------------------------------------------------
@@ -106,7 +146,7 @@
 }
 
 /* ---------------------------------------------------------------------
-   Kopfzeile (Zurück / Abbrechen) & Fortschrittsanzeige
+   Kopfzeile (Zurück / Neu starten) & Fortschrittsanzeige
 --------------------------------------------------------------------- */
 
 .wizard-top-bar {

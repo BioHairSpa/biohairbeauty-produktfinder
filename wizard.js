@@ -600,8 +600,8 @@
     }
 
     // Setzt nur die Bereichs-Akzentklasse, ohne bestehende Klassen des
-    // Containers zu überschreiben (z. B. "wizard-overlay-content", die die
-    // Overlay-Breite/-Innenabstand liefert — ein direktes className-Reset
+    // Containers zu überschreiben (z. B. "wizard-overlay-content", die den
+    // Overlay-Innenabstand und das Scrollen liefert — ein direktes className-Reset
     // hätte diese sonst bei jedem Re-Render gelöscht).
     function applyAccentClass(accentClass) {
       container.classList.remove(
@@ -611,7 +611,14 @@
       if (accentClass) container.classList.add(accentClass);
     }
 
+    // Zählt jedes Zurücksetzen hoch. Asynchrone Rückmeldungen (z. B. der
+    // Warenkorb-Callback von Ecwid) prüfen damit, ob sie noch zum aktuellen
+    // Durchlauf gehören — sonst würden sie nach Schließen/Neu starten alten
+    // Zustand in den frischen Wizard schreiben.
+    let durchlaufId = 0;
+
     function resetToStart() {
+      durchlaufId += 1;
       update({
         screen: 'bereich',
         bereich: null,
@@ -622,17 +629,17 @@
         cartAdded: {},
         cartErrors: {},
         liveByStep: {},
+        hilfeOffen: false,
+        hilfeAktiverChip: null,
+        hilfeErgebnisSkus: [],
+        hilfeSchluessel: null,
       });
     }
 
-    function handleCancel() {
-      if (mountOptions.overlay && mountOptions.onClose) {
-        mountOptions.onClose();
-      }
-      resetToStart();
-    }
-
-    function renderTopBar(showBack, onBack) {
+    // Kopfzeile: links "Zurück", rechts nur im Inline-Modus "Neu starten".
+    // Im Overlay übernimmt das X oben rechts im Fensterrahmen das Schließen
+    // (siehe openOverlay), daher dort kein zusätzlicher Text-Knopf.
+    function renderTopBar(showBack, onBack, showRestart) {
       const bar = el('div', { className: 'wizard-top-bar' });
       if (showBack) {
         bar.appendChild(
@@ -646,14 +653,16 @@
       } else {
         bar.appendChild(el('span'));
       }
-      bar.appendChild(
-        el('button', {
-          className: 'wizard-button-secondary',
-          text: 'Abbrechen',
-          attrs: { type: 'button' },
-          onClick: handleCancel,
-        })
-      );
+      if (!mountOptions.overlay && showRestart !== false) {
+        bar.appendChild(
+          el('button', {
+            className: 'wizard-button-secondary',
+            text: 'Neu starten',
+            attrs: { type: 'button' },
+            onClick: resetToStart,
+          })
+        );
+      }
       return bar;
     }
 
@@ -789,9 +798,15 @@
           attrs: { type: 'button' },
           text: 'In den Warenkorb',
           onClick: () => {
+            const durchlaufBeimKlick = durchlaufId;
             addToCart(ecwidId, (success, error) => {
               if (success) {
+                // Ping immer senden: das Produkt liegt tatsächlich im Warenkorb,
+                // auch wenn der Wizard inzwischen geschlossen/neu gestartet wurde.
                 pingCartEvent();
+              }
+              if (durchlaufBeimKlick !== durchlaufId) return;
+              if (success) {
                 const nextCartAdded = Object.assign({}, state.cartAdded);
                 nextCartAdded[sku] = true;
                 const nextCartErrors = Object.assign({}, state.cartErrors);
@@ -1108,13 +1123,18 @@
       const meta = BEREICH_META[state.bereich];
       applyAccentClass(meta.accentClass);
 
+      // Kein "Neu starten" in der Kopfzeile — steht hier schon unten in der
+      // Navigationszeile.
       container.appendChild(
-        renderTopBar(true, () =>
-          update({
-            screen: 'schritt',
-            currentStepIndex: getSchritte(data, state.bereich).length - 1,
-            stepDirection: 'backward',
-          })
+        renderTopBar(
+          true,
+          () =>
+            update({
+              screen: 'schritt',
+              currentStepIndex: getSchritte(data, state.bereich).length - 1,
+              stepDirection: 'backward',
+            }),
+          false
         )
       );
       container.appendChild(el('h2', { text: 'Deine Auswahl' }));
@@ -1189,6 +1209,8 @@
     }
 
     render();
+
+    return { resetToStart: resetToStart };
   }
 
   // ---------------------------------------------------------------------
@@ -1302,8 +1324,11 @@
     injectFloatingTrigger();
   }
 
+  let triggerButton = null;
+
   function injectFloatingTrigger() {
     const button = document.createElement('button');
+    triggerButton = button;
     button.type = 'button';
     button.id = 'produkt-finder-wizard-trigger';
     button.className = 'wizard-floating-trigger';
@@ -1315,30 +1340,128 @@
   }
 
   let overlayEl = null;
+  let overlayDialog = null;
+  let overlayContent = null;
+  let overlayCloseButton = null;
+  let overlayWizard = null; // { resetToStart } sobald die Daten geladen sind
+
+  function isOverlayOpen() {
+    return !!overlayEl && overlayEl.classList.contains('wizard-overlay--open');
+  }
 
   function openOverlay() {
     pingUsage();
 
-    if (overlayEl) {
-      overlayEl.classList.add('wizard-overlay--open');
+    if (!overlayEl) {
+      buildOverlay();
+    }
+    overlayEl.classList.add('wizard-overlay--open');
+    overlayCloseButton.focus();
+  }
+
+  // Aufbau: Hintergrund > Fensterrahmen (Dialog) > [X-Knopf, scrollbarer Inhalt].
+  // Das X sitzt bewusst im Rahmen statt im Inhalt: der Wizard leert seinen
+  // Container bei jedem Re-Render (clear), und so bleibt das X auch beim
+  // Scrollen langer Schritte oben rechts sichtbar.
+  function buildOverlay() {
+    overlayEl = document.createElement('div');
+    overlayEl.id = 'produkt-finder-wizard-overlay';
+    overlayEl.className = 'wizard-overlay';
+
+    overlayDialog = document.createElement('div');
+    overlayDialog.className = 'wizard-overlay-dialog';
+    overlayDialog.setAttribute('role', 'dialog');
+    overlayDialog.setAttribute('aria-modal', 'true');
+    overlayDialog.setAttribute('aria-label', 'Produktfinder');
+    overlayEl.appendChild(overlayDialog);
+
+    overlayCloseButton = document.createElement('button');
+    overlayCloseButton.type = 'button';
+    overlayCloseButton.className = 'wizard-overlay-close';
+    overlayCloseButton.setAttribute('aria-label', 'Produktfinder schließen');
+    overlayCloseButton.innerHTML =
+      '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">' +
+      '<path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" fill="none"/>' +
+      '</svg>';
+    overlayCloseButton.addEventListener('click', closeOverlay);
+    overlayDialog.appendChild(overlayCloseButton);
+
+    overlayContent = document.createElement('div');
+    overlayContent.className = 'wizard-overlay-content';
+    overlayDialog.appendChild(overlayContent);
+
+    // Klick auf den abgedunkelten Hintergrund schließt — aber nur, wenn auch
+    // der Druck dort begonnen hat. Sonst würde z. B. Text markieren im
+    // Fenster mit Loslassen außerhalb versehentlich schließen.
+    let pointerDownOnBackdrop = false;
+    overlayEl.addEventListener('pointerdown', function (event) {
+      pointerDownOnBackdrop = event.target === overlayEl;
+    });
+    overlayEl.addEventListener('click', function (event) {
+      if (event.target === overlayEl && pointerDownOnBackdrop) {
+        closeOverlay();
+      }
+      pointerDownOnBackdrop = false;
+    });
+
+    document.addEventListener('keydown', handleOverlayKeydown);
+
+    document.body.appendChild(overlayEl);
+
+    renderWizardInto(overlayContent, { overlay: true, onClose: closeOverlay }).then(function (wizard) {
+      overlayWizard = wizard || null;
+    });
+  }
+
+  function handleOverlayKeydown(event) {
+    if (!isOverlayOpen()) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeOverlay();
       return;
     }
 
-    overlayEl = document.createElement('div');
-    overlayEl.id = 'produkt-finder-wizard-overlay';
-    overlayEl.className = 'wizard-overlay wizard-overlay--open';
-    document.body.appendChild(overlayEl);
-
-    const mountPoint = document.createElement('div');
-    mountPoint.className = 'wizard-overlay-content';
-    overlayEl.appendChild(mountPoint);
-
-    renderWizardInto(mountPoint, { overlay: true, onClose: closeOverlay });
+    // Tab-Fokus im Dialog halten (aria-modal): vom letzten zum ersten
+    // Element springen und umgekehrt. Liegt der Fokus außerhalb (z. B. auf
+    // body, nachdem ein Re-Render den fokussierten Knopf entfernt hat), geht
+    // er zurück an den Anfang des Dialogs.
+    if (event.key === 'Tab') {
+      const focusable = Array.prototype.filter.call(
+        overlayDialog.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'),
+        function (node) {
+          return !node.disabled && node.offsetParent !== null;
+        }
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (!overlayDialog.contains(active)) {
+        event.preventDefault();
+        first.focus();
+      } else if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
   }
 
+  // Schließt das Overlay und setzt den Wizard auf Schritt 1 zurück, damit er
+  // beim nächsten Öffnen frisch startet. Bewusst ohne Tracking-Aufruf: die
+  // Öffnung zählt pingUsage() in openOverlay, Zurücksetzen ist kein Ereignis.
   function closeOverlay() {
-    if (overlayEl) {
-      overlayEl.classList.remove('wizard-overlay--open');
+    if (!isOverlayOpen()) return;
+    overlayEl.classList.remove('wizard-overlay--open');
+    if (overlayWizard) {
+      overlayWizard.resetToStart();
+    }
+    overlayContent.scrollTop = 0;
+    if (triggerButton) {
+      triggerButton.focus();
     }
   }
 
@@ -1346,9 +1469,9 @@
     container.classList.add('wizard-container');
     container.textContent = 'Produkt-Finder-Wizard lädt …';
 
-    loadData()
+    return loadData()
       .then((data) => {
-        createWizard(container, data, options);
+        return createWizard(container, data, options);
       })
       .catch(() => {
         container.textContent =
