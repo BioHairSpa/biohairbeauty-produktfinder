@@ -55,11 +55,14 @@
 }
 
 /* Fensterrahmen: trägt Größe, Schatten und den Schließen-Knopf. Der Inhalt
-   darin scrollt separat, damit das X beim Scrollen sichtbar bleibt. */
+   darin scrollt separat, damit das X beim Scrollen sichtbar bleibt. Der
+   obere Innenabstand ist die Leiste für das X — so liegt das X nie über dem
+   Inhalt oder dessen Scrollleiste (z. B. Windows mit festen Scrollleisten). */
 .wizard-overlay-dialog {
   position: relative;
   display: flex;
   flex-direction: column;
+  padding-top: 48px;
   background: var(--wizard-color-creme);
   /* min(...) statt fixer Breite: die Berechnung stellt sicher, dass immer
      mindestens --wizard-spacing-xl Abstand zum Bildschirmrand bleibt, auch
@@ -73,13 +76,7 @@
 .wizard-overlay-content {
   min-height: 0;
   overflow-y: auto;
-  padding: var(--wizard-spacing-lg);
-}
-
-/* Erstes Element jedes Schritts (Überschrift bzw. Kopfzeile) rechts etwas
-   freihalten, damit es nicht unter das X läuft. */
-.wizard-overlay-content > :first-child {
-  padding-right: var(--wizard-spacing-md);
+  padding: 0 var(--wizard-spacing-lg) var(--wizard-spacing-lg);
 }
 
 /* Schließen-Knopf (X): dezent, 44×44 px Klickfläche (Touch-Mindestmaß). */

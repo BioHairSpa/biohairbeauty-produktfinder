@@ -600,8 +600,8 @@
     }
 
     // Setzt nur die Bereichs-Akzentklasse, ohne bestehende Klassen des
-    // Containers zu überschreiben (z. B. "wizard-overlay-content", die die
-    // Overlay-Breite/-Innenabstand liefert — ein direktes className-Reset
+    // Containers zu überschreiben (z. B. "wizard-overlay-content", die den
+    // Overlay-Innenabstand und das Scrollen liefert — ein direktes className-Reset
     // hätte diese sonst bei jedem Re-Render gelöscht).
     function applyAccentClass(accentClass) {
       container.classList.remove(
@@ -611,7 +611,14 @@
       if (accentClass) container.classList.add(accentClass);
     }
 
+    // Zählt jedes Zurücksetzen hoch. Asynchrone Rückmeldungen (z. B. der
+    // Warenkorb-Callback von Ecwid) prüfen damit, ob sie noch zum aktuellen
+    // Durchlauf gehören — sonst würden sie nach Schließen/Neu starten alten
+    // Zustand in den frischen Wizard schreiben.
+    let durchlaufId = 0;
+
     function resetToStart() {
+      durchlaufId += 1;
       update({
         screen: 'bereich',
         bereich: null,
@@ -791,9 +798,15 @@
           attrs: { type: 'button' },
           text: 'In den Warenkorb',
           onClick: () => {
+            const durchlaufBeimKlick = durchlaufId;
             addToCart(ecwidId, (success, error) => {
               if (success) {
+                // Ping immer senden: das Produkt liegt tatsächlich im Warenkorb,
+                // auch wenn der Wizard inzwischen geschlossen/neu gestartet wurde.
                 pingCartEvent();
+              }
+              if (durchlaufBeimKlick !== durchlaufId) return;
+              if (success) {
                 const nextCartAdded = Object.assign({}, state.cartAdded);
                 nextCartAdded[sku] = true;
                 const nextCartErrors = Object.assign({}, state.cartErrors);
